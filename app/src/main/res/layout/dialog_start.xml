@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/length_cycle_menstruation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edt_top_dialog_start"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="4"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/length_cycle_periods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edt_bottom_dialog_start"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="30"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/date_your_period"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_touch_here_dialog_start"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorRed"
+        android:text="@string/touch_here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_done_dialog_start"
+        android:layout_gravity="right"
+        android:text="@string/done"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
