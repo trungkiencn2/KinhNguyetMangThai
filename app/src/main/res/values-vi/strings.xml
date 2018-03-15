@@ -87,11 +87,11 @@
     <string name="no_longer_pregnant">Không còn mang thai</string>
     <string name="enable_by_mistake">Bật do nhầm lẫn</string>
     <string name="turn_off_pregnancy_mode">Tắt chế độ mang thai</string>
-
-    <string name="next_ovulation">Next ovulation</string>
-    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
-    <string name="end_date_of_pregnancy">End date of pregnancy</string>
-    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
-    <string name="turn_off">Turn off</string>
+    <string name="next_ovulation">Sự rụng trứng tiếp theo</string>
+    <string name="in_case_no_longer_pregnant">Nếu bạn có bất cứ điều nào sau đây: \n\n* Sinh con \n* Hư thai \n* Nạo phá thai \n\nNhấp vào Không còn mang thai</string>
+    <string name="end_date_of_pregnancy">Ngày kết thúc thai kỳ</string>
+    <string name="mistake_turn_on">Nếu bạn đã nhầm lẫn chuyển sang chế độ mang thai, bạn có thể tắt nó ở đây</string>
+    <string name="turn_off">Tắt</string>
+    <string name="days_to_give_birth">ngày sinh</string>
 
 </resources>

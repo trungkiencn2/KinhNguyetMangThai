@@ -8,6 +8,8 @@
     <dimen name="nam_muoi_dp">50dp</dimen>
     <dimen name="bay_muoi_dp">70dp</dimen>
     <dimen name="tram_hai_muoi_dp">120dp</dimen>
+    <dimen name="tram_ba_muoi_dp">130dp</dimen>
+    <dimen name="tram_nam_muoi_dp">150dp</dimen>
     <dimen name="ba_tram_dp">300dp</dimen>
 
     <dimen name="muoi_hai_sp">12sp</dimen>

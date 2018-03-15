@@ -87,7 +87,6 @@
     <string name="no_longer_pregnant">No longer pregnant</string>
     <string name="enable_by_mistake">Enable by mistake</string>
     <string name="turn_off_pregnancy_mode">Turn off pregnancy mode</string>
-
     <string name="next_ovulation">Next ovulation</string>
     <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
     <string name="end_date_of_pregnancy">End date of pregnancy</string>

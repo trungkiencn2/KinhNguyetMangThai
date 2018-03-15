@@ -87,11 +87,11 @@
     <string name="no_longer_pregnant">もはや妊娠していない</string>
     <string name="enable_by_mistake">誤って有効にする</string>
     <string name="turn_off_pregnancy_mode">妊娠モードをオフにする</string>
-
-    <string name="next_ovulation">Next ovulation</string>
-    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
-    <string name="end_date_of_pregnancy">End date of pregnancy</string>
-    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
-    <string name="turn_off">Turn off</string>
+    <string name="next_ovulation">次の排卵</string>
+    <string name="in_case_no_longer_pregnant">次のいずれかがある場合： \n\n*出産を \n*流産 \n*中絶 \n\n妊娠していないことをクリックしてください</string>
+    <string name="end_date_of_pregnancy">妊娠の終了日</string>
+    <string name="mistake_turn_on">誤って妊娠モードに切り替えた場合は、ここで無効にすることができます</string>
+    <string name="turn_off">消す</string>
+    <string name="days_to_give_birth">出産する日数</string>
 
 </resources>

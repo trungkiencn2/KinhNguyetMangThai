@@ -87,11 +87,11 @@
     <string name="no_longer_pregnant">Ja no està embarassada</string>
     <string name="enable_by_mistake">Activa per error</string>
     <string name="turn_off_pregnancy_mode">Apagueu el mode d`embaràs</string>
-
-    <string name="next_ovulation">Next ovulation</string>
-    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
-    <string name="end_date_of_pregnancy">End date of pregnancy</string>
-    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
-    <string name="turn_off">Turn off</string>
+    <string name="next_ovulation">Pròxima ovulació</string>
+    <string name="in_case_no_longer_pregnant">Si teniu alguna de les accions següents: \n\n* Parteix de nou \n* Avortament involuntari \n* Avortament \n\nFeu clic a No deixis d`estar embarassada.</string>
+    <string name="end_date_of_pregnancy">Data final de l`embaràs</string>
+    <string name="mistake_turn_on">Si heu canviat erròniament al mode d`embaràs, podeu desactivar-lo aquí</string>
+    <string name="turn_off">Tanca</string>
+    <string name="days_to_give_birth">dies per donar a llum</string>
 
 </resources>

@@ -7,6 +7,8 @@ import android.icu.util.Calendar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.EventDay;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
@@ -25,31 +27,30 @@ import java.util.Locale;
 
 public class CalendarActivity extends AppCompatActivity {
 
-    private CompactCalendarView compactCalendarView;
+    private CompactCalendarView mCompactView;
+    private TextView mTvCurrentMonth;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM - yyyy", Locale.getDefault());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
-        final ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(false);
-        actionbar.setTitle(null);
-
         initView();
+        addEvent();
+    }
 
-        compactCalendarView.setUseThreeLetterAbbreviation(true);
+    private void addEvent() {
 
+        mCompactView.setUseThreeLetterAbbreviation(true);
         Event ev1 = new Event(Color.YELLOW, Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this)), "ahihi");
         Event ev2 = new Event(Color.WHITE, Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this))  + Utils.mOneDay, "ahaha");
         Event ev3 = new Event(Color.BLACK, Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this))  + Utils.mOneDay * 2, "ahaha");
         Event ev4 = new Event(Color.BLUE, Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this))  + Utils.mOneDay * 3, "ahaha");
-        compactCalendarView.addEvent(ev1);
-        compactCalendarView.addEvent(ev2);
-        compactCalendarView.addEvent(ev3);
-        compactCalendarView.addEvent(ev4);
-        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+        mCompactView.addEvent(ev1);
+        mCompactView.addEvent(ev2);
+        mCompactView.addEvent(ev3);
+        mCompactView.addEvent(ev4);
+        mCompactView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date date) {
 
@@ -57,30 +58,14 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void onMonthScroll(Date date) {
-                actionbar.setTitle(dateFormatMonth.format(date));
-            }
-        });
-    }
-
-    private void addEvent() {
-        compactCalendarView.setUseThreeLetterAbbreviation(true);
-
-        Event ev1 = new Event(Color.YELLOW, 1521098823L, "ahihi");
-        compactCalendarView.addEvent(ev1);
-        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
-            @Override
-            public void onDayClick(Date date) {
-
-            }
-
-            @Override
-            public void onMonthScroll(Date date) {
+                Toast.makeText(CalendarActivity.this, "" + date.getTime(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
     private void initView(){
-        compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+        mCompactView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+        mTvCurrentMonth = (TextView) findViewById(R.id.tv_month_calendar);
     }
 }

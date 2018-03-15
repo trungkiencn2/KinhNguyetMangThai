@@ -69,7 +69,8 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         }else if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.DANG_MANG_THAI)){
             mTvNextCycle.setText("");
             mTvEasyToConceive.setText("");
-            mTvDaysLeft.setText((Long.parseLong(Utils.readFromFile(Utils.FILE_DATE_ESTIMATE, this)) - mCaNow.getTimeInMillis()) / Utils.mOneDay + " ");
+            String str = (Long.parseLong(Utils.readFromFile(Utils.FILE_DATE_ESTIMATE, this)) - mCaNow.getTimeInMillis()) / Utils.mOneDay + " " + getString(R.string.days_to_give_birth);
+            mTvDaysLeft.setText(str);
         } else {
             startDialog();
         }
