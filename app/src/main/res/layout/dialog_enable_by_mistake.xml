@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/hai_muoi_dp">
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:text="@string/mistake_turn_on"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_cancel_enable_by_mistake"
+            android:background="@color/colorWhite"
+            android:text="@string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_turn_off_enable_by_mistake"
+            android:background="@color/colorWhite"
+            android:text="@string/turn_off"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

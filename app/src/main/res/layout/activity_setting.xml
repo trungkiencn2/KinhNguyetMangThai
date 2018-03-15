@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/hai_muoi_dp"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.SettingActivity">
 
     <ScrollView
@@ -19,15 +19,15 @@
 
             <TextView
                 android:gravity="center_vertical"
-                android:textSize="15sp"
+                android:textSize="@dimen/muoi_lam_sp"
                 android:text="@string/menstruation"
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="@dimen/ba_muoi_sp" />
 
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_menstrual_length"
@@ -52,11 +52,11 @@
                     android:layout_weight="8"
                     android:gravity="center_vertical"
                     android:text="@string/length_periods"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/hai_muoi_sp" />
 
                 <TextView
                     android:gravity="center"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:id="@+id/tv_menstrual_length_st"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -92,11 +92,11 @@
                     android:layout_weight="8"
                     android:gravity="center_vertical"
                     android:text="@string/length_cycle"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/hai_muoi_sp" />
 
                 <TextView
                     android:gravity="center"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:id="@+id/tv_cycle_length_st"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -133,7 +133,7 @@
                     android:layout_weight="8"
                     android:gravity="center_vertical"
                     android:text="@string/ovulation"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/hai_muoi_sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -145,7 +145,7 @@
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_maternity"
@@ -170,7 +170,7 @@
                     android:layout_weight="8"
                     android:gravity="center_vertical"
                     android:text="@string/maternity"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/hai_muoi_sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -181,10 +181,10 @@
 
             <TextView
                 android:gravity="center_vertical"
-                android:textSize="15sp"
+                android:textSize="@dimen/muoi_lam_sp"
                 android:text="@string/remind"
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="@dimen/ba_muoi_sp" />
 
             <ImageView
                 android:background="@color/colorDivide"
@@ -209,7 +209,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/remind"
                     android:layout_weight="10"
@@ -221,14 +221,14 @@
             <TextView
                 android:gravity="center_vertical"
                 android:text="@string/data_and_account"
-                android:textSize="15sp"
+                android:textSize="@dimen/muoi_lam_sp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="@dimen/ba_muoi_sp" />
 
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_password"
@@ -248,80 +248,9 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/password"
-                    android:layout_weight="10"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:background="@color/colorDivide"
-                android:layout_width="match_parent"
-                android:layout_height="1dp" />
-
-            <LinearLayout
-                android:id="@+id/st_follow"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:src="@drawable/st_follow"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:textSize="20sp"
-                    android:gravity="center_vertical"
-                    android:text="@string/follow"
-                    android:layout_weight="10"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-            <TextView
-                android:gravity="center_vertical"
-                android:text="@string/total_installation"
-                android:textSize="15sp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <ImageView
-                android:background="@color/colorDivide"
-                android:layout_width="match_parent"
-                android:layout_height="1dp" />
-
-            <LinearLayout
-                android:id="@+id/st_for_doctor"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:src="@drawable/st_for_doctor"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:textSize="20sp"
-                    android:gravity="center_vertical"
-                    android:text="@string/data_for_doctor"
                     android:layout_weight="10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -331,14 +260,14 @@
             <TextView
                 android:gravity="center_vertical"
                 android:text="@string/support_us"
-                android:textSize="15sp"
+                android:textSize="@dimen/muoi_lam_sp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="@dimen/ba_muoi_sp" />
 
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_message_us"
@@ -358,7 +287,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/send_message_to_us"
                     android:layout_weight="10"
@@ -370,7 +299,7 @@
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_rate"
@@ -390,7 +319,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/rate_us"
                     android:layout_weight="10"
@@ -402,7 +331,7 @@
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_share"
@@ -422,7 +351,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/share"
                     android:layout_weight="10"
@@ -434,7 +363,7 @@
             <ImageView
                 android:background="@color/colorDivide"
                 android:layout_width="match_parent"
-                android:layout_height="1dp" />
+                android:layout_height="@dimen/mot_dp" />
 
             <LinearLayout
                 android:id="@+id/st_delete"
@@ -454,7 +383,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="@dimen/hai_muoi_sp"
                     android:gravity="center_vertical"
                     android:text="@string/delete_all_data"
                     android:layout_weight="10"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KinhNguyetMangThai</string>
+    <string name="app_name">Menstrual calendar, pregnancy</string>
     <string name="note">Note</string>
     <string name="calendar">Calendar</string>
     <string name="diary">Diary</string>
@@ -69,6 +69,30 @@
     <string name="subject_of_email">Subject of email</string>
     <string name="message_us">Your comments will help us grow more, Thank you!!!</string>
     <string name="send">Send</string>
+    <string name="hi_android_developer">Hi android developer!</string>
+    <string name="report_cycle">Report cycle</string>
+    <string name="report_pregnancy">Report pregnancy</string>
+    <string name="report_ovulation">Report ovulation</string>
+    <string name="prompt_enter_business_day">Prompt enter the business day</string>
+    <string name="add_medicine">Add medicine</string>
+    <string name="prompts_you_to_enter_a_period">Prompts you to enter a period</string>
+    <string name="alert_report_cycle">Notification: End of cycle</string>
+    <string name="alert_report_easy_to_conceive">Notification: It is easy to conceive</string>
+    <string name="alert_report_ovulation">Notification: By the time of ovulation</string>
+    <string name="stop_watching">Stop watching your menstrual cycle and start counting down</string>
+    <string name="pregnant">Pregnant</string>
+    <string name="congratulations">Congratulations! Press OK to turn on pregnancy mode</string>
+    <string name="estimate_the_due_date">Estimate the due date</string>
+    <string name="childbirth_or_miscarriage">Childbirth or miscarriage</string>
+    <string name="no_longer_pregnant">No longer pregnant</string>
+    <string name="enable_by_mistake">Enable by mistake</string>
+    <string name="turn_off_pregnancy_mode">Turn off pregnancy mode</string>
 
+    <string name="next_ovulation">Next ovulation</string>
+    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
+    <string name="end_date_of_pregnancy">End date of pregnancy</string>
+    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
+    <string name="turn_off">Turn off</string>
+    <string name="days_to_give_birth">days to give birth</string>
 
 </resources>

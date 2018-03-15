@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/hai_muoi_dp">
+
+    <TextView
+        android:textSize="@dimen/muoi_lam_sp"
+        android:text="@string/congratulations"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"></LinearLayout>
+
+    <LinearLayout
+        android:gravity="right"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn_cancel_dialog_maternity"
+            android:text="@string/cancel"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:background="@color/colorWhite"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_ok_dialog_maternity"
+            android:text="@string/ok"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:background="@color/colorWhite"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

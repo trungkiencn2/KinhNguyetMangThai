@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:padding="20dp"
+    android:layout_height="@dimen/ba_tram_dp"
+    android:padding="@dimen/hai_muoi_dp"
     android:background="@color/colorDialog">
 
     <TextView
         android:gravity="center_vertical"
-        android:textSize="20dp"
+        android:textSize="@dimen/hai_muoi_dp"
         android:text="@string/length_cycle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,7 +28,7 @@
         <EditText
             android:id="@+id/edt_count_dialog_cycle_length"
             android:text="30"
-            android:textSize="25sp"
+            android:textSize="@dimen/hai_lam_sp"
             android:gravity="center"
             android:inputType="phone"
             android:background="@color/colorWhite"
@@ -41,7 +41,7 @@
             android:textColor="@color/colorBlack"
             android:gravity="center"
             android:text="@string/day"
-            android:textSize="25sp"
+            android:textSize="@dimen/hai_lam_sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
@@ -55,7 +55,7 @@
             android:background="@color/colorWhite"
             android:id="@+id/tv_plus_dialog_cycle_length"
             android:text="+"
-            android:textSize="35sp"
+            android:textSize="@dimen/ba_lam_sp"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -65,7 +65,7 @@
             android:background="@color/colorWhite"
             android:id="@+id/tv_minus_dialog_cycle_length"
             android:text="-"
-            android:textSize="35sp"
+            android:textSize="@dimen/ba_lam_sp"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -87,7 +87,7 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="15sp"
+        android:textSize="@dimen/muoi_lam_sp"
         android:gravity="center_vertical"
         android:text="@string/menstrual_period_lasts"
         android:layout_width="match_parent"
@@ -109,7 +109,7 @@
 
         <Button
             android:id="@+id/btn_cancel_dialog_cycle_length"
-            android:textSize="15sp"
+            android:textSize="@dimen/muoi_lam_sp"
             android:gravity="center"
             android:text="@string/cancel"
             android:background="@color/colorDialog"
@@ -119,7 +119,7 @@
 
         <Button
             android:id="@+id/btn_ok_dialog_cycle_length"
-            android:textSize="15sp"
+            android:textSize="@dimen/muoi_lam_sp"
             android:gravity="center"
             android:text="@string/ok"
             android:background="@color/colorDialog"

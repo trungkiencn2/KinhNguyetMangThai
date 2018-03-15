@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mot_dp">1dp</dimen>
+    <dimen name="nam_dp">6dp</dimen>
+    <dimen name="muoi_dp">12dp</dimen>
+    <dimen name="muoi_lam_dp">18dp</dimen>
+    <dimen name="hai_muoi_dp">23dp</dimen>
+    <dimen name="nam_muoi_dp">58dp</dimen>
+    <dimen name="bay_muoi_dp">75dp</dimen>
+    <dimen name="tram_hai_muoi_dp">141dp</dimen>
+    <dimen name="ba_tram_dp">352dp</dimen>
+
+    <dimen name="muoi_hai_sp">14sp</dimen>
+    <dimen name="muoi_lam_sp">18sp</dimen>
+    <dimen name="hai_muoi_sp">23sp</dimen>
+    <dimen name="hai_lam_sp">29sp</dimen>
+    <dimen name="ba_muoi_sp">35sp</dimen>
+    <dimen name="ba_lam_sp">41sp</dimen>
+</resources>

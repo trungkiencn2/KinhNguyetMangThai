@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">KinhNguyetMangThai</string>
+    <string name="app_name">Kinh nguyệt, mang thai</string>
     <string name="note">Chú thích</string>
     <string name="calendar">Lịch</string>
     <string name="diary">Nhật ký</string>
     <string name="setting">Cài đặt</string>
     <string name="chart">Biểu đồ</string>
-    <string name="length_cycle_menstruation">Chiều dài của chu trình \nChương trình thường kéo dài 4-7 ngày</string>
+    <string name="length_cycle_menstruation">Độ dài của chu kỳ hành kinh \nChu kỳ thường kéo dài 4-7 ngày</string>
     <string name="length_cycle_periods">Chu kỳ kinh nguyệt? Thời gian trong ngày bắt đầu hai chu kỳ, thường là 23-35 ngày</string>
     <string name="date_your_period">Ngày thời gian kinh nguyệt cuối cùng của bạn?</string>
     <string name="touch_here">Chạm vào đây để đặt</string>
@@ -22,7 +22,7 @@
     <string name="length_periods">Độ dài hành kinh</string>
     <string name="length_cycle">Độ dài chu kỳ</string>
     <string name="ovulation">Sự rụng trứng</string>
-    <string name="maternity">Thai sải</string>
+    <string name="maternity">Thai sản</string>
     <string name="remind">Nhắc nhở</string>
     <string name="personalized">Cá nhân hóa</string>
     <string name="data_and_account">Dữ liệu và tài khoản</string>
@@ -42,8 +42,8 @@
     <string name="try_again">Thử lại!!!</string>
     <string name="you_should_typing_menstrual">Bạn nên vào giai đoạn kinh nguyệt từ 4 đến 7 ngày</string>
     <string name="you_should_typing_cycle">Bạn nên nhập chu kỳ chu kỳ từ 23 đến 35 ngày</string>
-    <string name="length_of_the_luteal_phase">Chiều dài của pha thể vàng</string>
-    <string name="we_base_the_luteal_phase">Chúng tôi căn cứ theo chiều dài của giai đoạn luteal trên ước tính rụng trứng tiếp theo của bạn. Chiều dài này thường từ 13 đến 18 ngày</string>
+    <string name="length_of_the_luteal_phase">Độ dài giai đoạn hoàng thể</string>
+    <string name="we_base_the_luteal_phase">Chúng tôi căn cứ theo chiều dài của giai đoạn hoàng thể trên ước tính rụng trứng tiếp theo của bạn. Chiều dài này thường từ 13 đến 18 ngày</string>
     <string name="set_password">Đặt mật khẩu</string>
     <string name="delete_password">Xóa mật khẩu</string>
     <string name="confirm_password">Xác nhận mật khẩu</string>
@@ -69,6 +69,29 @@
     <string name="subject_of_email">Chủ đề của email</string>
     <string name="message_us">Ý kiến ​​của bạn sẽ giúp chúng tôi phát triển hơn, Cảm ơn bạn!</string>
     <string name="send">Gửi</string>
+    <string name="hi_android_developer">Xin chào nhà phát triển android!</string>
+    <string name="report_cycle">Báo chu kỳ</string>
+    <string name="report_pregnancy">Báo thụ thai</string>
+    <string name="report_ovulation">Báo rụng trứng</string>
+    <string name="prompt_enter_business_day">Nhắc nhập hành kinh</string>
+    <string name="add_medicine">Thêm thuốc</string>
+    <string name="prompts_you_to_enter_a_period">Nhắc bạn nhập chu kỳ</string>
+    <string name="alert_report_cycle">Thông báo: Kết thúc chu kỳ</string>
+    <string name="alert_report_easy_to_conceive">Thông báo: Dễ thụ thai</string>
+    <string name="alert_report_ovulation">Thông báo: Thời gian rụng trứng</string>
+    <string name="stop_watching">Ngừng xem chu kỳ kinh nguyệt của bạn và bắt đầu đếm ngược đến ngày sinh</string>
+    <string name="pregnant">Có thai</string>
+    <string name="congratulations">Xin chúc mừng! Nhấn OK để bật chế độ mang thai</string>
+    <string name="estimate_the_due_date">Ước tính ngày đáo hạn</string>
+    <string name="childbirth_or_miscarriage">Sinh con hoặc sẩy thai</string>
+    <string name="no_longer_pregnant">Không còn mang thai</string>
+    <string name="enable_by_mistake">Bật do nhầm lẫn</string>
+    <string name="turn_off_pregnancy_mode">Tắt chế độ mang thai</string>
 
+    <string name="next_ovulation">Next ovulation</string>
+    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
+    <string name="end_date_of_pregnancy">End date of pregnancy</string>
+    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
+    <string name="turn_off">Turn off</string>
 
 </resources>

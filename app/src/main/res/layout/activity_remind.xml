@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/hai_muoi_dp"
+    tools:context="com.skyfree.kinhnguyetmangthai.activity.RemindActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bay_muoi_dp">
+
+        <LinearLayout
+            android:padding="@dimen/nam_dp"
+            android:gravity="center"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/muoi_lam_sp"
+                android:text="@string/report_cycle"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/tv_report_cycle_remind"
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/sw_report_cycle_remind"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:padding="@dimen/nam_dp"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/muoi_lam_sp"
+                android:text="@string/report_pregnancy"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/tv_report_pregnancy_remind"
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/sw_report_pregnancy_remind"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:padding="@dimen/nam_dp"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/muoi_lam_sp"
+                android:text="@string/report_ovulation"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/tv_report_ovulation_remind"
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/sw_report_ovulation_remind"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+
+
+</LinearLayout>

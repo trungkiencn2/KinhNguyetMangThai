@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/hai_muoi_dp">
+
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:text="@string/in_case_no_longer_pregnant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_cancel_dialog_childbirth_or_miscarriage"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:background="@color/colorWhite"
+            android:text="@string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_no_longer_dialog_childbirth_or_miscarriage"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:background="@color/colorWhite"
+            android:text="@string/no_longer_pregnant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

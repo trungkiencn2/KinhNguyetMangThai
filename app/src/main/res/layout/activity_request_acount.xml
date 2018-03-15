@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/hai_muoi_dp"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.RequestAcountActivity">
 
     <ImageView
@@ -14,13 +14,13 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/nam_muoi_dp"
         android:background="@color/colorBlur"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/nam_muoi_dp">
 
         <ImageView
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/muoi_dp"
             android:src="@drawable/ic_lock"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -29,7 +29,7 @@
         <EditText
             android:id="@+id/edt_pass_ra"
             android:hint="@string/password"
-            android:textSize="20sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:gravity="center_vertical"
             android:background="@null"
             android:layout_weight="10"
@@ -42,18 +42,18 @@
         android:id="@+id/tv_login_ra"
         android:background="@color/colorRedBlur"
         android:textColor="@color/colorWhite"
-        android:textSize="25sp"
-        android:layout_marginTop="20dp"
+        android:textSize="@dimen/hai_lam_sp"
+        android:layout_marginTop="@dimen/hai_muoi_dp"
         android:gravity="center"
         android:text="@string/login"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="@dimen/nam_muoi_dp" />
 
     <TextView
         android:id="@+id/tv_security_question_ra"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/hai_muoi_dp"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/hai_muoi_sp"
         android:textColor="@color/colorRedBlur"
         android:text="@string/ask_security_question"
         android:layout_width="match_parent"
@@ -61,9 +61,9 @@
 
     <TextView
         android:id="@+id/tv_forget_pass_ra"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/muoi_dp"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/hai_muoi_sp"
         android:textColor="@color/colorRedBlur"
         android:text="@string/ask_forget_pass"
         android:layout_width="match_parent"

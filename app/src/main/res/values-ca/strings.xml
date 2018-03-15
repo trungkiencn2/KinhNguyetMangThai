@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KinhNguyetMangThai</string>
+    <string name="app_name">Menstruació, embaràs</string>
     <string name="note">Nota</string>
     <string name="calendar">Calendari</string>
     <string name="diary">Agenda</string>
@@ -69,6 +69,29 @@
     <string name="subject_of_email">Assumpte del correu electrònic</string>
     <string name="message_us">Els vostres comentaris ens ajudaran a créixer més, gràcies!</string>
     <string name="send">Enviar</string>
+    <string name="hi_android_developer">Hola desenvolupador d`Android!</string>
+    <string name="report_cycle">Cicle d`informes</string>
+    <string name="report_pregnancy">Informeu sobre l`embaràs</string>
+    <string name="report_ovulation">Informe l`ovulació</string>
+    <string name="prompt_enter_business_day">Introduïu el missatge el dia laborable</string>
+    <string name="add_medicine">Afegir medicaments</string>
+    <string name="prompts_you_to_enter_a_period">Et demana que entris en un període</string>
+    <string name="alert_report_cycle">Notificació: final del cicle</string>
+    <string name="alert_report_easy_to_conceive">Notificació: És fàcil de concebre</string>
+    <string name="alert_report_ovulation">Notificació: En el moment de l`ovulació</string>
+    <string name="stop_watching">Deixa de mirar el teu cicle menstrual i comença a comptar avall</string>
+    <string name="pregnant">Embarassada</string>
+    <string name="congratulations">Felicitacions Premeu D`acord per activar el mode d`embaràs</string>
+    <string name="estimate_the_due_date">Estimació de la data de venciment</string>
+    <string name="childbirth_or_miscarriage">Part o avortament involuntari</string>
+    <string name="no_longer_pregnant">Ja no està embarassada</string>
+    <string name="enable_by_mistake">Activa per error</string>
+    <string name="turn_off_pregnancy_mode">Apagueu el mode d`embaràs</string>
 
+    <string name="next_ovulation">Next ovulation</string>
+    <string name="in_case_no_longer_pregnant">If you have any of the following: \n\n* Give birth to \n* Miscarriage \n* Abortion \n\nClick No longer pregnant</string>
+    <string name="end_date_of_pregnancy">End date of pregnancy</string>
+    <string name="mistake_turn_on">If you have mistakenly switched to pregnancy mode, you can disable it here</string>
+    <string name="turn_off">Turn off</string>
 
 </resources>

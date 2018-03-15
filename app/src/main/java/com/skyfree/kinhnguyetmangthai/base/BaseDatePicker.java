@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 public class BaseDatePicker extends AppCompatActivity{
     protected Calendar mCurrentSelectedDate;
-    protected void dialogForCalendar(final MyDateSetListener listener) {
+    protected void dialogForCalendar(final MyDateSetListener listener, long maxTime, String title, long minTime) {
 
         if (mCurrentSelectedDate == null) {
             mCurrentSelectedDate = Calendar.getInstance();
@@ -29,7 +29,6 @@ public class BaseDatePicker extends AppCompatActivity{
                         int month = selectedmonth + 1;
 
                         mCurrentSelectedDate.setTimeInMillis(System.currentTimeMillis()); //refresh to now
-
                         mCurrentSelectedDate.set(Calendar.YEAR, year);
                         mCurrentSelectedDate.set(Calendar.MONTH, selectedmonth);
                         mCurrentSelectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -38,8 +37,10 @@ public class BaseDatePicker extends AppCompatActivity{
 
                     }
                 }, mCurrentSelectedDate.get(Calendar.YEAR), mCurrentSelectedDate.get(Calendar.MONTH), mCurrentSelectedDate.get(Calendar.DAY_OF_MONTH));
-        mDatePicker.getDatePicker().setMaxDate(Calendar.getInstance().getTimeInMillis());
-        mDatePicker.setTitle(getString(R.string.select_date));
+        mDatePicker.getDatePicker().setMaxDate(maxTime);
+        mDatePicker.getDatePicker().setMinDate(minTime);
+        mDatePicker.setTitle(title);
         mDatePicker.show();
     }
+
 }

@@ -23,13 +23,13 @@ import java.util.Calendar;
 
 public class MainActivity extends BaseDatePicker implements View.OnClickListener {
 
-    private long mOneDay = 86400000L;
     private SharedPreferences.Editor mEditor;
     private Calendar mCa = Calendar.getInstance();
     private Calendar mCaNow = Calendar.getInstance();
     private Calendar mCaNextCycle = Calendar.getInstance();
     private Calendar mCaEasyToConceive = Calendar.getInstance();
     private Calendar mCaDayleft = Calendar.getInstance();
+    private Calendar mCaMinTimeForDatePicker = Calendar.getInstance();
     private LinearLayout mLinearSetting, mLinearDiary, mLinearCalendar, mLinearChart, mLinearNote;
     private TextView mTvDaysLeft, mTvNextCycle, mTvEasyToConceive;
 
@@ -37,34 +37,40 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mCaMinTimeForDatePicker.set(2017, 2, 1);
+        initView();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        initView();
+
         if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.TRUE)){
             mTvDaysLeft.setText("");
             mTvNextCycle.setText("");
             mTvEasyToConceive.setText("");
             startDialog();
         }else if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.FALSE)){
-            long mTimeMenLength = Long.parseLong(Utils.readFromFile(Utils.FILE_MENSTRUAL_LENGTH, this));
-            long mTimeCycleLength = Long.parseLong(Utils.readFromFile(Utils.FILE_CYCLE_LENGTH, this));
-            long mTimeDate = Long.parseLong(Utils.readFromFile(Utils.FILE_DATE_TIME, this));
+            long mTimeMenLength = Long.parseLong(Utils.readFromFile(Utils.FILE_CHU_KY_HANH_KINH, this));
+            long mTimeCycleLength = Long.parseLong(Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, this));
+            long mTimeDateStart = Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this));
 
-            long mTimeNextCycle = mTimeDate + mTimeCycleLength*86400000;
-            long mTimeEasyToConceive = mTimeDate + 86400000 * 8;
+            long mTimeNextCycle = mTimeDateStart + mTimeCycleLength * Utils.mOneDay;
+            long mTimeEasyToConceive = mTimeDateStart + Utils.mOneDay * Utils.getDayLeftToDateEasyToConceive(Integer.parseInt(Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, this)));
 
             Calendar mCaNextCycle = Calendar.getInstance();
             Calendar mCaEasyToConceive = Calendar.getInstance();
             mCaNextCycle.setTimeInMillis(mTimeNextCycle);
             mCaEasyToConceive.setTimeInMillis(mTimeEasyToConceive);
 
-            mTvDaysLeft.setText((mCaNextCycle.getTimeInMillis() - mTimeDate)/86400000 + " " + getString(R.string.days_left));
+            mTvDaysLeft.setText((mCaNextCycle.getTimeInMillis() - mCaNow.getTimeInMillis())/Utils.mOneDay + " " + getString(R.string.days_left));
             mTvNextCycle.setText(mCaNextCycle.get(Calendar.DAY_OF_MONTH) + " thg " + (mCaNextCycle.get(Calendar.MONTH)+1) + " " + getString(R.string.next_cycle));
             mTvEasyToConceive.setText(mCaEasyToConceive.get(Calendar.DAY_OF_MONTH) + " thg " + (mCaEasyToConceive.get(Calendar.MONTH)+1) + " " + getString(R.string.easy_to_conceive));
-        }else {
+        }else if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.DANG_MANG_THAI)){
+            mTvNextCycle.setText("");
+            mTvEasyToConceive.setText("");
+            mTvDaysLeft.setText((Long.parseLong(Utils.readFromFile(Utils.FILE_DATE_ESTIMATE, this)) - mCaNow.getTimeInMillis()) / Utils.mOneDay + " ");
+        } else {
             startDialog();
         }
     }
@@ -118,20 +124,19 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 if( Integer.parseInt(mEdtTop.getText().toString()) < 4 || Integer.parseInt(mEdtTop.getText().toString()) > 7 || Integer.parseInt(mEdtBottom.getText().toString()) < 23 || Integer.parseInt(mEdtBottom.getText().toString()) > 35){
                     Toast.makeText(MainActivity.this, getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                 }else {
-                    Utils.writeToFile(mEdtTop.getText().toString(), Utils.FILE_MENSTRUAL_LENGTH, getApplicationContext());
-                    Utils.writeToFile(mEdtBottom.getText().toString(), Utils.FILE_CYCLE_LENGTH, getApplicationContext());
-                    long t = mCa.getTimeInMillis();
-                    Utils.writeToFile(String.valueOf(t), Utils.FILE_DATE_TIME, getApplicationContext());
+                    Utils.writeToFile(mEdtTop.getText().toString(), Utils.FILE_CHU_KY_HANH_KINH, getApplicationContext());
+                    Utils.writeToFile(mEdtBottom.getText().toString(), Utils.FILE_CHU_KY_KINH_NGUYET, getApplicationContext());
+                    Utils.writeToFile(String.valueOf(mCa.getTimeInMillis()), Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getApplicationContext());
 
                     int lengOfCycle = Integer.parseInt(mEdtTop.getText().toString());
                     int lengOfMenstrual = Integer.parseInt(mEdtBottom.getText().toString());
                     long timePre = mCa.getTimeInMillis();
 
-                    mCaNextCycle.setTimeInMillis(timePre + lengOfMenstrual*mOneDay);
-                    mCaEasyToConceive.setTimeInMillis(timePre + 8*mOneDay);
+                    mCaNextCycle.setTimeInMillis(timePre + lengOfMenstrual * Utils.mOneDay);
+                    mCaEasyToConceive.setTimeInMillis(timePre + Utils.getDayLeftToDateEasyToConceive(Integer.parseInt(mEdtBottom.getText().toString())) * Utils.mOneDay);
                     mCaDayleft.setTimeInMillis(mCaNextCycle.getTimeInMillis() - mCaNow.getTimeInMillis());
 
-                    mTvDaysLeft.setText((mCaNextCycle.getTimeInMillis() - mCaNow.getTimeInMillis())/86400000 + " " + getString(R.string.days_left));
+                    mTvDaysLeft.setText((mCaNextCycle.getTimeInMillis() - mCaNow.getTimeInMillis()) / Utils.mOneDay + " " + getString(R.string.days_left));
                     mTvNextCycle.setText(mCaNextCycle.get(Calendar.DAY_OF_MONTH) + " thg " + ( mCaNextCycle.get(Calendar.MONTH) + 1) + " " + getString(R.string.next_cycle));
                     mTvEasyToConceive.setText(mCaEasyToConceive.get(Calendar.DAY_OF_MONTH) + " thg " + ( mCaEasyToConceive.get(Calendar.MONTH) + 1) + " " + getString(R.string.easy_to_conceive));
 
@@ -151,9 +156,8 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 int year = currentSelectedDate.get(Calendar.YEAR);
                 mTvDay.setText(dayOfMonth + "-" + (month) + "-" + year);
                 mCa.setTimeInMillis(currentSelectedDate.getTimeInMillis());
-//                mCa.set(year, month, dayOfMonth);
             }
-        });
+        }, mCaNow.getTimeInMillis(), getString(R.string.select_date), mCaMinTimeForDatePicker.getTimeInMillis());
     }
 
     @Override

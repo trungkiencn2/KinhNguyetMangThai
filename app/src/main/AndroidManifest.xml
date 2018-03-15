@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skyfree.kinhnguyetmangthai">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +22,25 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.CalendarActivity" />
-        <activity android:name=".activity.SettingActivity" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:exported="true" />
         <activity android:name=".activity.PasswordActivity" />
-        <activity android:name=".activity.MainActivity"
-            android:launchMode="singleInstance"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleInstance" />
+        <activity android:name=".activity.RemindActivity" />
+
+        <receiver
+            android:name=".receiver.AlarmNotifyReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.MaternityActivity" />
+        <activity android:name=".activity.OptionPregnantActivity" />
     </application>
 
 </manifest>
