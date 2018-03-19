@@ -182,17 +182,17 @@ public class Utils {
         return number;
     }
 
-    public static int getCurrentMonth(long currentDate){
-        Calendar mCurrentCa = Calendar.getInstance();
-        mCurrentCa.setTimeInMillis(currentDate);
-        return mCurrentCa.get(Calendar.MONTH);
-    }
-
-    public static int getCurrentYear(long currentDate){
-        Calendar mCurrentCa = Calendar.getInstance();
-        mCurrentCa.setTimeInMillis(currentDate);
-        return mCurrentCa.get(Calendar.YEAR);
-    }
+//    public static int getCurrentMonth(long currentDate){
+//        Calendar mCurrentCa = Calendar.getInstance();
+//        mCurrentCa.setTimeInMillis(currentDate);
+//        return mCurrentCa.get(Calendar.MONTH);
+//    }
+//
+//    public static int getCurrentYear(long currentDate){
+//        Calendar mCurrentCa = Calendar.getInstance();
+//        mCurrentCa.setTimeInMillis(currentDate);
+//        return mCurrentCa.get(Calendar.YEAR);
+//    }
 
     public static String getThuMayLaMung1(int thisMonth, int thisYear){
         String thuMayLaMung1 = "";

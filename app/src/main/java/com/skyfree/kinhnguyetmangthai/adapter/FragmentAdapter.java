@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 
 import com.skyfree.kinhnguyetmangthai.custom_interface.UpdateListCaItem;
 import com.skyfree.kinhnguyetmangthai.fragment.FragmentCalendar;
@@ -49,51 +50,63 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                mMonth = mCa.get(Calendar.MONTH) -4;
+                mMonth = mCa.get(Calendar.MONTH);
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 1:
-                mMonth = mCa.get(Calendar.MONTH) - 3;
+                mMonth = mCa.get(Calendar.MONTH)+1;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 2:
-                mMonth = mCa.get(Calendar.MONTH) - 2;
+                mMonth = mCa.get(Calendar.MONTH)+2;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 3:
-                mMonth = mCa.get(Calendar.MONTH) - 1;
+                mMonth = mCa.get(Calendar.MONTH)+3;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 4:
-                mMonth = mCa.get(Calendar.MONTH);
+                mMonth = mCa.get(Calendar.MONTH)+4;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 5:
-                mMonth = mCa.get(Calendar.MONTH) +1 ;
+                mMonth = mCa.get(Calendar.MONTH) +5 ;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 6:
-                mMonth = mCa.get(Calendar.MONTH)+2;
+                mMonth = mCa.get(Calendar.MONTH)+6;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 7:
-                mMonth = mCa.get(Calendar.MONTH)+3;
+                mMonth = mCa.get(Calendar.MONTH)+7;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 8:
-                mMonth = mCa.get(Calendar.MONTH)+4;
+                mMonth = mCa.get(Calendar.MONTH)+8;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 9:
-                mMonth = mCa.get(Calendar.MONTH)+5;
+                mMonth = mCa.get(Calendar.MONTH)+9;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 10:
-                mMonth = mCa.get(Calendar.MONTH)+6;
+                mMonth = mCa.get(Calendar.MONTH)+10;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
             case 11:
-                mMonth = mCa.get(Calendar.MONTH)+7;
+                mMonth = mCa.get(Calendar.MONTH)+11;
+                Log.e("aaa", mMonth+"");
                 mYear = mCa.get(Calendar.YEAR);
                 break;
         }
