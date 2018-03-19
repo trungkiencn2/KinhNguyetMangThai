@@ -7,28 +7,138 @@
     android:orientation="vertical"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.CalendarActivity">
 
-    <TextView
-        android:textColor="@color/colorRed"
-        android:gravity="center"
-        android:id="@+id/tv_month_calendar"
-        android:textSize="30sp"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/compactcalendar_view"
-        android:layout_width="fill_parent"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:layout_height="250dp"
-        app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="@color/colorWhite"
-        app:compactCalendarTextColor="@color/colorRedBlur"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorBlur"
-        app:compactCalendarCurrentDayBackgroundColor="@color/colorWhite"
-        app:compactCalendarMultiEventIndicatorColor="#fff"
-        />
+        <LinearLayout
+            android:padding="@dimen/muoi_dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/nam_muoi_dp">
+
+            <ImageView
+                android:src="@drawable/ic_back"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:weightSum="8"
+                android:gravity="center"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/ic_back_calendar"
+                    android:layout_width="@dimen/muoi_lam_dp"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:id="@+id/tv_date_calendar_activity"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:layout_margin="@dimen/nam_dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:src="@drawable/ic_next_calendar"
+                    android:layout_width="@dimen/muoi_lam_dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/colorDivide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hai_muoi_dp">
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="CN"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T5"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T6"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:textSize="@dimen/muoi_hai_sp"
+                android:gravity="center"
+                android:text="T7"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
 
 </LinearLayout>

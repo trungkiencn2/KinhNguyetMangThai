@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.activity.PasswordActivity;
+import com.skyfree.kinhnguyetmangthai.model.CalendarItem;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by KienBeu on 3/9/2018.
@@ -37,6 +40,23 @@ public class Utils {
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
     public static final String DANG_MANG_THAI= "DANG_MANG_THAI";
+
+    public static ArrayList<CalendarItem> mListItem;
+
+    public static ArrayList<CalendarItem> getListItem(){
+        mListItem = new ArrayList<>();
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "1"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "2"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "3"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "4"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "5"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "6"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "7"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "8"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "9"));
+        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "10"));
+        return mListItem;
+    }
 
     public static void writeToFile(String data, String fileName, Context context) {
         try {
@@ -132,5 +152,87 @@ public class Utils {
             default:
                 return 10;
         }
+    }
+
+    public static int getNumberDataNull(String thuMayLaMung1){
+        int number = 0;
+        switch (thuMayLaMung1){
+            case "T2":
+                number = 1;
+                break;
+            case "T3":
+                number = 2;
+                break;
+            case "T4":
+                number = 3;
+                break;
+            case "T5":
+                number = 4;
+                break;
+            case "T6":
+                number = 5;
+                break;
+            case "T7":
+                number = 6;
+                break;
+            case "CN":
+                number = 0;
+                break;
+        }
+        return number;
+    }
+
+    public static int getCurrentMonth(long currentDate){
+        Calendar mCurrentCa = Calendar.getInstance();
+        mCurrentCa.setTimeInMillis(currentDate);
+        return mCurrentCa.get(Calendar.MONTH);
+    }
+
+    public static int getCurrentYear(long currentDate){
+        Calendar mCurrentCa = Calendar.getInstance();
+        mCurrentCa.setTimeInMillis(currentDate);
+        return mCurrentCa.get(Calendar.YEAR);
+    }
+
+    public static String getThuMayLaMung1(int thisMonth, int thisYear){
+        String thuMayLaMung1 = "";
+        Calendar c = Calendar.getInstance();
+        c.set(thisYear, thisMonth, 1);
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        if (Calendar.MONDAY == dayOfWeek) {
+            thuMayLaMung1 = "T2";
+        } else if (Calendar.TUESDAY == dayOfWeek) {
+            thuMayLaMung1 = "T3";
+        } else if (Calendar.WEDNESDAY == dayOfWeek) {
+            thuMayLaMung1 = "T4";
+        } else if (Calendar.THURSDAY == dayOfWeek) {
+            thuMayLaMung1 = "T5";
+        } else if (Calendar.FRIDAY == dayOfWeek) {
+            thuMayLaMung1 = "T6";
+        } else if (Calendar.SATURDAY == dayOfWeek) {
+            thuMayLaMung1 = "T7";
+        } else if (Calendar.SUNDAY == dayOfWeek) {
+            thuMayLaMung1 = "CN";
+        }
+        return thuMayLaMung1;
+    }
+
+    public static int getSoNgayTrong1Thang(int thisMonth, int thisYear){
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, thisYear);
+        c.set(Calendar.MONTH, thisMonth);
+        int maxDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+        return maxDay;
+    }
+
+    public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth){
+        ArrayList<CalendarItem> mListItem = new ArrayList<>();
+        for(int i = 0; i < numberOfDataNull; i++){
+            mListItem.add(new CalendarItem(null, null));
+        }
+        for (int i = 1; i <= maxDayInMonth; i++){
+            mListItem.add(new CalendarItem(null, i+""));
+        }
+        return mListItem;
     }
 }

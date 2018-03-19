@@ -7,6 +7,7 @@
     <dimen name="hai_muoi_dp">20dp</dimen>
     <dimen name="nam_muoi_dp">50dp</dimen>
     <dimen name="bay_muoi_dp">70dp</dimen>
+    <dimen name="mot_tram_dp">100dp</dimen>
     <dimen name="tram_hai_muoi_dp">120dp</dimen>
     <dimen name="tram_ba_muoi_dp">130dp</dimen>
     <dimen name="tram_nam_muoi_dp">150dp</dimen>
