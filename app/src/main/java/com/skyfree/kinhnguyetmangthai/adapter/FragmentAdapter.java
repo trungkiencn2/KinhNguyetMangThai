@@ -49,150 +49,53 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                if (mCa.get(Calendar.MONTH) - 5 < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) - 5;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH) -4;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 1:
-                if (mCa.get(Calendar.MONTH)-4 < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) - 4;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH) - 3;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 2:
-                if (mCa.get(Calendar.MONTH)-3 < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) - 3;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH) - 2;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 3:
-                if (mCa.get(Calendar.MONTH)-2 < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) - 2;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH) - 1;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 4:
-                if (mCa.get(Calendar.MONTH)-1 < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) - 1;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH);
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 5:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH) > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH);
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH) +1 ;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 6:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+1 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 1;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+2;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 7:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+2 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 2;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+3;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 8:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+3 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 3;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+4;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 9:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+4 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 4;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+5;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 10:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+5 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 5;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+6;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
             case 11:
-                if (mCa.get(Calendar.MONTH) < 1){
-                    mMonth = 12;
-                    mYear = mCa.get(Calendar.YEAR) - 1;
-                }else if(mCa.get(Calendar.MONTH)+6 > 11){
-                    mMonth = 1;
-                    mYear = mCa.get(Calendar.YEAR) + 1;
-                }else {
-                    mMonth = mCa.get(Calendar.MONTH) + 6;
-                    mYear = mCa.get(Calendar.YEAR);
-                }
+                mMonth = mCa.get(Calendar.MONTH)+7;
+                mYear = mCa.get(Calendar.YEAR);
                 break;
-
         }
 
         return FragmentCalendar.newInstance(index, mMonth, mYear);

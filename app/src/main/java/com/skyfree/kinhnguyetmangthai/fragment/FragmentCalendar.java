@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.activity.CalendarActivity;
 import com.skyfree.kinhnguyetmangthai.adapter.RecycleViewCalendarAdapter;
 import com.skyfree.kinhnguyetmangthai.custom_interface.UpdateListCaItem;
 import com.skyfree.kinhnguyetmangthai.model.CalendarItem;
@@ -69,9 +66,6 @@ public class FragmentCalendar extends Fragment{
      * instance number.
      */
 
-    RecyclerView mRcv;
-    RecycleViewCalendarAdapter mAdapter;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -91,12 +85,4 @@ public class FragmentCalendar extends Fragment{
         return v;
     }
 
-    @Override
-    public void setMenuVisibility(boolean menuVisible) {
-        super.setMenuVisibility(menuVisible);
-        if (menuVisible){
-            CalendarActivity.mTvDateCalendarActivity.setText((mMonth) + " - " + mYear);
-            Log.d("aaa", (mMonth + 1)+"");
-        }
-    }
 }

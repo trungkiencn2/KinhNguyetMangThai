@@ -27,7 +27,7 @@ public class CalendarActivity extends AppCompatActivity {
         mFragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
         mPager = findViewById(R.id.view_pager_calendar);
         mPager.setAdapter(mFragmentAdapter);
-        mPager.setCurrentItem(5, false);
+//        mPager.setCurrentItem(5, false);
     }
 
     private void addEvent(){
