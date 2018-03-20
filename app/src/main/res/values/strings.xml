@@ -94,4 +94,7 @@
     <string name="turn_off">Turn off</string>
     <string name="days_to_give_birth">days to give birth</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

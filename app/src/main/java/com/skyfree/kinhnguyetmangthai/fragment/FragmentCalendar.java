@@ -1,9 +1,11 @@
 package com.skyfree.kinhnguyetmangthai.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,48 +25,25 @@ import java.util.Calendar;
 
 public class FragmentCalendar extends Fragment{
     int mNum;
-    private static int mMonth, mYear;
+    private int mMonth, mYear;
     private Calendar mCa = Calendar.getInstance();
     private ArrayList<CalendarItem> mListItem = new ArrayList<>();
 
-    private static String[] cheeses = {"Cheddar", "Jack", "Gamonedo", "Lancashire",
-            "Limburger", "Pepperjack", "Skyr", "Feta", "Asiago"};
-
-    /**
-     * Create a new instance of CountingFragment, providing "num"
-     * as an argument.
-     */
-    public static FragmentCalendar newInstance(int num, int month, int year) {
-        FragmentCalendar f = new FragmentCalendar();
-
-        mMonth = month;
-        mYear = year;
-
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
-        args.putInt("num", num);
-        f.setArguments(args);
-
-        return f;
+    public FragmentCalendar(int month, int year) {
+        this.mMonth = month;
+        this.mYear = year;
     }
 
-    /**
-     * When creating, retrieve this instance's number from its arguments.
-     */
+//    private static int position;
+//    public static FragmentCalendar newInstance(int num, int month, int year) {
+//        FragmentCalendar f = new FragmentCalendar();
+//        return f;
+//    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mNum = getArguments() != null ? getArguments().getInt("num") : 1;
     }
-
-    public int getShownIndex() {
-        return getArguments().getInt("num", 0);
-    }
-
-    /**
-     * The Fragment's UI is just a simple text view showing its
-     * instance number.
-     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,5 +63,4 @@ public class FragmentCalendar extends Fragment{
 
         return v;
     }
-
 }

@@ -29,6 +29,9 @@ dependencies {
     compile 'com.github.alamkanak:android-week-view:1.2.6'
     compile 'com.applandeo:material-calendar-view:1.4.0'
     compile 'com.prolificinteractive:material-calendarview:1.4.3'
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:27.0.2'
+    compile 'com.android.support:support-v4:27.0.2'
+    testCompile 'junit:junit:4.12'
 }
+
+
