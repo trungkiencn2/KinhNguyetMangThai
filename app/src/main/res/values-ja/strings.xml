@@ -94,4 +94,17 @@
     <string name="turn_off">消す</string>
     <string name="days_to_give_birth">出産する日数</string>
 
+    <string name="guess">推測</string>
+    <string name="add_menstruation">月経を追加する</string>
+    <string name="conception">概念</string>
+    <string name="the_average_value">平均値</string>
+    <string name="menstrual_period">月経期間............</string>
+    <string name="cycle_length">サイクル長................</string>
+    <string name="cycle_mean_value">サイクル平均値</string>
+    <string name="begin">ベギン</string>
+    <string name="finish">フィニッシュ</string>
+    <string name="day_average_cycle_length"> 日、平均サイクル長</string>
+    <string name="day_the_average_length_of_the_period"> 日、期間の平均の長さ</string>
+    <string name="length_days">長さ（日）</string>
+
 </resources>

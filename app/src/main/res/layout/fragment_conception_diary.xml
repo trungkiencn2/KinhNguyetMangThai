@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/muoi_dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/nam_dp">
+
+            <ImageView
+                android:layout_width="@dimen/hai_muoi_dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_giatritrungbinhchucky" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/nam_dp"
+                android:text="@string/cycle_mean_value"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/muoi_lam_sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"></LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+            <TextView
+                android:paddingLeft="@dimen/muoi_lam_dp"
+                android:id="@+id/tv_do_dai_ky_kinh_fragment_conception_diar"
+                android:textColor="@color/colorRed"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/muoi_lam_sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"/>
+
+            <FrameLayout
+                android:paddingRight="@dimen/muoi_dp"
+                android:paddingLeft="@dimen/muoi_dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/rc_frag_conception_diary"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/muoi_dp"
+                    app:rcBackgroundColor="@color/colorWhite"
+                    app:rcRadius="@dimen/muoi_dp"
+                    app:rcReverse="false"
+                    app:rcSecondaryProgressColor="@color/colorProcessBackgroundColor"
+                    app:rcProgressColor="@color/colorGuessBlur" />
+
+                <LinearLayout
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_left_rc_frag_conception_diary"
+                        android:paddingLeft="@dimen/muoi_dp"
+                        android:textSize="@dimen/tam_sp"
+                        android:layout_gravity="left|bottom"
+                        android:gravity="left|bottom"
+                        android:textColor="@color/colorRed"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:layout_weight="8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/tv_right_rc_frag_conception_diary"
+                        android:paddingRight="@dimen/muoi_dp"
+                        android:textSize="@dimen/tam_sp"
+                        android:layout_gravity="right|bottom"
+                        android:gravity="left|bottom"
+                        android:textColor="@color/colorRed"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:paddingRight="@dimen/nam_dp"
+                android:id="@+id/tv_do_dai_chu_ky_fragment_conception_diary"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textColor="@color/colorBlur"
+                android:textSize="@dimen/muoi_lam_sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"></LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ba_muoi_dp"
+            android:background="@color/colorGuessBlur"
+            android:gravity="center"
+            android:text="@string/guess"
+            android:textSize="@dimen/hai_muoi_sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/begin"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/finish"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_one_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_one_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_two_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_two_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_three_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_three_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_four_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_four_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_five_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_five_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_six_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_six_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_seven_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_seven_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_eight_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_eight_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_nine_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_nine_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/colorDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ba_muoi_dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_ten_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_ten_fragment_conception_diary"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/muoi_lam_sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

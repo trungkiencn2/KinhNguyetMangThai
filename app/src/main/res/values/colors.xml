@@ -10,5 +10,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorDivide">#dcb6b6b6</color>
     <color name="colorDialog">#dcf1efef</color>
-    <color name="colorBlur">#dcd6d6d6</color>
+    <color name="colorBlur">#dcaeacac</color>
+    <color name="colorGuessBlur">#dcf48a8a</color>
+    <color name="colorProcessBackgroundColor">#66f48a8a</color>
 </resources>

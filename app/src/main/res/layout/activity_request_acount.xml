@@ -9,9 +9,9 @@
     tools:context="com.skyfree.kinhnguyetmangthai.activity.RequestAcountActivity">
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_app"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="@dimen/nam_muoi_dp" />
 
     <LinearLayout
         android:layout_marginTop="@dimen/nam_muoi_dp"

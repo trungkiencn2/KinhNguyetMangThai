@@ -2,7 +2,6 @@ package com.skyfree.kinhnguyetmangthai.activity;
 
 import android.icu.util.Calendar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
-import com.skyfree.kinhnguyetmangthai.custom_interface.MyDateSetListener;
+import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 public class OptionPregnantActivity extends BaseDatePicker implements View.OnClickListener {
@@ -47,7 +46,7 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
     }
 
     private void alertShowDateEstimate(final TextView mTvDay) {
-        dialogForCalendar(new MyDateSetListener() {
+        dialogForCalendar(new IMyDateSetListener() {
             @Override
             public void onDateSet(java.util.Calendar currentSelectedDate) {
                 int dayOfMonth = currentSelectedDate.get(java.util.Calendar.DAY_OF_MONTH);
@@ -132,7 +131,7 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
 //    }
 
 //    private void showDialogNoLongerPregnant() {
-//        dialogForCalendar(new MyDateSetListener() {
+//        dialogForCalendar(new IMyDateSetListener() {
 //            @Override
 //            public void onDateSet(java.util.Calendar currentSelectedDate) {
 //                int dayOfMonth = currentSelectedDate.get(java.util.Calendar.DAY_OF_MONTH);

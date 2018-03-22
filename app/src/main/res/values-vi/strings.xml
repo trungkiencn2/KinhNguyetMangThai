@@ -94,4 +94,17 @@
     <string name="turn_off">Tắt</string>
     <string name="days_to_give_birth">ngày sinh</string>
 
+    <string name="guess">Dự đoán</string>
+    <string name="add_menstruation">Thêm kinh nguyệt</string>
+    <string name="conception">Thụ thai</string>
+    <string name="the_average_value">Giá trị trung bình</string>
+    <string name="menstrual_period">Độ dài kinh nguyệt ............</string>
+    <string name="cycle_length">Độ dài chu kỳ ................</string>
+    <string name="cycle_mean_value">Giá trị trung bình chu kỳ</string>
+    <string name="begin">Bắt đầu</string>
+    <string name="finish">Kết thúc</string>
+    <string name="day_average_cycle_length"> ngày, độ dài chu kì trung bình</string>
+    <string name="day_the_average_length_of_the_period"> ngày, độ dài kỳ kinh trung bình</string>
+    <string name="length_days">Độ dài (ngày)</string>
+
 </resources>

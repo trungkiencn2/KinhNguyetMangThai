@@ -45,13 +45,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initView() {
         mLinearMenstrualLength = (LinearLayout) findViewById(R.id.st_menstrual_length);
-        mLinearCycleLength = (LinearLayout) findViewById(R.id.st_ovulation);
+        mLinearCycleLength = (LinearLayout) findViewById(R.id.st_cycle_length);
         mLinearOvulation = (LinearLayout) findViewById(R.id.st_ovulation);
         mLinearMaternity = (LinearLayout) findViewById(R.id.st_maternity);
         mLinearRemind = (LinearLayout) findViewById(R.id.st_remind);
         mLinearPassword = (LinearLayout) findViewById(R.id.st_password);
-//        mLinearFollow = (LinearLayout) findViewById(R.id.st_follow);
-//        mLinearDataForDoctor = (LinearLayout) findViewById(R.id.st_for_doctor);
         mLinearSendMessage = (LinearLayout) findViewById(R.id.st_message_us);
         mLinearRate = (LinearLayout) findViewById(R.id.st_rate);
         mLinearShare = (LinearLayout) findViewById(R.id.st_share);
@@ -65,8 +63,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         mLinearMaternity.setOnClickListener(this);
         mLinearRemind.setOnClickListener(this);
         mLinearPassword.setOnClickListener(this);
-//        mLinearFollow.setOnClickListener(this);
-//        mLinearDataForDoctor.setOnClickListener(this);
         mLinearSendMessage.setOnClickListener(this);
         mLinearRate.setOnClickListener(this);
         mLinearShare.setOnClickListener(this);
@@ -103,12 +99,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.st_password:
                 password();
                 break;
-//            case R.id.st_follow:
-//                follow();
-//                break;
-//            case R.id.st_for_doctor:
-//                forDoctor();
-//                break;
             case R.id.st_message_us:
                 messageUs();
                 break;

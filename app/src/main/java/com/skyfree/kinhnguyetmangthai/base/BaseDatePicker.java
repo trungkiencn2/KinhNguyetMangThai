@@ -3,10 +3,8 @@ package com.skyfree.kinhnguyetmangthai.base;
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.DatePicker;
-import android.widget.Toast;
 
-import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.custom_interface.MyDateSetListener;
+import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 
 import java.util.Calendar;
 
@@ -16,7 +14,7 @@ import java.util.Calendar;
 
 public class BaseDatePicker extends AppCompatActivity{
     protected Calendar mCurrentSelectedDate;
-    protected void dialogForCalendar(final MyDateSetListener listener, long maxTime, String title, long minTime) {
+    protected void dialogForCalendar(final IMyDateSetListener listener, long maxTime, String title, long minTime) {
 
         if (mCurrentSelectedDate == null) {
             mCurrentSelectedDate = Calendar.getInstance();

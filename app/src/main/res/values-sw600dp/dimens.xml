@@ -5,6 +5,9 @@
     <dimen name="muoi_dp">17dp</dimen>
     <dimen name="muoi_lam_dp">26dp</dimen>
     <dimen name="hai_muoi_dp">35dp</dimen>
+    <dimen name="ba_muoi_dp">47dp</dimen>
+    <dimen name="bon_muoi_dp">65dp</dimen>
+    <dimen name="bon_lam_dp">70dp</dimen>
     <dimen name="nam_muoi_dp">87dp</dimen>
     <dimen name="bay_muoi_dp">115dp</dimen>
     <dimen name="mot_tram_dp">175dp</dimen>
@@ -13,6 +16,8 @@
     <dimen name="tram_nam_muoi_dp">262dp</dimen>
     <dimen name="ba_tram_dp">525dp</dimen>
 
+    <dimen name="tam_sp">13sp</dimen>
+    <dimen name="muoi_sp">17sp</dimen>
     <dimen name="muoi_hai_sp">21sp</dimen>
     <dimen name="muoi_lam_sp">26sp</dimen>
     <dimen name="hai_muoi_sp">35sp</dimen>

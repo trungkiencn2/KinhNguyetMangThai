@@ -6,7 +6,7 @@ package com.skyfree.kinhnguyetmangthai.model;
 
 public class CalendarItem {
     private Integer mDes;
-    private String mDay;
+    private String mDate, mMonth, mYear;
 
     public Integer getmDes() {
         return mDes;
@@ -16,19 +16,37 @@ public class CalendarItem {
         this.mDes = mDes;
     }
 
-    public String getmDay() {
-        return mDay;
+    public String getmDate() {
+        return mDate;
     }
 
-    public void setmDay(String mDay) {
-        this.mDay = mDay;
+    public void setmDate(String mDate) {
+        this.mDate = mDate;
+    }
+
+    public String getmMonth() {
+        return mMonth;
+    }
+
+    public void setmMonth(String mMonth) {
+        this.mMonth = mMonth;
+    }
+
+    public String getmYear() {
+        return mYear;
+    }
+
+    public void setmYear(String mYear) {
+        this.mYear = mYear;
     }
 
     public CalendarItem() {
     }
 
-    public CalendarItem(Integer mDes, String mDay) {
+    public CalendarItem(Integer mDes, String mDate, String mMonth, String mYear) {
         this.mDes = mDes;
-        this.mDay = mDay;
+        this.mDate = mDate;
+        this.mMonth = mMonth;
+        this.mYear = mYear;
     }
 }

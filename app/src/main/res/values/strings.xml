@@ -94,7 +94,18 @@
     <string name="turn_off">Turn off</string>
     <string name="days_to_give_birth">days to give birth</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="guess">Guess</string>
+    <string name="add_menstruation">Add menstruation</string>
+    <string name="conception">Conception</string>
+    <string name="the_average_value">The average value</string>
+    <string name="menstrual_period">Menstrual period ..........</string>
+    <string name="cycle_length">Cycle length ...............</string>
+    <string name="cycle_mean_value">Cycle mean value</string>
+    <string name="begin">Begin</string>
+    <string name="finish">Finish</string>
+    <string name="day_average_cycle_length"> day, average cycle length</string>
+    <string name="day_the_average_length_of_the_period"> day, the average length of the period</string>
+    <string name="length_days">Length (days)</string>
+
 
 </resources>

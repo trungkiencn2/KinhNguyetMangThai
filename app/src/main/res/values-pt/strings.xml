@@ -94,4 +94,17 @@
     <string name="turn_off">Desligar</string>
     <string name="days_to_give_birth">dias para dar à luz</string>
 
+    <string name="guess">Acho</string>
+    <string name="add_menstruation">Adicionar menstruação</string>
+    <string name="conception">Concepção</string>
+    <string name="the_average_value">O valor médio</string>
+    <string name="menstrual_period">Período menstrual ............</string>
+    <string name="cycle_length">Duração do ciclo ................</string>
+    <string name="cycle_mean_value">Valor médio do ciclo</string>
+    <string name="begin">Início</string>
+    <string name="finish">Terminar</string>
+    <string name="day_average_cycle_length"> dia, duração média do ciclo</string>
+    <string name="day_the_average_length_of_the_period"> dia, a duração média do período</string>
+    <string name="length_days">Comprimento (dias)</string>
+
 </resources>

@@ -94,4 +94,17 @@
     <string name="turn_off">ปิด</string>
     <string name="days_to_give_birth">วันคลอด</string>
 
+    <string name="guess">เดา</string>
+    <string name="add_menstruation">เพิ่มประจำเดือน</string>
+    <string name="conception">ความคิด</string>
+    <string name="the_average_value">ค่าเฉลี่ย</string>
+    <string name="menstrual_period">ประจำเดือน ............</string>
+    <string name="cycle_length">ความยาวของรอบ ................</string>
+    <string name="cycle_mean_value">ค่าเฉลี่ยของวงจร</string>
+    <string name="begin">เริ่ม</string>
+    <string name="finish">เสร็จสิ้น</string>
+    <string name="day_average_cycle_length"> วันความยาวเฉลี่ยของรอบ</string>
+    <string name="day_the_average_length_of_the_period"> วันความยาวเฉลี่ยของช่วงเวลา</string>
+    <string name="length_days">ความยาว (วัน)</string>
+
 </resources>

@@ -1,14 +1,11 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +13,7 @@ import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
-import com.skyfree.kinhnguyetmangthai.custom_interface.MyDateSetListener;
+import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.Calendar;
@@ -149,7 +146,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
     }
 
     private void dialogDateStartCycle(final TextView mTvDay) {
-        dialogForCalendar(new MyDateSetListener() {
+        dialogForCalendar(new IMyDateSetListener() {
             @Override
             public void onDateSet(Calendar currentSelectedDate) {
                 int dayOfMonth = currentSelectedDate.get(Calendar.DAY_OF_MONTH);
@@ -169,11 +166,13 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 startActivity(it);
                 break;
             case R.id.linear_diary:
+                startActivity(new Intent(this, DiaryActivity.class));
                 break;
             case R.id.linear_calendar:
                 startActivity(new Intent(this, CalendarActivity.class));
                 break;
             case R.id.linear_chart:
+                startActivity(new Intent(this, ChartActivity.class));
                 break;
             case R.id.linear_note:
                 break;

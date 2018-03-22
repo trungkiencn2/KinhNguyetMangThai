@@ -25,6 +25,8 @@ import java.util.Calendar;
 
 public class Utils {
     public static final long mOneDay = 86400000L;
+    public static boolean mCurrentMonth = false;
+    public static int mPositionToDay;
     public static final String LENGTH_OF_CYCLE = "LENGTH_OF_CYCLE";
     public static final String LENGTH_OF_MENSTRUAL_CYCLE = "LENGTH_OF_MENSTRUAL_CYCLE";
     public static final String DATE_ORDER = "DATE_ORDER";
@@ -37,25 +39,22 @@ public class Utils {
     public static final String FILE_REPORT_CYCLE = "FILE_REPORT_CYCLE";
     public static final String FILE_REPORT_EASY_TO_CONCEIVE = "FILE_REPORT_EASY_TO_CONCEIVE";
     public static final String FILE_DATE_ESTIMATE = "FILE_DATE_ESTIMATE";
+    public static final String FILE_MONTH = "FILE_MONTH";
+    public static final String FILE_YEAR = "FILE_YEAR";
+
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
     public static final String DANG_MANG_THAI= "DANG_MANG_THAI";
 
-    public static ArrayList<CalendarItem> mListItem;
+    public Utils() {
+    }
 
-    public static ArrayList<CalendarItem> getListItem(){
-        mListItem = new ArrayList<>();
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "1"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "2"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "3"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "4"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "5"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "6"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "7"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "8"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "9"));
-        mListItem.add(new CalendarItem(R.drawable.background_color_circle_selector, "10"));
-        return mListItem;
+    public static int getmPositionToDay() {
+        return mPositionToDay;
+    }
+
+    public static void setmPositionToDay(int mPositionToDay) {
+        Utils.mPositionToDay = mPositionToDay;
     }
 
     public static void writeToFile(String data, String fileName, Context context) {
@@ -182,18 +181,6 @@ public class Utils {
         return number;
     }
 
-//    public static int getCurrentMonth(long currentDate){
-//        Calendar mCurrentCa = Calendar.getInstance();
-//        mCurrentCa.setTimeInMillis(currentDate);
-//        return mCurrentCa.get(Calendar.MONTH);
-//    }
-//
-//    public static int getCurrentYear(long currentDate){
-//        Calendar mCurrentCa = Calendar.getInstance();
-//        mCurrentCa.setTimeInMillis(currentDate);
-//        return mCurrentCa.get(Calendar.YEAR);
-//    }
-
     public static String getThuMayLaMung1(int thisMonth, int thisYear){
         String thuMayLaMung1 = "";
         Calendar c = Calendar.getInstance();
@@ -225,13 +212,13 @@ public class Utils {
         return maxDay;
     }
 
-    public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth){
+    public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth, int month, int year){
         ArrayList<CalendarItem> mListItem = new ArrayList<>();
         for(int i = 0; i < numberOfDataNull; i++){
-            mListItem.add(new CalendarItem(null, null));
+            mListItem.add(new CalendarItem(null, "", "", ""));
         }
         for (int i = 1; i <= maxDayInMonth; i++){
-            mListItem.add(new CalendarItem(null, i+""));
+            mListItem.add(new CalendarItem(null, i+"", month+"", year+""));
         }
         return mListItem;
     }

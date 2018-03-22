@@ -94,4 +94,17 @@
     <string name="turn_off">Tanca</string>
     <string name="days_to_give_birth">dies per donar a llum</string>
 
+    <string name="guess">Guess</string>
+    <string name="add_menstruation">Afegiu la menstruació</string>
+    <string name="conception">Concepció</string>
+    <string name="the_average_value">El valor mitjà</string>
+    <string name="menstrual_period">Període menstrual ............</string>
+    <string name="cycle_length">Durada del cicle ................</string>
+    <string name="cycle_mean_value">Valor mitjà del cicle</string>
+    <string name="begin">Comença</string>
+    <string name="finish">Acaba</string>
+    <string name="day_average_cycle_length"> dia, durada mitjana del cicle</string>
+    <string name="day_the_average_length_of_the_period"> dia, la durada mitjana del període</string>
+    <string name="length_days">Durada (dies)</string>
+
 </resources>
