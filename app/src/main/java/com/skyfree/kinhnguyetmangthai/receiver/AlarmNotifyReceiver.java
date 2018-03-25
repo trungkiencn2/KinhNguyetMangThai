@@ -69,7 +69,7 @@ public class AlarmNotifyReceiver extends BroadcastReceiver {
     private void pushNotify(String title, Context context, String msg) {
         NotificationCompat.Builder mBuilder;
         mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_app)
                 .setContentTitle(title)
                 .setContentText(msg)
                 .setDefaults(

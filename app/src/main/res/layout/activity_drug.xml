@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/muoi_dp"
+    android:background="@color/colorProcessBackgroundColorBlur"
+    tools:context="com.skyfree.kinhnguyetmangthai.activity.DrugActivity">
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/nam_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:id="@+id/img_back_drug"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_back"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/nam_dp"
+            android:textColor="@color/colorDone"
+            android:textSize="@dimen/hai_lam_sp"
+            android:gravity="center_vertical"
+            android:layout_weight="8"
+            android:text="@string/add_medicine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_done_drug"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_done"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/nam_dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linear_birth_control_pills"
+                android:background="@color/colorProcessBackgroundColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bon_muoi_dp">
+
+                <TextView
+                    android:textColor="@color/colorDone"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/contraceptives"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="9"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/muoi_dp"
+                    android:src="@drawable/ic_add"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/mot_dp"
+                android:layout_marginTop="@dimen/mot_dp"
+                android:background="@drawable/bg_divide"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_birth_control_pills_drug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+
+            <LinearLayout
+                android:id="@+id/linear_other_drug"
+                android:background="@color/colorProcessBackgroundColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bon_muoi_dp">
+
+                <TextView
+                    android:textColor="@color/colorDone"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/other_drug"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="9"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/muoi_dp"
+                    android:src="@drawable/ic_add"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/mot_dp"
+                android:layout_marginTop="@dimen/mot_dp"
+                android:background="@drawable/bg_divide"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_other_drug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+
+        </LinearLayout>
+
+</LinearLayout>

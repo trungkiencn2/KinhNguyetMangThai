@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.skyfree.kinhnguyetmangthai.activity.MoodActivity">
+
+    <LinearLayout
+        android:background="@color/colorGuessBlur"
+        android:padding="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_back_mood_add_note"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_back_white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="@dimen/muoi_dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/hai_lam_sp"
+            android:text="@string/more_mood"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_done_mood_add_note"
+            android:src="@drawable/ic_done_white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_weight="9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/muoi_dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_mood_normal"
+                    android:src="@drawable/icon_mood_normal"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_sad"
+                    android:src="@drawable/icon_mood_grieved"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/sad"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_sleepy"
+                    android:src="@drawable/icon_mood_sleepy"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/sleepy"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_strees"
+                    android:src="@drawable/icon_mood_stressed"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/strees"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_boring"
+                    android:src="@drawable/icon_mood_bored"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/boring"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_dizzy"
+                    android:src="@drawable/icon_mood_tense"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/dizzy"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_rough"
+                    android:src="@drawable/icon_mood_grumpy"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/rough"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_allergy"
+                    android:src="@drawable/icon_mood_angelic"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/allergy"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_inlove"
+                    android:src="@drawable/icon_mood_in_love"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/in_love"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+                <ImageView
+                    android:id="@+id/img_mood_jealous"
+                    android:src="@drawable/icon_mood_jealous"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/jealous"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_disappoinm"
+                    android:src="@drawable/icon_mood_frustrated"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/disappointment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/muoi_dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_mood_monocotyle"
+                    android:src="@drawable/icon_mood_evil"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/monocotyledon"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_forgetful"
+                    android:src="@drawable/icon_mood_forgetful"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/forgetful"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_miserable"
+                    android:src="@drawable/icon_mood_misery"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/miserable"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_panic"
+                    android:src="@drawable/icon_mood_panic"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/panic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_notsafe"
+                    android:src="@drawable/icon_mood_unsafe"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/not_safe"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_exhausted"
+                    android:src="@drawable/icon_mood_exhausted"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/exhausted"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_worry"
+                    android:src="@drawable/icon_mood_worry"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/worry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_hadtounderstand"
+                    android:src="@drawable/icon_mood_weird"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/hard_to_understand"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_heartless"
+                    android:src="@drawable/icon_mood_harsh"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/heartless"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_incredulous"
+                    android:src="@drawable/icon_mood_distrustful"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/incredulous"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_naughty"
+                    android:src="@drawable/icon_mood_frisky"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/naughty"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:padding="@dimen/muoi_dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_mood_weak"
+                    android:src="@drawable/icon_mood_cranky"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/weak"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_bad"
+                    android:src="@drawable/icon_mood_morose"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/bad"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_hasty"
+                    android:src="@drawable/icon_mood_not_patient"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/hasty"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_satisfy"
+                    android:src="@drawable/icon_mood_satisfied"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/satisfy"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_attenuate"
+                    android:src="@drawable/icon_mood_depressed"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/attenuate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_good"
+                    android:src="@drawable/icon_mood_pleased"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/good"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_proud"
+                    android:src="@drawable/icon_mood_proud"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/proud"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_confident"
+                    android:src="@drawable/icon_mood_confident"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/confident"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_angry"
+                    android:src="@drawable/icon_mood_angry"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/angry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+                <ImageView
+                    android:id="@+id/img_mood_thin"
+                    android:src="@drawable/icon_mood_ill"
+                    android:layout_width="@dimen/nam_muoi_dp"
+                    android:layout_height="@dimen/nam_muoi_dp" />
+
+                <TextView
+                    android:textSize="@dimen/muoi_sp"
+                    android:gravity="center"
+                    android:text="@string/thin"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hai_muoi_dp"
+                    android:layout_marginBottom="@dimen/muoi_dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

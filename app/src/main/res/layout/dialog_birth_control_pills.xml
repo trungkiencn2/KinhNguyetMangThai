@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center_vertical"
+            android:text="Thuốc tránh thai"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_done_dialog_birth_control_pills"
+            android:src="@drawable/ic_done"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:src="@drawable/pill_brith_control"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center_vertical"
+            android:text="Thuốc tránh thai"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/cb_pill_birth_control"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:src="@drawable/pill_injection"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center_vertical"
+            android:text="Tiêm"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/cb_injection"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:src="@drawable/pill_patch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center_vertical"
+            android:text="Băng"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/cb_patch"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:src="@drawable/pill_vring"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center_vertical"
+            android:text="Vòng âm đạo"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <CheckBox
+            android:id="@+id/cb_vring"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

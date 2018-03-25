@@ -175,6 +175,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 startActivity(new Intent(this, ChartActivity.class));
                 break;
             case R.id.linear_note:
+                startActivity(new Intent(this, NoteActivity.class));
                 break;
         }
     }

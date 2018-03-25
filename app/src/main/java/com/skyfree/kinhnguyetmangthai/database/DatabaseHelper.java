@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.skyfree.kinhnguyetmangthai.model.Acount;
+import com.skyfree.kinhnguyetmangthai.model.Note;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_QUESTION = "KEY_QUESTION";
     private static final String KEY_ANSWER = "KEY_ANSWER";
 
+    private static final String TABLE_NOTE = "TABLE_NOTE";
+    private static final String KEY_DATE_NOTE = "KEY_DATA_NOTE";
+    private static final String KEY_MONTH_NOTE = "KEY_MONTH_NOTE";
+    private static final String KEY_YEAR_NOTE = "KEY_YEAR_NOTE";
+    private static final String KEY_LUONGKINH_NOTE = "KEY_LUONGKINH_NOTE";
+    private static final String KEY_GHICHU_NOTE = "KEY_GHICHU_NOTE";
+    private static final String KEY_THUOC_NOTE = "KEY_THUOC_NOTE";
+    private static final String KEY_TRIEUCHUNG_NOTE = "KEY_TRIEUCHUNG_NOTE";
+    private static final String KEY_TAMTRANG_NOTE = "KEY_TAMTRANG_NOTE";
+    private static final String KEY_CANNANG_NOTE = "KEY_CANNANG_NOTE";
+    private static final String KEY_NHIETDO_NOTE = "KEY_NHIETDO_NOTE";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,7 +50,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_CONFIRM_PASS + " TEXT,"
                 + KEY_QUESTION + " TEXT,"
                 + KEY_ANSWER + " TEXT" + ")";
+
+        String CREATE_NOTE_TABLE = "CREATE TABLE " + TABLE_NOTE + "("
+                + KEY_DATE_NOTE + " INTEGER,"
+                + KEY_MONTH_NOTE + " INTEGER,"
+                + KEY_YEAR_NOTE + " INTEGER,"
+                + KEY_LUONGKINH_NOTE + " TEXT,"
+                + KEY_GHICHU_NOTE + " TEXT,"
+                + KEY_THUOC_NOTE + " TEXT,"
+                + KEY_TRIEUCHUNG_NOTE + " TEXT,"
+                + KEY_TAMTRANG_NOTE + " TEXT,"
+                + KEY_CANNANG_NOTE + " TEXT,"
+                + KEY_NHIETDO_NOTE + " TEXT" + ")";
+
         db.execSQL(CREATE_ACOUNT_TABLE);
+        db.execSQL(CREATE_NOTE_TABLE);
     }
 
     @Override
@@ -57,9 +84,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void addNote(Note note){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+//        values.put(KEY_DATE_NOTE, note.getDate());
+//        values.put(KEY_MONTH_NOTE, note.getMonth());
+//        values.put(KEY_YEAR_NOTE, note.getYear());
+//        values.put(KEY_LUONGKINH_NOTE, note.getLuongKinh());
+//        values.put(KEY_GHICHU_NOTE, note.getGhiChu());
+//        values.put(KEY_THUOC_NOTE, note.getThuoc());
+//        values.put(KEY_TRIEUCHUNG_NOTE, note.getTrieuChung());
+//        values.put(KEY_TAMTRANG_NOTE, note.getTamTrang());
+//        values.put(KEY_CANNANG_NOTE, note.getCanNang());
+//        values.put(KEY_NHIETDO_NOTE, note.getNhietDo());
+        db.insert(TABLE_NOTE, null, values);
+        db.close();
+    }
+
     public void deleteAllAcount() {
         SQLiteDatabase db = this.getWritableDatabase();
         String sql = "delete from " + TABLE_ACOUNT;
+        db.execSQL(sql);
+        db.close();
+    }
+
+    public void deleteAllNote(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "delete from " + TABLE_NOTE;
         db.execSQL(sql);
         db.close();
     }
@@ -73,6 +124,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             mListAcount.add(new Acount(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)));
         }
         return mListAcount;
+    }
+
+    public ArrayList<Note> getListNote(){
+        ArrayList<Note> mListNote = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "select " + KEY_DATE_NOTE + "," + KEY_MONTH_NOTE + "," + KEY_YEAR_NOTE
+                + "," + KEY_LUONGKINH_NOTE
+                + "," + KEY_GHICHU_NOTE + "," + KEY_THUOC_NOTE + "," + KEY_TRIEUCHUNG_NOTE
+                + "," + KEY_TAMTRANG_NOTE + "," + KEY_CANNANG_NOTE
+                + "," + KEY_NHIETDO_NOTE + " from " + TABLE_NOTE;
+        Cursor cursor = db.rawQuery(sql, null);
+//        while (cursor.moveToNext()) {
+//            mListNote.add(new Note(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4),
+//                    cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9)));
+//        }
+        return mListNote;
+
     }
 }
 

@@ -41,7 +41,12 @@
         <activity android:name=".activity.MaternityActivity" />
         <activity android:name=".activity.OptionPregnantActivity" />
         <activity android:name=".activity.ChartActivity" />
-        <activity android:name=".activity.DiaryActivity"></activity>
+        <activity android:name=".activity.DiaryActivity" />
+        <activity android:name=".activity.NoteActivity" />
+        <activity android:name=".activity.NoteAddNoteActivity" />
+        <activity android:name=".activity.MoodActivity" />
+        <activity android:name=".activity.DrugActivity" />
+        <activity android:name=".activity.SymptomActivity"></activity>
     </application>
 
 </manifest>

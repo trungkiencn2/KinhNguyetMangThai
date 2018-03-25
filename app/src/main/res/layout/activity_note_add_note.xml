@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_note_add_note"
+    tools:context="com.skyfree.kinhnguyetmangthai.activity.NoteAddNoteActivity">
+
+    <LinearLayout
+        android:padding="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/img_back_note_add_note"
+            android:src="@drawable/ic_back"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="@dimen/muoi_dp"
+            android:textSize="@dimen/hai_lam_sp"
+            android:gravity="center_vertical"
+            android:text="@string/add_note"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_done_note_add_note"
+            android:src="@drawable/ic_done"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+    <EditText
+        android:id="@+id/mEdt_note_add_note"
+        android:padding="@dimen/nam_dp"
+        android:gravity="left|top"
+        android:layout_weight="9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+</LinearLayout>

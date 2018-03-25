@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/mot_tram_dp">
+
+    <TextView
+        android:id="@+id/tv_item_drug"
+        android:textColor="@color/colorDone"
+        android:paddingLeft="@dimen/muoi_dp"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp" />
+
+</LinearLayout>

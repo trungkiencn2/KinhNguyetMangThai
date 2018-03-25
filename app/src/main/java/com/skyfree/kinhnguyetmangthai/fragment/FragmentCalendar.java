@@ -112,9 +112,6 @@ public class FragmentCalendar extends Fragment{
         return v;
     }
 
-    private DatabaseHelper mDb;
-
-
     @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);

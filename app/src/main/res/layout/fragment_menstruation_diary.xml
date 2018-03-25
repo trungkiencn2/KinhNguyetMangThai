@@ -16,12 +16,21 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:padding="@dimen/muoi_dp"
                 android:layout_margin="@dimen/muoi_dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textSize="@dimen/hai_muoi_sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/length_cycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/nam_dp"
                     android:gravity="center_vertical"
                     android:id="@+id/tv_top_fragment_menstruation_diary"
                     android:textSize="@dimen/muoi_lam_sp"

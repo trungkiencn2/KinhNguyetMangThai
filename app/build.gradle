@@ -32,13 +32,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:27.0.2'
     compile 'com.android.support:support-v4:27.0.2'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
-    testCompile 'junit:junit:4.12'
+    compile 'me.zhanghai.android.materialratingbar:library:1.2.0'
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+    testCompile 'junit:junit:4.12'
 }
-
-
-
-
-
-

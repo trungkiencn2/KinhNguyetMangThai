@@ -4,23 +4,21 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.receiver.AlarmNotifyReceiver;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
-import java.io.File;
+import java.util.Calendar;
 
 public class RemindActivity extends AppCompatActivity implements View.OnClickListener {
 
+//    private Calendar mCaNow = Calendar.getInstance();
     private Calendar mCaNow = Calendar.getInstance();
 
     private Switch mSwReportCycle, mSwReportPregnancy, mSwReportOvulation;
@@ -111,8 +109,6 @@ public class RemindActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
-
-
 
     private void startAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);

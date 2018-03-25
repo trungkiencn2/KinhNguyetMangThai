@@ -13,4 +13,6 @@
     <color name="colorBlur">#dcaeacac</color>
     <color name="colorGuessBlur">#dcf48a8a</color>
     <color name="colorProcessBackgroundColor">#66f48a8a</color>
+    <color name="colorProcessBackgroundColorBlur">#3bf59a9a</color>
+    <color name="colorDone">#776149</color>
 </resources>

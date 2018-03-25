@@ -1,5 +1,7 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -29,6 +31,28 @@ public class DiaryActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_menstruation);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_conception);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_ovulation);
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
+        tabLayout.setTabTextColors(Color.BLACK, Color.WHITE);
+        tabLayout.getTabAt(0).getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void initView(){
