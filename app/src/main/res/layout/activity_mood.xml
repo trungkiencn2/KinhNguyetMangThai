@@ -26,7 +26,7 @@
             android:textColor="@color/colorWhite"
             android:paddingLeft="@dimen/muoi_dp"
             android:gravity="center_vertical"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:text="@string/more_mood"
             android:layout_weight="8"
             android:layout_width="0dp"
@@ -109,7 +109,7 @@
                 <TextView
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
-                    android:text="@string/strees"
+                    android:text="@string/stress"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/hai_muoi_dp"
                     android:layout_marginBottom="@dimen/muoi_dp"/>

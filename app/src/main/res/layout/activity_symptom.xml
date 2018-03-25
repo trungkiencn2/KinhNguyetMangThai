@@ -1,9 +1,1246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.SymptomActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:background="@color/colorGuessBlur"
+        android:padding="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/img_back_symptom_activity"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_back_white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="@dimen/muoi_dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/hai_muoi_sp"
+            android:text="@string/add_symptoms"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_done_symptom_activity"
+            android:src="@drawable/ic_done_white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9">
+
+        <LinearLayout
+            android:padding="@dimen/muoi_dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_abdominal_cramps"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_abdominal_cramps"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Abdominal cramps"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_abdominal_cramps"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_anxiety"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_anxiety"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Anxiety"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_anxiety"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_astriction"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_astriction"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Astriction"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_astriction"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_backaches"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_backaches"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Backaches"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_backaches"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_bloating"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_bloating"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Bloating"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_bloating"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_body_aches"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_body_aches"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Body aches"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_body_aches"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_cervical_mucus"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_cervical_mucus"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Cervical mucus"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_cervical_mucus"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_chills"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_chills"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Chills"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_chills"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_confused"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_confused"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Confused"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_confused"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_cramps"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_cramps"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Cramps"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_cramps"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_creamy"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_creamy"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Creamy"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_creamy"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_diarrhea"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_diarrhea"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Diarrhea"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_diarrhea"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_dizziness"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_dizziness"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Dizziness"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_dizziness"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_dry"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_dry"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Dry"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_dry"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_dyspepsia"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_dyspepsia"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Dyspepsia"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_dyspepsia"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_fatigue"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_fatique"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Fatigue"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_fatigue"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_headaches"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_headaches"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Headaches"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_headaches"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_hectic_fever"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_hectic_fever"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Hectic fever"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_hectic_fever"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_hungry"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_hungry"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Hungry"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_hungry"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_illness"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_illness"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Illness"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_illness"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_influenza"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_influenza"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Influenza"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_influenza"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_insomnia"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_insomnia"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Insomnia"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_insomnia"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_irritability"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_irritability"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Irritability"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_irritability"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_irritation"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_irritation"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="Irritation"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_irritation"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_itch"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_itch"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/itch"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_itch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_migraine"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_migraine"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/migraine"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_migraine"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_neckaches"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_neckaches"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/neckaches"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_neckaches"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_night_sweat"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_night_sweat"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/night_sweat"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_night_sweat"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_pelvic_pain"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_pelvic_pain"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/pelvic_pain"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_pelvic_pain"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_pms"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_pms"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/pms"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_pms"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_queasiness"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_queasiness"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/queasiness"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_queasiness"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_rash"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_rash"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/rash"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_rash"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_shoulder_ache"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_shoulder_ache"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/shoulder_ache"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_shoulder_ache"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_spotting_bleeding"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_spotting_bleeding"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/spotting_bleeding"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_spotting_bleeding"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_sticky"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_sticky"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/sticky"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_sticky"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_stress"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_stress"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/stress"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_stress"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_tension"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_tension"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/tension"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_tension"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_watery"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_watery"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/watery"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_watery"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_weight_gain"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_weight_gain"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/weight_gain"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_weight_gain"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/nam_dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nam_muoi_dp">
+
+                <ImageView
+                    android:src="@drawable/icon_symp_with_blood"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv_symp_with_blood"
+                    android:paddingLeft="@dimen/muoi_dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:text="@string/with_blood"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/cb_symp_with_blood"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

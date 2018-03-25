@@ -1,9 +1,13 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -122,9 +126,33 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void weight(){
-
+        alertWeight();
     }
 
     private void temperature() {
+        alertTemperature();
+    }
+
+    private void alertWeight(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_weight, null);
+        dialogBuilder.setView(dialogView);
+
+        ImageView mImgBack = (ImageView) dialogView.findViewById(R.id.img_back_dialog_weight);
+        ImageView mImgDone = (ImageView) dialogView.findViewById(R.id.img_done_dialog_weight);
+        EditText mEdtWeight = (EditText) dialogView.findViewById(R.id.edt_weight_dialog_weight);
+        EditText mEdtHeight = (EditText) dialogView.findViewById(R.id.edt_height_dialog_weight);
+        TextView mTvPlusWeight = (TextView) dialogView.findViewById(R.id.tv_plus_weight_dialog_weight);
+        TextView mTvPlusHeight = (TextView) dialogView.findViewById(R.id.tv_plus_height_dialog_weight);
+        TextView mTvMinusWeight = (TextView) dialogView.findViewById(R.id.tv_minus_weight_dialog_weight);
+        TextView mTvMinusHeight = (TextView) dialogView.findViewById(R.id.tv_minus_height_dialog_weight);
+
+        final AlertDialog alertStartDialog = dialogBuilder.create();
+        alertStartDialog.show();
+    }
+
+    private void alertTemperature(){
+
     }
 }

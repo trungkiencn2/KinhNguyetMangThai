@@ -222,4 +222,15 @@ public class Utils {
         }
         return mListItem;
     }
+
+    public static boolean checkDataExist(ArrayList mList, String str){
+        if(mList.size()>0){
+            for (int i = 0; i<mList.size(); i++){
+                if (mList.get(i).equals(str)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

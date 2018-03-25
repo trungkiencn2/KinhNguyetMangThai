@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.adapter.ListOtherDrugAdapter;
 import com.skyfree.kinhnguyetmangthai.adapter.ListPillBirthControlAdapter;
+import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -113,11 +114,11 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbPillBirthControl.isChecked()){
-                    if(!checkDataExist(mListNow, getString(R.string.contraceptives))){
+                    if(!Utils.checkDataExist(mListNow, getString(R.string.contraceptives))){
                         mListNow.add(getString(R.string.contraceptives));
                     }
                 }else {
-                    if(checkDataExist(mListNow, getString(R.string.contraceptives))){
+                    if(Utils.checkDataExist(mListNow, getString(R.string.contraceptives))){
                         mListNow.remove(getString(R.string.contraceptives));
                     }
                 }
@@ -128,11 +129,11 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbInjection.isChecked()){
-                    if(!checkDataExist(mListNow, getString(R.string.inject))){
+                    if(!Utils.checkDataExist(mListNow, getString(R.string.inject))){
                         mListNow.add(getString(R.string.inject));
                     }
                 }else {
-                    if(checkDataExist(mListNow, getString(R.string.inject))){
+                    if(Utils.checkDataExist(mListNow, getString(R.string.inject))){
                         mListNow.remove(getString(R.string.inject));
                     }
                 }
@@ -143,11 +144,11 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbPatch.isChecked()){
-                    if(!checkDataExist(mListNow, getString(R.string.bandage))){
+                    if(!Utils.checkDataExist(mListNow, getString(R.string.bandage))){
                         mListNow.add(getString(R.string.bandage));
                     }
                 }else {
-                    if(checkDataExist(mListNow, getString(R.string.bandage))){
+                    if(Utils.checkDataExist(mListNow, getString(R.string.bandage))){
                         mListNow.remove(getString(R.string.bandage));
                     }
                 }
@@ -158,11 +159,11 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbVring.isChecked()){
-                    if(!checkDataExist(mListNow, getString(R.string.vaginal_ring))){
+                    if(!Utils.checkDataExist(mListNow, getString(R.string.vaginal_ring))){
                         mListNow.add(getString(R.string.vaginal_ring));
                     }
                 }else {
-                    if (checkDataExist(mListNow, getString(R.string.vaginal_ring))){
+                    if (Utils.checkDataExist(mListNow, getString(R.string.vaginal_ring))){
                         mListNow.remove(getString(R.string.vaginal_ring));
                     }
                 }
@@ -174,7 +175,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 if(mListNow.size()>0){
                     for (int i = 0; i<mListNow.size(); i++){
-                        if(!checkDataExist(mListPill, mListNow.get(i))){
+                        if(!Utils.checkDataExist(mListPill, mListNow.get(i))){
                             mListPill.add(mListNow.get(i));
                         }
                     }
@@ -209,7 +210,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(!mEdtEnter.getText().toString().equals("")){
-                    if(!checkDataExist(mListOtherDrug, mEdtEnter.getText().toString())){
+                    if(!Utils.checkDataExist(mListOtherDrug, mEdtEnter.getText().toString())){
                         mListOtherDrug.add(mEdtEnter.getText().toString());
                     }
                 }
@@ -217,16 +218,5 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
                 alertStartDialog.cancel();
             }
         });
-    }
-
-    private boolean checkDataExist(ArrayList mList, String str){
-        if(mList.size()>0){
-            for (int i = 0; i<mList.size(); i++){
-                if (mList.get(i).equals(str)){
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }

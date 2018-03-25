@@ -25,7 +25,7 @@
         <TextView
             android:layout_marginLeft="@dimen/nam_dp"
             android:textColor="@color/colorDone"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:gravity="center_vertical"
             android:layout_weight="8"
             android:text="@string/add_note"
