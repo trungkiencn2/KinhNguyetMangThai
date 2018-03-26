@@ -35,4 +35,5 @@ dependencies {
     compile 'me.zhanghai.android.materialratingbar:library:1.2.0'
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     testCompile 'junit:junit:4.12'
+    compile 'io.realm:realm-android:0.84.1'
 }

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/tram_nam_muoi_dp"
+    android:background="@drawable/bg_note_add_note">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nam_muoi_dp"
+        android:padding="@dimen/muoi_dp">
+
+        <ImageView
+            android:id="@+id/img_back_dialog_temperature"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/muoi_dp"
+            android:text="@string/temperature"
+            android:textColor="@color/colorDone"
+            android:textSize="@dimen/hai_muoi_sp" />
+
+        <ImageView
+            android:id="@+id/img_done_dialog_temperature"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_done" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"
+        android:background="@color/colorDivide"></LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/muoi_dp"
+        android:layout_marginLeft="@dimen/muoi_dp"
+        android:gravity="center"
+        android:padding="@dimen/muoi_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_tram_dp">
+
+        <EditText
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:inputType="numberDecimal"
+            android:id="@+id/edt_dialog_temperature"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nam_muoi_dp"
+            android:layout_weight="2"
+            android:background="@color/colorProcessBackgroundColorBlur"
+            android:gravity="center"
+            android:text="37"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/hai_muoi_sp" />
+
+        <TextView
+            android:layout_weight="0.1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/hai_muoi_sp"
+            android:gravity="center"
+            android:text="°C"
+            android:background="@color/colorProcessBackgroundColorBlur"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nam_muoi_dp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_plus_dialog_temperature"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="@dimen/ba_muoi_sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:background="@color/colorDivide"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mot_dp" />
+
+            <TextView
+                android:id="@+id/tv_minus_dialog_temperature"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="@dimen/ba_muoi_sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

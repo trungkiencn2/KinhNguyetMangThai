@@ -180,7 +180,6 @@
     <string name="inject">注射する</string>
     <string name="bandage">包帯</string>
     <string name="enter_name_drug">薬の名前を入力してください</string>
-
     <string name="abdominal_cramps">腹部のけいれん</string>
     <string name="anxiety">不安</string>
     <string name="astriction">ゆがみ</string>
@@ -225,5 +224,23 @@
     <string name="height">高さ</string>
     <string name="on">に</string>
     <string name="off">オフ</string>
+
+    極端な重量の欠如
+    重度の体重減少
+    アンダーウェイト
+    全重量
+    太りすぎ
+    かなりの脂肪
+    とても太っている
+    脂肪
+
+    <string name="lack_of_extreme_weight">極端な重量の欠如</string>
+    <string name="severe_weight_loss">重度の体重減少</string>
+    <string name="underweight">アンダーウェイト</string>
+    <string name="full_weight">全重量</string>
+    <string name="overweight">太りすぎ</string>
+    <string name="quite_fat">かなりの脂肪</string>
+    <string name="very_fat">とても太っている</string>
+    <string name="fat">脂肪</string>
 
 </resources>

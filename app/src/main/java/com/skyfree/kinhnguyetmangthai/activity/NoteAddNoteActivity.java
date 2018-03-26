@@ -1,5 +1,7 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 public class NoteAddNoteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,6 +44,10 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
             case R.id.img_done_note_add_note:
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra(Utils.BACK_NOTE, mEdtNote.getText().toString());
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
                 break;
         }
     }

@@ -69,7 +69,8 @@
             android:layout_weight="9">
 
             <LinearLayout
-                android:padding="@dimen/muoi_dp"
+                android:paddingRight="@dimen/hai_muoi_dp"
+                android:paddingLeft="@dimen/hai_muoi_dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
@@ -122,13 +123,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_luongkinh"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/menstruation"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -147,6 +148,11 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/linear_note_add_note"
                         android:padding="@dimen/nam_dp"
                         android:layout_width="match_parent"
@@ -155,13 +161,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_ghichu"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/note"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -171,11 +177,16 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear_drug_add_note"
@@ -186,13 +197,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_thuoc"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/drug"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -202,11 +213,16 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear_symptom_add_note"
@@ -217,13 +233,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_trieuchung"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/symptom"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -233,11 +249,16 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear_mood_add_note"
@@ -248,13 +269,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_tamtrang"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/mood"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -264,11 +285,16 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear_weight_add_note"
@@ -279,13 +305,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_cannang"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/weight"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -295,11 +321,16 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:background="@drawable/bg_divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mot_dp"></LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear_temperature_add_note"
@@ -310,13 +341,13 @@
 
                         <ImageView
                             android:src="@drawable/ic_nhietdo"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
                         <TextView
                             android:text="@string/temperature"
-                            android:paddingLeft="@dimen/muoi_dp"
+                            android:paddingLeft="@dimen/muoi_lam_dp"
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
@@ -326,7 +357,7 @@
 
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 

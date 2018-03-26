@@ -46,8 +46,15 @@ public class Utils {
     public static final String FALSE = "FALSE";
     public static final String DANG_MANG_THAI= "DANG_MANG_THAI";
 
-    public Utils() {
-    }
+    public static final int REQUEST_NOTE = 1;
+    public static final int REQUEST_DRUG = 2;
+    public static final int REQUEST_SYMPTOM = 3;
+    public static final int REQUEST_MOOD = 4;
+
+    public static final String BACK_NOTE = "BACK_NOTE";
+    public static final String BACK_DRUG = "BACK_DRUG";
+    public static final String BACK_SYMPTOM = "BACK_SYMPTOM";
+    public static final String BACK_MOOD = "BACK_MOOD";
 
     public static int getmPositionToDay() {
         return mPositionToDay;

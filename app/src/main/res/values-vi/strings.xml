@@ -180,7 +180,6 @@
     <string name="inject">Tiêm</string>
     <string name="bandage">Băng bó</string>
     <string name="enter_name_drug">Nhập tên thuốc</string>
-
     <string name="abdominal_cramps">Đau bụng</string>
     <string name="anxiety">Sự lo ngại</string>
     <string name="astriction">Hụt hơi</string>
@@ -225,5 +224,14 @@
     <string name="height">Chiều cao</string>
     <string name="on">BẬT</string>
     <string name="off">TẮT</string>
+
+    <string name="lack_of_extreme_weight">Thiếu cân vô cùng trầm trọng</string>
+    <string name="severe_weight_loss">Thiếu cân trầm trọng</string>
+    <string name="underweight">Thiếu cân</string>
+    <string name="full_weight">Đủ cân</string>
+    <string name="overweight">Thừa cân</string>
+    <string name="quite_fat">Khá béo</string>
+    <string name="very_fat">Rất béo</string>
+    <string name="fat">Béo phì</string>
 
 </resources>

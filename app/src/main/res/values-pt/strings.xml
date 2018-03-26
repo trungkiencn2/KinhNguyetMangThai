@@ -180,7 +180,6 @@
     <string name="inject">Injetar</string>
     <string name="bandage">Curativo</string>
     <string name="enter_name_drug">Digite o nome do medicamento</string>
-
     <string name="abdominal_cramps">Cólicas abdominais</string>
     <string name="anxiety">Ansiedade</string>
     <string name="astriction">Astriction</string>
@@ -225,5 +224,14 @@
     <string name="height">Altura</string>
     <string name="on">EM</string>
     <string name="off">FORA</string>
+
+    <string name="lack_of_extreme_weight">Falta de peso extremo</string>
+    <string name="severe_weight_loss">Perda de peso grave</string>
+    <string name="underweight">Abaixo do peso</string>
+    <string name="full_weight">Peso total</string>
+    <string name="overweight">Excesso de peso</string>
+    <string name="quite_fat">Muito gordo</string>
+    <string name="very_fat">Muito gordo</string>
+    <string name="fat">Gordo</string>
 
 </resources>

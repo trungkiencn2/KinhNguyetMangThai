@@ -180,7 +180,6 @@
     <string name="inject">Injectar</string>
     <string name="bandage">Embenatge</string>
     <string name="enter_name_drug">Introduïu el nom del medicament</string>
-
     <string name="abdominal_cramps">Rampes abdominals</string>
     <string name="anxiety">Ansietat</string>
     <string name="astriction">Astricció</string>
@@ -225,5 +224,14 @@
     <string name="height">Alçada</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
+
+    <string name="lack_of_extreme_weight">Manca de pes extrem</string>
+    <string name="severe_weight_loss">Pèrdua de pes greu</string>
+    <string name="underweight">Underweight</string>
+    <string name="full_weight">Pes total</string>
+    <string name="overweight">Sobrepès</string>
+    <string name="quite_fat">Bastant greix</string>
+    <string name="very_fat">Molt greix</string>
+    <string name="fat">Greix</string>
 
 </resources>

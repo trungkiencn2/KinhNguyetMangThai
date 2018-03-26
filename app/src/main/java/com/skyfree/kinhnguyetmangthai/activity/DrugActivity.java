@@ -1,5 +1,7 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,9 +20,12 @@ import android.widget.TextView;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.adapter.ListOtherDrugAdapter;
 import com.skyfree.kinhnguyetmangthai.adapter.ListPillBirthControlAdapter;
+import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
+
+import io.realm.RealmList;
 
 public class DrugActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,6 +39,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> mListNow;
     private ArrayList<String> mListOtherDrug;
     private ArrayList<String> mListAllDrug;
+//    private RealmList<RealmDrug> mListAllDrug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +73,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
         mListPill = new ArrayList<>();
         mListNow = new ArrayList<>();
         mListOtherDrug = new ArrayList<>();
-        mListAllDrug = new ArrayList<>();
+//        mListAllDrug = new ArrayList<>();
 
         mPillAdapter = new ListPillBirthControlAdapter(this, mListPill);
         mLvBirthControlPills.setAdapter(mPillAdapter);
@@ -91,6 +97,10 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.img_done_drug:
                 mListAllDrug.addAll(mListOtherDrug);
                 mListAllDrug.addAll(mListPill);
+                Intent intent = new Intent();
+                intent.putStringArrayListExtra(Utils.BACK_DRUG, mListAllDrug);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
                 break;
         }
     }

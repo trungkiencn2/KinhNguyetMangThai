@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.skyfree.kinhnguyetmangthai.model.Acount;
-import com.skyfree.kinhnguyetmangthai.model.Note;
+import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 
 import java.util.ArrayList;
 
@@ -84,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addNote(Note note){
+    public void addNote(NoteObj note){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 //        values.put(KEY_DATE_NOTE, note.getDate());
@@ -126,8 +126,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mListAcount;
     }
 
-    public ArrayList<Note> getListNote(){
-        ArrayList<Note> mListNote = new ArrayList<>();
+    public ArrayList<NoteObj> getListNote(){
+        ArrayList<NoteObj> mListNote = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "select " + KEY_DATE_NOTE + "," + KEY_MONTH_NOTE + "," + KEY_YEAR_NOTE
                 + "," + KEY_LUONGKINH_NOTE
@@ -136,7 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "," + KEY_NHIETDO_NOTE + " from " + TABLE_NOTE;
         Cursor cursor = db.rawQuery(sql, null);
 //        while (cursor.moveToNext()) {
-//            mListNote.add(new Note(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4),
+//            mListNote.add(new NoteObj(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4),
 //                    cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9)));
 //        }
         return mListNote;

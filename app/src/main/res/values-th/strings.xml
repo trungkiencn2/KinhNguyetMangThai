@@ -180,7 +180,6 @@
     <string name="inject">ฉีด</string>
     <string name="bandage">ผ้าพันแผล</string>
     <string name="enter_name_drug">ใส่ชื่อของยา</string>
-
     <string name="abdominal_cramps">ปวดท้อง</string>
     <string name="anxiety">ความกังวล</string>
     <string name="astriction">วิปริต</string>
@@ -225,5 +224,14 @@
     <string name="height">ความสูง</string>
     <string name="on">บน</string>
     <string name="off">ปิด</string>
+
+    <string name="lack_of_extreme_weight">ขาดน้ำหนักมาก</string>
+    <string name="severe_weight_loss">การลดน้ำหนักอย่างรุนแรง</string>
+    <string name="underweight">ความหนักน้อย</string>
+    <string name="full_weight">น้ำหนักเต็ม</string>
+    <string name="overweight">หนักเกินพิกัด</string>
+    <string name="quite_fat">ค่อนข้างอ้วน</string>
+    <string name="very_fat">มีไขมันมาก</string>
+    <string name="fat">อ้วน</string>
 
 </resources>

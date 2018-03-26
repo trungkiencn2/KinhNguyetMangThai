@@ -180,7 +180,6 @@
     <string name="inject">Inject</string>
     <string name="bandage">Bandage</string>
     <string name="enter_name_drug">Enter the name of the drug</string>
-
     <string name="abdominal_cramps">Abdominal cramps</string>
     <string name="anxiety">Anxiety</string>
     <string name="astriction">Astriction</string>
@@ -226,5 +225,13 @@
     <string name="on">ON</string>
     <string name="off">OFF</string>
 
+    <string name="lack_of_extreme_weight">Lack of extreme weight</string>
+    <string name="severe_weight_loss">Severe weight loss</string>
+    <string name="underweight">Underweight</string>
+    <string name="full_weight">Full weight</string>
+    <string name="overweight">Over weight</string>
+    <string name="quite_fat">Quite fat</string>
+    <string name="very_fat">Very fat</string>
+    <string name="fat">Fat</string>
 
 </resources>
