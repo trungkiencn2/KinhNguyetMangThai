@@ -24,7 +24,9 @@ import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import io.realm.Realm;
 import io.realm.RealmList;
 
 public class DrugActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,17 +37,17 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
 
     private ListPillBirthControlAdapter mPillAdapter;
     private ListOtherDrugAdapter mOtherDrugAdapter;
-    private ArrayList<String> mListPill;
-    private ArrayList<String> mListNow;
-    private ArrayList<String> mListOtherDrug;
-    private ArrayList<String> mListAllDrug;
-//    private RealmList<RealmDrug> mListAllDrug;
+    private RealmList<RealmDrug> mListNow;
+    private RealmList<RealmDrug> mListAllDrug;
+    private RealmList<RealmDrug> mListDrug;
+    private RealmList<RealmDrug> mListOtherDrug;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug);
-
+        realm = Realm.getInstance(this);
         initView();
         addEvent();
     }
@@ -70,12 +72,12 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addEvent(){
-        mListPill = new ArrayList<>();
-        mListNow = new ArrayList<>();
-        mListOtherDrug = new ArrayList<>();
-//        mListAllDrug = new ArrayList<>();
+        mListNow = new RealmList<>();
+        mListAllDrug = new RealmList<>();
+        mListDrug = new RealmList<>();
+        mListOtherDrug = new RealmList<>();
 
-        mPillAdapter = new ListPillBirthControlAdapter(this, mListPill);
+        mPillAdapter = new ListPillBirthControlAdapter(this, mListDrug);
         mLvBirthControlPills.setAdapter(mPillAdapter);
 
         mOtherDrugAdapter = new ListOtherDrugAdapter(this, mListOtherDrug);
@@ -95,10 +97,16 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.img_done_drug:
+                mListAllDrug.addAll(mListDrug);
                 mListAllDrug.addAll(mListOtherDrug);
-                mListAllDrug.addAll(mListPill);
+
+                ArrayList<String> mListStringForResult = new ArrayList<>();
+                for (int i = 0; i<mListAllDrug.size(); i++){
+                    mListStringForResult.add(mListAllDrug.get(i).getmDrug());
+                }
+
                 Intent intent = new Intent();
-                intent.putStringArrayListExtra(Utils.BACK_DRUG, mListAllDrug);
+                intent.putStringArrayListExtra(Utils.BACK_DRUG, mListStringForResult);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
                 break;
@@ -124,12 +132,12 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbPillBirthControl.isChecked()){
-                    if(!Utils.checkDataExist(mListNow, getString(R.string.contraceptives))){
-                        mListNow.add(getString(R.string.contraceptives));
+                    if(!Utils.checkDrugExist(mListNow, getString(R.string.contraceptives))){
+                        mListNow.add(new RealmDrug(getString(R.string.contraceptives)));
                     }
                 }else {
-                    if(Utils.checkDataExist(mListNow, getString(R.string.contraceptives))){
-                        mListNow.remove(getString(R.string.contraceptives));
+                    if(Utils.checkDrugExist(mListNow, getString(R.string.contraceptives))){
+                        mListNow.remove(new RealmDrug(getString(R.string.contraceptives)));
                     }
                 }
             }
@@ -139,12 +147,12 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbInjection.isChecked()){
-                    if(!Utils.checkDataExist(mListNow, getString(R.string.inject))){
-                        mListNow.add(getString(R.string.inject));
+                    if(!Utils.checkDrugExist(mListNow, getString(R.string.inject))){
+                        mListNow.add(new RealmDrug(getString(R.string.inject)));
                     }
                 }else {
-                    if(Utils.checkDataExist(mListNow, getString(R.string.inject))){
-                        mListNow.remove(getString(R.string.inject));
+                    if(Utils.checkDrugExist(mListNow, getString(R.string.inject))){
+                        mListNow.remove(new RealmDrug(getString(R.string.inject)));
                     }
                 }
             }
@@ -154,12 +162,12 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbPatch.isChecked()){
-                    if(!Utils.checkDataExist(mListNow, getString(R.string.bandage))){
-                        mListNow.add(getString(R.string.bandage));
+                    if(!Utils.checkDrugExist(mListNow, getString(R.string.bandage))){
+                        mListNow.add(new RealmDrug(getString(R.string.bandage)));
                     }
                 }else {
-                    if(Utils.checkDataExist(mListNow, getString(R.string.bandage))){
-                        mListNow.remove(getString(R.string.bandage));
+                    if(Utils.checkDrugExist(mListNow, getString(R.string.bandage))){
+                        mListNow.remove(new RealmDrug(getString(R.string.bandage)));
                     }
                 }
             }
@@ -169,12 +177,12 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(mCbVring.isChecked()){
-                    if(!Utils.checkDataExist(mListNow, getString(R.string.vaginal_ring))){
-                        mListNow.add(getString(R.string.vaginal_ring));
+                    if(!Utils.checkDrugExist(mListNow, getString(R.string.vaginal_ring))){
+                        mListNow.add(new RealmDrug(getString(R.string.vaginal_ring)));
                     }
                 }else {
-                    if (Utils.checkDataExist(mListNow, getString(R.string.vaginal_ring))){
-                        mListNow.remove(getString(R.string.vaginal_ring));
+                    if (Utils.checkDrugExist(mListNow, getString(R.string.vaginal_ring))){
+                        mListNow.remove(new RealmDrug(getString(R.string.vaginal_ring)));
                     }
                 }
             }
@@ -185,8 +193,8 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 if(mListNow.size()>0){
                     for (int i = 0; i<mListNow.size(); i++){
-                        if(!Utils.checkDataExist(mListPill, mListNow.get(i))){
-                            mListPill.add(mListNow.get(i));
+                        if(!Utils.checkDrugExist(mListDrug, mListNow.get(i).getmDrug())){
+                            mListDrug.add(mListNow.get(i));
                         }
                     }
                 }
@@ -220,8 +228,8 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if(!mEdtEnter.getText().toString().equals("")){
-                    if(!Utils.checkDataExist(mListOtherDrug, mEdtEnter.getText().toString())){
-                        mListOtherDrug.add(mEdtEnter.getText().toString());
+                    if(!Utils.checkDrugExist(mListOtherDrug, mEdtEnter.getText().toString())){
+                        mListOtherDrug.add(new RealmDrug(mEdtEnter.getText().toString()));
                     }
                 }
                 mOtherDrugAdapter.notifyDataSetChanged();

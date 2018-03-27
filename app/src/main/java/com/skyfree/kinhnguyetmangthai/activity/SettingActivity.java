@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
+import io.realm.Realm;
+
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout mLinearMenstrualLength, mLinearCycleLength, mLinearOvulation,
@@ -27,13 +30,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private TextView mTvMenstrualLength, mTvCycleLength;
 
-    private SharedPreferences.Editor mEditor;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Utils.writeToFile(14 + "", Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE, this);
+        realm = Realm.getInstance(this);
         initView();
         addEvent();
     }
@@ -147,6 +151,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 getApplicationContext().deleteFile(Utils.FILE_REPORT_CYCLE);
                 getApplicationContext().deleteFile(Utils.FILE_REPORT_EASY_TO_CONCEIVE);
                 getApplicationContext().deleteFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE);
+                Utils.deleteAllNoteObj(realm);
 
                 Toast.makeText(SettingActivity.this, getString(R.string.you_just_delete_all_data), Toast.LENGTH_SHORT).show();
                 alertStartDialog.cancel();

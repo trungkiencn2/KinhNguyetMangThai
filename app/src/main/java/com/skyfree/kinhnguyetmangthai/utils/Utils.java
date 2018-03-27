@@ -9,6 +9,10 @@ import android.widget.Toast;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.activity.PasswordActivity;
 import com.skyfree.kinhnguyetmangthai.model.CalendarItem;
+import com.skyfree.kinhnguyetmangthai.model.NoteObj;
+import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
+import com.skyfree.kinhnguyetmangthai.model.RealmMood;
+import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,6 +22,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
 
 /**
  * Created by KienBeu on 3/9/2018.
@@ -44,7 +53,7 @@ public class Utils {
 
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
-    public static final String DANG_MANG_THAI= "DANG_MANG_THAI";
+    public static final String DANG_MANG_THAI = "DANG_MANG_THAI";
 
     public static final int REQUEST_NOTE = 1;
     public static final int REQUEST_DRUG = 2;
@@ -55,6 +64,14 @@ public class Utils {
     public static final String BACK_DRUG = "BACK_DRUG";
     public static final String BACK_SYMPTOM = "BACK_SYMPTOM";
     public static final String BACK_MOOD = "BACK_MOOD";
+
+    public static final String PUT_NOTE = "PUT_NOTE";
+    public static final String PUT_LIST_DRUG = "PUT_LIST_DRUG";
+    public static final String PUT_LIST_SYMPTOM = "PUT_LIST_SYMPTOM";
+    public static final String PUT_LIST_MOOD = "PUT_LIST_MOOD";
+
+    public static String STATE = "";
+    public static final String BACK_TO_RESULT = "BACK_TO_RESULT";
 
     public static int getmPositionToDay() {
         return mPositionToDay;
@@ -103,12 +120,12 @@ public class Utils {
         return ret;
     }
 
-    public static void sendPassToMail(Context mContext, String info){
+    public static void sendPassToMail(Context mContext, String info) {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"someone@gmail.com"});
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"someone@gmail.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, mContext.getString(R.string.subject_of_email));
-        i.putExtra(Intent.EXTRA_TEXT   , info);
+        i.putExtra(Intent.EXTRA_TEXT, info);
         try {
             mContext.startActivity(Intent.createChooser(i, mContext.getString(R.string.send)));
         } catch (android.content.ActivityNotFoundException ex) {
@@ -116,10 +133,10 @@ public class Utils {
         }
     }
 
-    public static void sendByGmail(Context mContext, String info, String mGmail){
+    public static void sendByGmail(Context mContext, String info, String mGmail) {
         Intent gmail = new Intent(Intent.ACTION_SEND);
         gmail.setPackage("com.google.android.gm");
-        gmail.putExtra(Intent.EXTRA_EMAIL, new String[] {mGmail});
+        gmail.putExtra(Intent.EXTRA_EMAIL, new String[]{mGmail});
         gmail.setData(Uri.parse(mGmail));
         gmail.putExtra(Intent.EXTRA_SUBJECT, mContext.getString(R.string.subject_of_email));
         gmail.setType("plain/text");
@@ -127,8 +144,8 @@ public class Utils {
         mContext.startActivity(gmail);
     }
 
-    public static int getDayLeftToDateEasyToConceive(int cycleLength){
-        switch (cycleLength){
+    public static int getDayLeftToDateEasyToConceive(int cycleLength) {
+        switch (cycleLength) {
             case 23:
                 return 4;
             case 24:
@@ -160,9 +177,9 @@ public class Utils {
         }
     }
 
-    public static int getNumberDataNull(String thuMayLaMung1){
+    public static int getNumberDataNull(String thuMayLaMung1) {
         int number = 0;
-        switch (thuMayLaMung1){
+        switch (thuMayLaMung1) {
             case "T2":
                 number = 1;
                 break;
@@ -188,7 +205,7 @@ public class Utils {
         return number;
     }
 
-    public static String getThuMayLaMung1(int thisMonth, int thisYear){
+    public static String getThuMayLaMung1(int thisMonth, int thisYear) {
         String thuMayLaMung1 = "";
         Calendar c = Calendar.getInstance();
         c.set(thisYear, thisMonth, 1);
@@ -211,7 +228,7 @@ public class Utils {
         return thuMayLaMung1;
     }
 
-    public static int getSoNgayTrong1Thang(int thisMonth, int thisYear){
+    public static int getSoNgayTrong1Thang(int thisMonth, int thisYear) {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, thisYear);
         c.set(Calendar.MONTH, thisMonth);
@@ -219,25 +236,129 @@ public class Utils {
         return maxDay;
     }
 
-    public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth, int month, int year){
+    public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth, int month, int year) {
         ArrayList<CalendarItem> mListItem = new ArrayList<>();
-        for(int i = 0; i < numberOfDataNull; i++){
+        for (int i = 0; i < numberOfDataNull; i++) {
             mListItem.add(new CalendarItem(null, "", "", ""));
         }
-        for (int i = 1; i <= maxDayInMonth; i++){
-            mListItem.add(new CalendarItem(null, i+"", month+"", year+""));
+        for (int i = 1; i <= maxDayInMonth; i++) {
+            mListItem.add(new CalendarItem(null, i + "", month + "", year + ""));
         }
         return mListItem;
     }
 
-    public static boolean checkDataExist(ArrayList mList, String str){
-        if(mList.size()>0){
-            for (int i = 0; i<mList.size(); i++){
-                if (mList.get(i).equals(str)){
+    public static boolean checkDrugExist(RealmList<RealmDrug> mList, String str) {
+        if (mList.size() > 0) {
+            for (int i = 0; i < mList.size(); i++) {
+                if (mList.get(i).getmDrug().equals(str)) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    public static boolean checkSymptomExist(RealmList<RealmSymptom> mList, String str) {
+        if (mList.size() > 0) {
+            for (int i = 0; i < mList.size(); i++) {
+                if (mList.get(i).getmSymptom().equals(str)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkMoodExist(RealmList<RealmMood> mList, String str) {
+        if (mList.size() > 0) {
+            for (int i = 0; i < mList.size(); i++) {
+                if (mList.get(i).getmMood().equals(str)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkNoteObjExistByDate(Realm realm, String id) {
+        RealmResults<NoteObj> mListNoteObj = realm.where(NoteObj.class).findAll();
+        for (int i = 0; i < mListNoteObj.size(); i++) {
+            if (id == mListNoteObj.get(i).getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkNoteObjExist(Realm realm, String id) {
+        RealmResults<NoteObj> mListNoteObj = getAllNoteObj(realm);
+        for (int i = 0; i < mListNoteObj.size(); i++) {
+            if (id.equals(mListNoteObj.get(i).getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void insertNoteObj(Realm realm, NoteObj noteObj) {
+
+        for(int i = 0; i<getAllNoteObj(realm).size(); i++){
+            Log.d("aaa list id ", getAllNoteObj(realm).get(i).getId());
+        }
+
+        if(!checkNoteObjExist(realm, noteObj.getId())){
+            realm.beginTransaction();
+            NoteObj noteObjTam = realm.createObject(NoteObj.class);
+            noteObjTam.setmNoteLuongKinh(noteObj.getmNoteLuongKinh());
+            noteObjTam.setmNoteNote(noteObj.getmNoteNote());
+            noteObjTam.setmListDrug(noteObj.getmListDrug());
+            noteObjTam.setmListSymptom(noteObj.getmListSymptom());
+            noteObjTam.setmListMood(noteObj.getmListMood());
+            realm.commitTransaction();
+        }
+    }
+
+    public static void updateNoteObj(Realm mRealm, String id, final NoteObj newNote) {
+        mRealm.beginTransaction();
+        NoteObj db = mRealm.where(NoteObj.class).equalTo("id", id).findFirst();
+        db.setmNoteLuongKinh(newNote.getmNoteLuongKinh());
+        db.setmNoteNote(newNote.getmNoteNote());
+        db.setmListDrug(newNote.getmListDrug());
+        db.setmListSymptom(newNote.getmListSymptom());
+        db.setmListMood(newNote.getmListMood());
+        db.setmNoteWeight(newNote.getmNoteWeight());
+        db.setmNoteTemperature(newNote.getmNoteTemperature());
+        mRealm.copyToRealmOrUpdate(db);
+        mRealm.commitTransaction();
+    }
+
+    public static void deleteNoteObj(Realm realm, final String id) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                RealmResults<NoteObj> rows = realm.where(NoteObj.class).equalTo("id", id).findAll();
+                rows.clear();
+
+            }
+        });
+    }
+
+    public static void deleteAllNoteObj(Realm realm) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                RealmResults<NoteObj> rows = realm.where(NoteObj.class).findAll();
+                rows.clear();
+            }
+        });
+    }
+
+    public static NoteObj getNoteObj(Realm realm, String id) {
+        NoteObj noteObj = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        return noteObj;
+    }
+
+    public static RealmResults<NoteObj> getAllNoteObj(Realm realm) {
+        return realm.where(NoteObj.class).findAll();
     }
 }

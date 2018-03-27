@@ -11,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import io.realm.RealmList;
 
 /**
  * Created by KienBeu on 3/25/2018.
@@ -22,9 +25,9 @@ import java.util.ArrayList;
 public class ListPillBirthControlAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<String> mListPillBirthControl;
+    private RealmList<RealmDrug> mListPillBirthControl;
 
-    public ListPillBirthControlAdapter(Context mContext, ArrayList<String> mListPillBirthControl) {
+    public ListPillBirthControlAdapter(Context mContext, RealmList<RealmDrug> mListPillBirthControl) {
         this.mContext = mContext;
         this.mListPillBirthControl = mListPillBirthControl;
     }
@@ -49,7 +52,7 @@ public class ListPillBirthControlAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mRow = inflater.inflate(R.layout.item_drug, null);
         TextView mTvDrug = (TextView) mRow.findViewById(R.id.tv_item_drug);
-        mTvDrug.setText(mListPillBirthControl.get(i));
+        mTvDrug.setText(mListPillBirthControl.get(i).getmDrug());
         return mRow;
     }
 }

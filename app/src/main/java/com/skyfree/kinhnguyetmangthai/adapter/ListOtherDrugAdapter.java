@@ -8,8 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
 
 import java.util.ArrayList;
+
+import io.realm.RealmList;
 
 /**
  * Created by KienBeu on 3/25/2018.
@@ -18,9 +21,9 @@ import java.util.ArrayList;
 public class ListOtherDrugAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<String> mListOtherDrug;
+    private RealmList<RealmDrug> mListOtherDrug;
 
-    public ListOtherDrugAdapter(Context mContext, ArrayList<String> mListOtherDrug) {
+    public ListOtherDrugAdapter(Context mContext, RealmList<RealmDrug> mListOtherDrug) {
         this.mContext = mContext;
         this.mListOtherDrug = mListOtherDrug;
     }
@@ -45,7 +48,7 @@ public class ListOtherDrugAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mRow = inflater.inflate(R.layout.item_drug, null);
         TextView mTvDrug = (TextView) mRow.findViewById(R.id.tv_item_drug);
-        mTvDrug.setText(mListOtherDrug.get(i));
+        mTvDrug.setText(mListOtherDrug.get(i).getmDrug());
         return mRow;
     }
 }

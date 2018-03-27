@@ -1,18 +1,21 @@
 package com.skyfree.kinhnguyetmangthai.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Objects;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by KienBeu on 3/21/2018.
  */
 
 public class NoteObj extends RealmObject{
-
-    private int mNoteDate, mNoteMonth, mNoteYear, mNoteLuongKinh;
+    @PrimaryKey
+    private String id;
+    private int mNoteLuongKinh;
     private String mNoteNote;
     private float mNoteWeight, mNoteTemperature;
 
@@ -20,28 +23,28 @@ public class NoteObj extends RealmObject{
     private RealmList<RealmSymptom> mListSymptom;
     private RealmList<RealmMood> mListMood;
 
-    public int getmNoteDate() {
-        return mNoteDate;
+    public NoteObj() {
     }
 
-    public void setmNoteDate(int mNoteDate) {
-        this.mNoteDate = mNoteDate;
+    public NoteObj(String id, int mNoteLuongKinh, String mNoteNote, float mNoteWeight, float mNoteTemperature, RealmList<RealmDrug> mListDrug, RealmList<RealmSymptom> mListSymptom, RealmList<RealmMood> mListMood) {
+
+        this.id = id;
+        this.mNoteLuongKinh = mNoteLuongKinh;
+        this.mNoteNote = mNoteNote;
+        this.mNoteWeight = mNoteWeight;
+        this.mNoteTemperature = mNoteTemperature;
+        this.mListDrug = mListDrug;
+        this.mListSymptom = mListSymptom;
+        this.mListMood = mListMood;
     }
 
-    public int getmNoteMonth() {
-        return mNoteMonth;
+    public String getId() {
+
+        return id;
     }
 
-    public void setmNoteMonth(int mNoteMonth) {
-        this.mNoteMonth = mNoteMonth;
-    }
-
-    public int getmNoteYear() {
-        return mNoteYear;
-    }
-
-    public void setmNoteYear(int mNoteYear) {
-        this.mNoteYear = mNoteYear;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getmNoteLuongKinh() {
@@ -97,24 +100,6 @@ public class NoteObj extends RealmObject{
     }
 
     public void setmListMood(RealmList<RealmMood> mListMood) {
-        this.mListMood = mListMood;
-    }
-
-    public NoteObj() {
-
-    }
-
-    public NoteObj(int mNoteDate, int mNoteMonth, int mNoteYear, int mNoteLuongKinh, String mNoteNote, float mNoteWeight, float mNoteTemperature, RealmList<RealmDrug> mListDrug, RealmList<RealmSymptom> mListSymptom, RealmList<RealmMood> mListMood) {
-
-        this.mNoteDate = mNoteDate;
-        this.mNoteMonth = mNoteMonth;
-        this.mNoteYear = mNoteYear;
-        this.mNoteLuongKinh = mNoteLuongKinh;
-        this.mNoteNote = mNoteNote;
-        this.mNoteWeight = mNoteWeight;
-        this.mNoteTemperature = mNoteTemperature;
-        this.mListDrug = mListDrug;
-        this.mListSymptom = mListSymptom;
         this.mListMood = mListMood;
     }
 }

@@ -10,9 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.model.RealmMood;
+import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmList;
 
 public class SymptomActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,7 +39,8 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
 
     private ImageView mImgBack, mImgDone;
 
-    private ArrayList<String> mListSymptom;
+    private RealmList<RealmSymptom> mListSymptom;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +51,8 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void addEvent() {
-        mListSymptom = new ArrayList<>();
+        mListSymptom = new RealmList<>();
+        realm = Realm.getInstance(this);
     }
 
     private void initView() {
@@ -181,443 +188,443 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.cb_symp_abdominal_cramps:
                 if (mCbAbdominal.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvAbdominal.getText().toString())) {
-                        mListSymptom.add(mTvAbdominal.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvAbdominal.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvAbdominal.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvAbdominal.getText().toString())) {
-                        mListSymptom.remove(mTvAbdominal.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvAbdominal.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvAbdominal.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_anxiety:
                 if (mCbAnxiet.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvAnxiet.getText().toString())) {
-                        mListSymptom.add(mTvAnxiet.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvAnxiet.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvAnxiet.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvAnxiet.getText().toString())) {
-                        mListSymptom.remove(mTvAnxiet.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvAnxiet.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvAnxiet.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_astriction:
                 if (mCbAstriction.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvAstriction.getText().toString())) {
-                        mListSymptom.add(mTvAstriction.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvAstriction.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvAstriction.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvAstriction.getText().toString())) {
-                        mListSymptom.remove(mTvAstriction.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvAstriction.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvAstriction.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_backaches:
                 if (mCbBackaches.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvBackaches.getText().toString())) {
-                        mListSymptom.add(mTvBackaches.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvBackaches.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvBackaches.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvBackaches.getText().toString())) {
-                        mListSymptom.remove(mTvBackaches.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvBackaches.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvBackaches.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_bloating:
                 if (mCbBloating.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvBloating.getText().toString())) {
-                        mListSymptom.add(mTvBloating.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvBloating.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvBloating.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvBloating.getText().toString())) {
-                        mListSymptom.remove(mTvBloating.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvBloating.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvBloating.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_body_aches:
                 if (mCbBodyAches.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mCbBodyAches.getText().toString())) {
-                        mListSymptom.add(mCbBodyAches.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mCbBodyAches.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mCbBodyAches.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mCbBodyAches.getText().toString())) {
-                        mListSymptom.remove(mCbBodyAches.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mCbBodyAches.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mCbBodyAches.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_cervical_mucus:
                 if (mCbCervical.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvCervical.getText().toString())) {
-                        mListSymptom.add(mTvCervical.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvCervical.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvCervical.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvCervical.getText().toString())) {
-                        mListSymptom.remove(mTvCervical.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvCervical.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvCervical.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_chills:
                 if (mCbChills.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvChills.getText().toString())) {
-                        mListSymptom.add(mTvChills.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvChills.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvChills.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvChills.getText().toString())) {
-                        mListSymptom.remove(mTvChills.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvChills.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvChills.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_confused:
                 if (mListSymptom.size() > 0) {
                     if (mCbConfused.isChecked()) {
-                        if (!Utils.checkDataExist(mListSymptom, mTvConfused.getText().toString())) {
-                            mListSymptom.add(mTvConfused.getText().toString());
+                        if (!Utils.checkSymptomExist(mListSymptom, mTvConfused.getText().toString())) {
+                            mListSymptom.add(new RealmSymptom(mTvConfused.getText().toString()));
                         }
                     } else {
-                        if (Utils.checkDataExist(mListSymptom, mTvConfused.getText().toString())) {
-                            mListSymptom.remove(mTvConfused.getText().toString());
+                        if (Utils.checkSymptomExist(mListSymptom, mTvConfused.getText().toString())) {
+                            mListSymptom.remove(new RealmSymptom(mTvConfused.getText().toString()));
                         }
                     }
                 }
                 break;
             case R.id.cb_symp_cramps:
                 if (mCbCramps.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvCramps.getText().toString())) {
-                        mListSymptom.add(mTvCramps.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvCramps.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvCramps.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvCramps.getText().toString())) {
-                        mListSymptom.remove(mTvCramps.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvCramps.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvCramps.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_creamy:
                 if (mCbCream.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvCream.getText().toString())) {
-                        mListSymptom.add(mTvCream.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvCream.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvCream.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvCream.getText().toString())) {
-                        mListSymptom.remove(mTvCream.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvCream.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvCream.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_diarrhea:
                 if (mCbDiarrhea.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvDiarrhea.getText().toString())) {
-                        mListSymptom.add(mTvDiarrhea.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvDiarrhea.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvDiarrhea.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvDiarrhea.getText().toString())) {
-                        mListSymptom.remove(mTvDiarrhea.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvDiarrhea.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvDiarrhea.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_dizziness:
                 if (mCbDizziness.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvDizziness.getText().toString())) {
-                        mListSymptom.add(mTvDizziness.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvDizziness.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvDizziness.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvDizziness.getText().toString())) {
-                        mListSymptom.remove(mTvDizziness.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvDizziness.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvDizziness.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_dry:
                 if (mCbDry.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvDry.getText().toString())) {
-                        mListSymptom.add(mTvDry.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvDry.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvDry.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvDry.getText().toString())) {
-                        mListSymptom.remove(mTvDry.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvDry.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvDry.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_dyspepsia:
                 if (mCbDyspepsia.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvDyspepsia.getText().toString())) {
-                        mListSymptom.add(mTvDyspepsia.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvDyspepsia.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvDyspepsia.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvDyspepsia.getText().toString())) {
-                        mListSymptom.remove(mTvDyspepsia.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvDyspepsia.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvDyspepsia.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_fatigue:
                 if (mCbFatigue.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvFatigue.getText().toString())) {
-                        mListSymptom.add(mTvFatigue.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvFatigue.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvFatigue.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvFatigue.getText().toString())) {
-                        mListSymptom.remove(mTvFatigue.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvFatigue.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvFatigue.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_headaches:
                 if (mCbHeadaches.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvHeadaches.getText().toString())) {
-                        mListSymptom.add(mTvHeadaches.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvHeadaches.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvHeadaches.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvHeadaches.getText().toString())) {
-                        mListSymptom.remove(mTvHeadaches.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvHeadaches.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvHeadaches.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_hectic_fever:
                 if (mCbHectic.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvHectic.getText().toString())) {
-                        mListSymptom.add(mTvHectic.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvHectic.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvHectic.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvHectic.getText().toString())) {
-                        mListSymptom.remove(mTvHectic.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvHectic.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvHectic.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_hungry:
                 if (mCbHungry.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvHungry.getText().toString())) {
-                        mListSymptom.add(mTvHungry.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvHungry.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvHungry.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvHungry.getText().toString())) {
-                        mListSymptom.remove(mTvHungry.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvHungry.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvHungry.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_illness:
                 if (mCbIllness.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvIllness.getText().toString())) {
-                        mListSymptom.add(mTvIllness.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvIllness.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvIllness.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvIllness.getText().toString())) {
-                        mListSymptom.remove(mTvIllness.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvIllness.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvIllness.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_influenza:
                 if (mCbInfluenza.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvInfluenza.getText().toString())) {
-                        mListSymptom.add(mTvInfluenza.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvInfluenza.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvInfluenza.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvInfluenza.getText().toString())) {
-                        mListSymptom.remove(mTvInfluenza.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvInfluenza.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvInfluenza.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_insomnia:
                 if (mCbInsomnia.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvInsomnia.getText().toString())) {
-                        mListSymptom.add(mTvInsomnia.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvInsomnia.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvInsomnia.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvInsomnia.getText().toString())) {
-                        mListSymptom.remove(mTvInsomnia.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvInsomnia.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvInsomnia.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_irritability:
                 if (mCbIrritability.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvIrritability.getText().toString())) {
-                        mListSymptom.add(mTvIrritability.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvIrritability.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvIrritability.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvIrritability.getText().toString())) {
-                        mListSymptom.remove(mTvIrritability.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvIrritability.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvIrritability.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_irritation:
                 if (mCbIrritation.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvIrritation.getText().toString())) {
-                        mListSymptom.add(mTvIrritation.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvIrritation.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvIrritation.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvIrritation.getText().toString())) {
-                        mListSymptom.remove(mTvIrritation.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvIrritation.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvIrritation.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_itch:
                 if (mCbItch.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvItch.getText().toString())) {
-                        mListSymptom.add(mTvItch.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvItch.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvItch.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvItch.getText().toString())) {
-                        mListSymptom.remove(mTvItch.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvItch.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvItch.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_migraine:
                 if (mCbMigraine.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvMigraine.getText().toString())) {
-                        mListSymptom.add(mTvMigraine.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvMigraine.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvMigraine.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvMigraine.getText().toString())) {
-                        mListSymptom.remove(mTvMigraine.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvMigraine.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvMigraine.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_neckaches:
                 if (mCbNeckaches.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvNeckaches.getText().toString())) {
-                        mListSymptom.add(mTvNeckaches.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvNeckaches.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvNeckaches.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvNeckaches.getText().toString())) {
-                        mListSymptom.remove(mTvNeckaches.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvNeckaches.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvNeckaches.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_night_sweat:
                 if (mCbNightSweat.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvNightSweat.getText().toString())) {
-                        mListSymptom.add(mTvNightSweat.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvNightSweat.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvNightSweat.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvNightSweat.getText().toString())) {
-                        mListSymptom.remove(mTvNightSweat.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvNightSweat.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvNightSweat.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_pelvic_pain:
                 if (mCbPelvicPain.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvPelvicPain.getText().toString())) {
-                        mListSymptom.add(mTvPelvicPain.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvPelvicPain.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvPelvicPain.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvPelvicPain.getText().toString())) {
-                        mListSymptom.remove(mTvPelvicPain.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvPelvicPain.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvPelvicPain.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_pms:
                 if (mCbPMS.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvPMS.getText().toString())) {
-                        mListSymptom.add(mTvPMS.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvPMS.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvPMS.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvPMS.getText().toString())) {
-                        mListSymptom.remove(mTvPMS.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvPMS.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvPMS.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_queasiness:
                 if (mCbQueasiness.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvQueasiness.getText().toString())) {
-                        mListSymptom.add(mTvQueasiness.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvQueasiness.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvQueasiness.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvQueasiness.getText().toString())) {
-                        mListSymptom.remove(mTvQueasiness.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvQueasiness.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvQueasiness.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_rash:
                 if (mCbRash.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvRash.getText().toString())) {
-                        mListSymptom.add(mTvRash.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvRash.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvRash.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvRash.getText().toString())) {
-                        mListSymptom.remove(mTvRash.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvRash.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvRash.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_shoulder_ache:
                 if (mCbShoulderAche.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvShoulderAche.getText().toString())) {
-                        mListSymptom.add(mTvShoulderAche.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvShoulderAche.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvShoulderAche.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvShoulderAche.getText().toString())) {
-                        mListSymptom.remove(mTvShoulderAche.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvShoulderAche.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvShoulderAche.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_spotting_bleeding:
                 if (mCbSpotting.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvSpotting.getText().toString())) {
-                        mListSymptom.add(mTvSpotting.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvSpotting.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvSpotting.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvSpotting.getText().toString())) {
-                        mListSymptom.remove(mTvSpotting.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvSpotting.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvSpotting.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_sticky:
                 if (mCbSticky.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvSticky.getText().toString())) {
-                        mListSymptom.add(mTvSticky.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvSticky.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvSticky.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvSticky.getText().toString())) {
-                        mListSymptom.remove(mTvSticky.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvSticky.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvSticky.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_stress:
                 if (mCbStress.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvStress.getText().toString())) {
-                        mListSymptom.add(mTvStress.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvStress.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvStress.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvStress.getText().toString())) {
-                        mListSymptom.remove(mTvStress.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvStress.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvStress.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_tension:
                 if (mCbTensi.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvTensi.getText().toString())) {
-                        mListSymptom.add(mTvTensi.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvTensi.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvTensi.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvTensi.getText().toString())) {
-                        mListSymptom.remove(mTvTensi.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvTensi.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvTensi.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_watery:
                 if (mCbWatery.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvWatery.getText().toString())) {
-                        mListSymptom.add(mTvWatery.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvWatery.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvWatery.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvWatery.getText().toString())) {
-                        mListSymptom.remove(mTvWatery.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvWatery.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvWatery.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_weight_gain:
                 if (mCbWeightGain.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvWeightGain.getText().toString())) {
-                        mListSymptom.add(mTvWeightGain.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvWeightGain.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvWeightGain.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvWeightGain.getText().toString())) {
-                        mListSymptom.remove(mTvWeightGain.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvWeightGain.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvWeightGain.getText().toString()));
                     }
                 }
                 break;
             case R.id.cb_symp_with_blood:
                 if (mCbWithBlood.isChecked()) {
-                    if (!Utils.checkDataExist(mListSymptom, mTvWithBlood.getText().toString())) {
-                        mListSymptom.add(mTvWithBlood.getText().toString());
+                    if (!Utils.checkSymptomExist(mListSymptom, mTvWithBlood.getText().toString())) {
+                        mListSymptom.add(new RealmSymptom(mTvWithBlood.getText().toString()));
                     }
                 } else {
-                    if (Utils.checkDataExist(mListSymptom, mTvWithBlood.getText().toString())) {
-                        mListSymptom.remove(mTvWithBlood.getText().toString());
+                    if (Utils.checkSymptomExist(mListSymptom, mTvWithBlood.getText().toString())) {
+                        mListSymptom.remove(new RealmSymptom(mTvWithBlood.getText().toString()));
                     }
                 }
                 break;
@@ -626,7 +633,13 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.img_done_symptom_activity:
                 Intent intent = new Intent();
-                intent.putStringArrayListExtra(Utils.BACK_SYMPTOM, mListSymptom);
+
+                ArrayList<String> mListSymptomArr = new ArrayList<>();
+                for(int i = 0; i<mListSymptom.size(); i++){
+                    mListSymptomArr.add(mListSymptom.get(i).getmSymptom());
+                }
+
+                intent.putStringArrayListExtra(Utils.BACK_SYMPTOM, mListSymptomArr);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
                 break;

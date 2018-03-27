@@ -34,7 +34,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void addEvent(){
-
+        mEdtNote.setText(getIntent().getStringExtra(Utils.PUT_NOTE));
     }
 
     @Override
@@ -44,6 +44,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
             case R.id.img_done_note_add_note:
+                Utils.STATE = Utils.BACK_TO_RESULT;
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra(Utils.BACK_NOTE, mEdtNote.getText().toString());
                 setResult(Activity.RESULT_OK,returnIntent);

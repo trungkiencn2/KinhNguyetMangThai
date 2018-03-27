@@ -12,9 +12,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.model.RealmMood;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmList;
 
 public class MoodActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,7 +40,8 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
             mCheckNaughty, mCheckWeak, mCheckBad, mCheckHasty, mCheckSatisfy,
             mCheckAttenuate, mCheckGood, mCheckProud, mCheckConfident, mCheckAngry, mCheckThin;
 
-    private ArrayList<String> mListMood;
+    private RealmList<RealmMood> mListMood;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +52,8 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addEvent() {
-        mListMood = new ArrayList<>();
+        mListMood = new RealmList<>();
+        realm = Realm.getInstance(this);
     }
 
     private void initView(){
@@ -130,13 +136,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckNormal = !mCheckNormal;
                 if(mCheckNormal){
                     mImgNormal.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.normal))){
-                        mListMood.add(getString(R.string.normal));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.normal))){
+                        mListMood.add(new RealmMood(getString(R.string.normal)));
                     }
                 }else {
                     mImgNormal.setBackgroundResource(0);
-                    if(Utils.checkDataExist(mListMood, getString(R.string.normal))){
-                        mListMood.remove(getString(R.string.normal));
+                    if(Utils.checkMoodExist(mListMood, getString(R.string.normal))){
+                        mListMood.remove(new RealmMood(getString(R.string.normal)));
                     }
                 }
                 break;
@@ -144,13 +150,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckSad = !mCheckSad;
                 if(mCheckSad){
                     mImgSad.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.sad))){
-                        mListMood.add(getString(R.string.sad));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.sad))){
+                        mListMood.add(new RealmMood(getString(R.string.sad)));
                     }
                 }else {
                     mImgSad.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.sad))){
-                        mListMood.remove(getString(R.string.sad));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.sad))){
+                        mListMood.remove(new RealmMood(getString(R.string.sad)));
                     }
                 }
                 break;
@@ -158,13 +164,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckSleepy = !mCheckSleepy;
                 if(mCheckSleepy){
                     mImgSleepy.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.sleepy))){
-                        mListMood.add(getString(R.string.sleepy));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.sleepy))){
+                        mListMood.add(new RealmMood(getString(R.string.sleepy)));
                     }
                 }else {
                     mImgSleepy.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.sleepy))){
-                        mListMood.remove(getString(R.string.sleepy));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.sleepy))){
+                        mListMood.remove(new RealmMood(getString(R.string.sleepy)));
                     }
                 }
                 break;
@@ -172,13 +178,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckStress = !mCheckStress;
                 if(mCheckStress){
                     mImgStress.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.stress))){
-                        mListMood.add(getString(R.string.stress));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.stress))){
+                        mListMood.add(new RealmMood(getString(R.string.stress)));
                     }
                 }else {
                     mImgStress.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.stress))){
-                        mListMood.remove(getString(R.string.stress));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.stress))){
+                        mListMood.remove(new RealmMood(getString(R.string.stress)));
                     }
                 }
                 break;
@@ -186,13 +192,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckBoring = !mCheckBoring;
                 if(mCheckBoring){
                     mImgBoring.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.boring))){
-                        mListMood.add(getString(R.string.boring));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.boring))){
+                        mListMood.add(new RealmMood(getString(R.string.boring)));
                     }
                 }else {
                     mImgBoring.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.boring))){
-                        mListMood.remove(getString(R.string.boring));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.boring))){
+                        mListMood.remove(new RealmMood(getString(R.string.boring)));
                     }
                 }
                 break;
@@ -200,13 +206,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckDizzy = !mCheckDizzy;
                 if(mCheckDizzy){
                     mImgDizzy.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.dizzy))){
-                        mListMood.add(getString(R.string.dizzy));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.dizzy))){
+                        mListMood.add(new RealmMood(getString(R.string.dizzy)));
                     }
                 }else {
                     mImgDizzy.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.dizzy))){
-                        mListMood.remove(getString(R.string.dizzy));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.dizzy))){
+                        mListMood.remove(new RealmMood(getString(R.string.dizzy)));
                     }
                 }
                 break;
@@ -214,13 +220,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckRough = !mCheckRough;
                 if(mCheckRough){
                     mImgRough.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.rough))){
-                        mListMood.add(getString(R.string.rough));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.rough))){
+                        mListMood.add(new RealmMood(getString(R.string.rough)));
                     }
                 }else {
                     mImgRough.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.rough))){
-                        mListMood.remove(getString(R.string.rough));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.rough))){
+                        mListMood.remove(new RealmMood(getString(R.string.rough)));
                     }
                 }
                 break;
@@ -228,13 +234,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckAllergy = !mCheckAllergy;
                 if(mCheckAllergy){
                     mImgAllergy.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.allergy))){
-                        mListMood.add(getString(R.string.allergy));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.allergy))){
+                        mListMood.add(new RealmMood(getString(R.string.allergy)));
                     }
                 }else {
                     mImgAllergy.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.allergy))){
-                        mListMood.remove(getString(R.string.allergy));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.allergy))){
+                        mListMood.remove(new RealmMood(getString(R.string.allergy)));
                     }
                 }
                 break;
@@ -242,13 +248,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckInLove = !mCheckInLove;
                 if(mCheckInLove){
                     mImgInLove.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.in_love))){
-                        mListMood.add(getString(R.string.in_love));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.in_love))){
+                        mListMood.add(new RealmMood(getString(R.string.in_love)));
                     }
                 }else {
                     mImgInLove.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.in_love))){
-                        mListMood.remove(getString(R.string.in_love));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.in_love))){
+                        mListMood.remove(new RealmMood(getString(R.string.in_love)));
                     }
                 }
                 break;
@@ -256,13 +262,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckJealous = !mCheckJealous;
                 if(mCheckJealous){
                     mImgJealous.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.jealous))){
-                        mListMood.add(getString(R.string.jealous));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.jealous))){
+                        mListMood.add(new RealmMood(getString(R.string.jealous)));
                     }
                 }else {
                     mImgJealous.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.jealous))){
-                        mListMood.remove(getString(R.string.jealous));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.jealous))){
+                        mListMood.remove(new RealmMood(getString(R.string.jealous)));
                     }
                 }
                 break;
@@ -270,13 +276,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckDisappoinment = !mCheckDisappoinment;
                 if(mCheckDisappoinment){
                     mImgDisappoinment.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.disappointment))){
-                        mListMood.add(getString(R.string.disappointment));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.disappointment))){
+                        mListMood.add(new RealmMood(getString(R.string.disappointment)));
                     }
                 }else {
                     mImgDisappoinment.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.disappointment))){
-                        mListMood.remove(getString(R.string.disappointment));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.disappointment))){
+                        mListMood.remove(new RealmMood(getString(R.string.disappointment)));
                     }
                 }
                 break;
@@ -284,13 +290,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckMonocotyledon = !mCheckMonocotyledon;
                 if(mCheckMonocotyledon){
                     mImgMonocotyledon.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.monocotyledon))){
-                        mListMood.add(getString(R.string.monocotyledon));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.monocotyledon))){
+                        mListMood.add(new RealmMood(getString(R.string.monocotyledon)));
                     }
                 }else {
                     mImgMonocotyledon.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.monocotyledon))){
-                        mListMood.remove(getString(R.string.monocotyledon));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.monocotyledon))){
+                        mListMood.remove(new RealmMood(getString(R.string.monocotyledon)));
                     }
                 }
                 break;
@@ -298,13 +304,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckForgetful = !mCheckForgetful;
                 if(mCheckForgetful){
                     mImgForgetful.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.forgetful))){
-                        mListMood.add(getString(R.string.forgetful));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.forgetful))){
+                        mListMood.add(new RealmMood(getString(R.string.forgetful)));
                     }
                 }else {
                     mImgForgetful.setBackgroundResource(0);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.forgetful))){
-                        mListMood.remove(getString(R.string.forgetful));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.forgetful))){
+                        mListMood.remove(new RealmMood(getString(R.string.forgetful)));
                     }
                 }
                 break;
@@ -312,13 +318,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckMiserable = !mCheckMiserable;
                 if(mCheckMiserable){
                     mImgMiserable.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.miserable))){
-                        mListMood.add(getString(R.string.miserable));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.miserable))){
+                        mListMood.add(new RealmMood(getString(R.string.miserable)));
                     }
                 }else {
                     mImgMiserable.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.miserable))){
-                        mListMood.remove(getString(R.string.miserable));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.miserable))){
+                        mListMood.remove(new RealmMood(getString(R.string.miserable)));
                     }
                 }
                 break;
@@ -326,13 +332,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckPanic = !mCheckPanic;
                 if(mCheckPanic){
                     mImgPanic.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.panic))){
-                        mListMood.add(getString(R.string.panic));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.panic))){
+                        mListMood.add(new RealmMood(getString(R.string.panic)));
                     }
                 }else {
                     mImgPanic.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.panic))){
-                        mListMood.remove(getString(R.string.panic));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.panic))){
+                        mListMood.remove(new RealmMood(getString(R.string.panic)));
                     }
                 }
                 break;
@@ -340,13 +346,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckNotSafe = !mCheckNotSafe;
                 if(mCheckNotSafe){
                     mImgNotSafe.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.not_safe))){
-                        mListMood.add(getString(R.string.not_safe));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.not_safe))){
+                        mListMood.add(new RealmMood(getString(R.string.not_safe)));
                     }
                 }else {
                     mImgNotSafe.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.not_safe))){
-                        mListMood.remove(getString(R.string.not_safe));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.not_safe))){
+                        mListMood.remove(new RealmMood(getString(R.string.not_safe)));
                     }
                 }
                 break;
@@ -354,13 +360,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckExhausted = !mCheckExhausted;
                 if(mCheckExhausted){
                     mImgExhausted.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.exhausted))){
-                        mListMood.add(getString(R.string.exhausted));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.exhausted))){
+                        mListMood.add(new RealmMood(getString(R.string.exhausted)));
                     }
                 }else {
                     mImgExhausted.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.exhausted))){
-                        mListMood.remove(getString(R.string.exhausted));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.exhausted))){
+                        mListMood.remove(new RealmMood(getString(R.string.exhausted)));
                     }
                 }
                 break;
@@ -368,13 +374,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckWorry = !mCheckWorry;
                 if(mCheckWorry){
                     mImgWorry.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.worry))){
-                        mListMood.add(getString(R.string.worry));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.worry))){
+                        mListMood.add(new RealmMood(getString(R.string.worry)));
                     }
                 }else {
                     mImgWorry.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.worry))){
-                        mListMood.remove(getString(R.string.worry));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.worry))){
+                        mListMood.remove(new RealmMood(getString(R.string.worry)));
                     }
                 }
                 break;
@@ -382,13 +388,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckHadTo = !mCheckHadTo;
                 if(mCheckHadTo){
                     mImgHadTo.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.hard_to_understand))){
-                        mListMood.add(getString(R.string.hard_to_understand));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.hard_to_understand))){
+                        mListMood.add(new RealmMood(getString(R.string.hard_to_understand)));
                     }
                 }else {
                     mImgHadTo.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.hard_to_understand))){
-                        mListMood.remove(getString(R.string.hard_to_understand));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.hard_to_understand))){
+                        mListMood.remove(new RealmMood(getString(R.string.hard_to_understand)));
                     }
                 }
                 break;
@@ -396,13 +402,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckHeartless = !mCheckHeartless;
                 if(mCheckHeartless){
                     mImgHeartless.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.heartless))){
-                        mListMood.add(getString(R.string.heartless));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.heartless))){
+                        mListMood.add(new RealmMood(getString(R.string.heartless)));
                     }
                 }else {
                     mImgHeartless.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.heartless))){
-                        mListMood.remove(getString(R.string.heartless));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.heartless))){
+                        mListMood.remove(new RealmMood(getString(R.string.heartless)));
                     }
                 }
                 break;
@@ -410,13 +416,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckIncredulous = !mCheckIncredulous;
                 if(mCheckIncredulous){
                     mImgIncredulous.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.incredulous))){
-                        mListMood.add(getString(R.string.incredulous));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.incredulous))){
+                        mListMood.add(new RealmMood(getString(R.string.incredulous)));
                     }
                 }else {
                     mImgIncredulous.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.incredulous))){
-                        mListMood.remove(getString(R.string.incredulous));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.incredulous))){
+                        mListMood.remove(new RealmMood(getString(R.string.incredulous)));
                     }
                 }
                 break;
@@ -424,13 +430,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckNaughty = !mCheckNaughty;
                 if(mCheckNaughty){
                     mImgNaughty.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.naughty))){
-                        mListMood.add(getString(R.string.naughty));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.naughty))){
+                        mListMood.add(new RealmMood(getString(R.string.naughty)));
                     }
                 }else {
                     mImgNaughty.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.naughty))){
-                        mListMood.remove(getString(R.string.naughty));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.naughty))){
+                        mListMood.remove(new RealmMood(getString(R.string.naughty)));
                     }
                 }
                 break;
@@ -438,13 +444,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckWeak = !mCheckWeak;
                 if(mCheckWeak){
                     mImgWeak.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.weak))){
-                        mListMood.add(getString(R.string.weak));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.weak))){
+                        mListMood.add(new RealmMood(getString(R.string.weak)));
                     }
                 }else {
                     mImgWeak.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.weak))){
-                        mListMood.remove(getString(R.string.weak));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.weak))){
+                        mListMood.remove(new RealmMood(getString(R.string.weak)));
                     }
                 }
                 break;
@@ -452,13 +458,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckBad = !mCheckBad;
                 if(mCheckBad){
                     mImgBad.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.bad))){
-                        mListMood.add(getString(R.string.bad));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.bad))){
+                        mListMood.add(new RealmMood(getString(R.string.bad)));
                     }
                 }else {
                     mImgBad.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.bad))){
-                        mListMood.remove(getString(R.string.bad));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.bad))){
+                        mListMood.remove(new RealmMood(getString(R.string.bad)));
                     }
                 }
                 break;
@@ -466,13 +472,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckHasty = !mCheckHasty;
                 if(mCheckHasty){
                     mImgHasty.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.hasty))){
-                        mListMood.add(getString(R.string.hasty));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.hasty))){
+                        mListMood.add(new RealmMood(getString(R.string.hasty)));
                     }
                 }else {
                     mImgHasty.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.hasty))){
-                        mListMood.remove(getString(R.string.hasty));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.hasty))){
+                        mListMood.remove(new RealmMood(getString(R.string.hasty)));
                     }
                 }
                 break;
@@ -480,13 +486,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckSatisfy = !mCheckSatisfy;
                 if(mCheckSatisfy){
                     mImgSatisfy.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.satisfy))){
-                        mListMood.add(getString(R.string.satisfy));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.satisfy))){
+                        mListMood.add(new RealmMood(getString(R.string.satisfy)));
                     }
                 }else {
                     mImgSatisfy.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.satisfy))){
-                        mListMood.remove(getString(R.string.satisfy));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.satisfy))){
+                        mListMood.remove(new RealmMood(getString(R.string.satisfy)));
                     }
                 }
                 break;
@@ -494,13 +500,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckAttenuate = !mCheckAttenuate;
                 if(mCheckAttenuate){
                     mImgAttenuate.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.attenuate))){
-                        mListMood.add(getString(R.string.attenuate));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.attenuate))){
+                        mListMood.add(new RealmMood(getString(R.string.attenuate)));
                     }
                 }else {
                     mImgAttenuate.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.attenuate))){
-                        mListMood.remove(getString(R.string.attenuate));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.attenuate))){
+                        mListMood.remove(new RealmMood(getString(R.string.attenuate)));
                     }
                 }
                 break;
@@ -508,13 +514,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckGood = !mCheckGood;
                 if(mCheckGood){
                     mImgGood.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.good))){
-                        mListMood.add(getString(R.string.good));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.good))){
+                        mListMood.add(new RealmMood(getString(R.string.good)));
                     }
                 }else {
                     mImgGood.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.good))){
-                        mListMood.remove(getString(R.string.good));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.good))){
+                        mListMood.remove(new RealmMood(getString(R.string.good)));
                     }
                 }
                 break;
@@ -522,13 +528,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckProud = !mCheckProud;
                 if(mCheckProud){
                     mImgProud.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.proud))){
-                        mListMood.add(getString(R.string.proud));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.proud))){
+                        mListMood.add(new RealmMood(getString(R.string.proud)));
                     }
                 }else {
                     mImgProud.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.proud))){
-                        mListMood.remove(getString(R.string.proud));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.proud))){
+                        mListMood.remove(new RealmMood(getString(R.string.proud)));
                     }
                 }
                 break;
@@ -536,13 +542,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckConfident = !mCheckConfident;
                 if(mCheckConfident){
                     mImgConfident.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.confident))){
-                        mListMood.add(getString(R.string.confident));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.confident))){
+                        mListMood.add(new RealmMood(getString(R.string.confident)));
                     }
                 }else {
                     mImgConfident.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.confident))){
-                        mListMood.remove(getString(R.string.confident));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.confident))){
+                        mListMood.remove(new RealmMood(getString(R.string.confident)));
                     }
                 }
                 break;
@@ -550,13 +556,13 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 mCheckAngry = !mCheckAngry;
                 if(mCheckAngry){
                     mImgAngry.setBackgroundResource(R.drawable.pin_round);
-                    if (!Utils.checkDataExist(mListMood, getString(R.string.angry))){
-                        mListMood.add(getString(R.string.angry));
+                    if (!Utils.checkMoodExist(mListMood, getString(R.string.angry))){
+                        mListMood.add(new RealmMood(getString(R.string.angry)));
                     }
                 }else {
                     mImgAngry.setBackgroundResource(0);
-                    if (Utils.checkDataExist(mListMood, getString(R.string.angry))){
-                        mListMood.remove(getString(R.string.angry));
+                    if (Utils.checkMoodExist(mListMood, getString(R.string.angry))){
+                        mListMood.remove(new RealmMood(getString(R.string.angry)));
                     }
                 }
                 break;
@@ -573,7 +579,12 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.img_done_mood_add_note:
                 Intent intent = new Intent();
-                intent.putStringArrayListExtra(Utils.BACK_MOOD, mListMood);
+
+                ArrayList<String> mListMoodArray = new ArrayList<>();
+                for (int i = 0; i<mListMood.size(); i++){
+                    mListMoodArray.add(mListMood.get(i).getmMood());
+                }
+                intent.putStringArrayListExtra(Utils.BACK_MOOD, mListMoodArray);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
                 break;
