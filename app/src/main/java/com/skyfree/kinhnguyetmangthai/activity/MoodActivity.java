@@ -53,7 +53,7 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addEvent() {
         mListMood = new RealmList<>();
-        realm = Realm.getInstance(this);
+//        realm = Realm.getInstance(this);
     }
 
     private void initView(){

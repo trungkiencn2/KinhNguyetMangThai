@@ -77,8 +77,12 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
+        Realm.init(this);
+        realm = Realm.getDefaultInstance();
         initView();
         addEvent();
+
+
 //        loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
     }
 
@@ -114,7 +118,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addEvent() {
-        realm = Realm.getInstance(this);
+//        realm = Realm.getInstance(this);
         mTvDate.setText(mCa.get(Calendar.DAY_OF_MONTH) + " - " + (mCa.get(Calendar.MONTH) + 1) + " - " + mCa.get(Calendar.YEAR));
         mNoteNote = "";
         mNoteListDrugArr = new ArrayList<>();
@@ -125,17 +129,22 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         mNoteListMood = new RealmList<>();
 
         mLoadNote = "";
+        mLoadNoteListDrugArr = new ArrayList<>();
+        mLoadNoteListSymptomsArr = new ArrayList<>();
+        mLoadNoteListMoodArr = new ArrayList<>();
         mLoadNoteListDrug = new RealmList<>();
         mLoadNoteListSymptoms = new RealmList<>();
         mLoadNoteListMood = new RealmList<>();
     }
 
-    private void loadData(int day, int month, int year){
-        realm = Realm.getInstance(this);
-        if(Utils.checkNoteObjExistByDate(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
+    private void loadData(){
+        if(Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
             NoteObj mCurrentNote = Utils.getNoteObj(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR));
             mRatingBar.setProgress(mCurrentNote.getmNoteLuongKinh());
-            mTvNote.setText(mCurrentNote.getmNoteNote());
+
+            String noteStr = mCurrentNote.getmNoteNote();
+
+            mTvNote.setText(noteStr);
             mTvWeight.setText(mCurrentNote.getmNoteWeight()+"");
             mTvTemperature.setText(mCurrentNote.getmNoteTemperature()+"");
 
@@ -154,11 +163,16 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        NoteObj mn = Utils.getNoteObj(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR));
+        for(int i = 0; i<mn.getmListDrug().size(); i++){
+            Log.d("aaa mn ", mn.getmListDrug().get(i).getmDrug());
+        }
+
         if(Utils.STATE.equals(Utils.BACK_TO_RESULT)){
             mTvNote.setText(mNoteNote);
             Utils.STATE = "";
         }else {
-            loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
+            loadData();
         }
     }
 
@@ -207,27 +221,20 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 String idCheck = mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR);
-
                 NoteObj mNoteObjCheck = new NoteObj(idCheck , mNoteLuongKinh,
                         mNoteNote, mNoteWeight, mNoteTemperature, mNoteListDrug, mNoteListSymptoms, mNoteListMood);
 
-
-                String aa = "";
-                RealmResults<NoteObj> mListN = Utils.getAllNoteObj(realm);
-                for(int i = 0; i<mListN.size(); i++){
-                    String ii = mListN.get(i).getId();
-                    aa += ii;
+                ArrayList<String> mListDrugArr = new ArrayList<>();
+                for(int i = 0; i<mNoteObjCheck.getmListDrug().size(); i++){
+                    mListDrugArr.add(mNoteObjCheck.getmListDrug().get(i).getmDrug());
+                    Log.d("aaa drug ", mNoteObjCheck.getmListDrug().get(i).getmDrug());
                 }
 
-                Log.d("aaa aa", aa);
-
-                String idd = mNoteObjCheck.getId();
-
-
-                if(Utils.checkNoteObjExist(realm, idd)){
+                if(Utils.checkNoteObjExistById(realm, mNoteObjCheck.getId())){
                     Toast.makeText(this, "Data update!!!", Toast.LENGTH_SHORT).show();
                     String id = mNoteObjCheck.getId();
                     Utils.updateNoteObj(realm, id, mNoteObjCheck);
+//                    Utils.updateListDrug(realm, id, mListDrugArr);
                     NoteObj mNoteObj = Utils.getNoteObj(realm, mNoteObjCheck.getId());
                 }else {
                     Utils.insertNoteObj(realm, mNoteObjCheck);
@@ -263,6 +270,12 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
+    }
+
     private void note() {
         Intent i = new Intent(this, NoteAddNoteActivity.class);
         i.putExtra(Utils.PUT_NOTE, mLoadNote);
@@ -275,6 +288,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             mLoadNoteListDrugArr.add(mLoadNoteListDrug.get(i).getmDrug());
         }
         it.putStringArrayListExtra(Utils.PUT_LIST_DRUG, mLoadNoteListDrugArr);
+//        Log.d("aaa size drug", mLoadNoteListDrugArr.size()+"");
         startActivityForResult(it, Utils.REQUEST_DRUG);
     }
 

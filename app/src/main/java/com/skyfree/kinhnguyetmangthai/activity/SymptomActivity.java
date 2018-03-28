@@ -52,7 +52,7 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
 
     private void addEvent() {
         mListSymptom = new RealmList<>();
-        realm = Realm.getInstance(this);
+//        realm = Realm.getInstance(this);
     }
 
     private void initView() {

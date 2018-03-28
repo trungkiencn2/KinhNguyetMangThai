@@ -44,7 +44,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
-
+        Realm.init(this);
         if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.TRUE)){
             mTvDaysLeft.setText("");
             mTvNextCycle.setText("");

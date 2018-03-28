@@ -280,18 +280,8 @@ public class Utils {
         return false;
     }
 
-    public static boolean checkNoteObjExistByDate(Realm realm, String id) {
+    public static boolean checkNoteObjExistById(Realm realm, String id) {
         RealmResults<NoteObj> mListNoteObj = realm.where(NoteObj.class).findAll();
-        for (int i = 0; i < mListNoteObj.size(); i++) {
-            if (id == mListNoteObj.get(i).getId()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean checkNoteObjExist(Realm realm, String id) {
-        RealmResults<NoteObj> mListNoteObj = getAllNoteObj(realm);
         for (int i = 0; i < mListNoteObj.size(); i++) {
             if (id.equals(mListNoteObj.get(i).getId())) {
                 return true;
@@ -300,25 +290,41 @@ public class Utils {
         return false;
     }
 
-    public static void insertNoteObj(Realm realm, NoteObj noteObj) {
+    public static void insertNoteObj(Realm realm, final NoteObj noteObj) {
 
-        for(int i = 0; i<getAllNoteObj(realm).size(); i++){
-            Log.d("aaa list id ", getAllNoteObj(realm).get(i).getId());
-        }
-
-        if(!checkNoteObjExist(realm, noteObj.getId())){
-            realm.beginTransaction();
-            NoteObj noteObjTam = realm.createObject(NoteObj.class);
-            noteObjTam.setmNoteLuongKinh(noteObj.getmNoteLuongKinh());
-            noteObjTam.setmNoteNote(noteObj.getmNoteNote());
-            noteObjTam.setmListDrug(noteObj.getmListDrug());
-            noteObjTam.setmListSymptom(noteObj.getmListSymptom());
-            noteObjTam.setmListMood(noteObj.getmListMood());
-            realm.commitTransaction();
+        if(!checkNoteObjExistById(realm, noteObj.getId())){
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    realm.insert(noteObj);
+                }
+            });
         }
     }
 
-    public static void updateNoteObj(Realm mRealm, String id, final NoteObj newNote) {
+//    public RealmList<IncidentPhoto> toRealmList(Realm realm, ArrayList<String> arrayList) {
+//        mRealmList = new RealmList<IncidentPhoto>();
+//        for (int i = 0; i < arrayList.size(); i++){
+//            // Create a IncidentPhoto object which is managed by Realm.
+//            IncidentPhoto incidentPhoto = realm.createObject(IncidentPhoto.class);
+//            incidentPhoto.setPhotoPath(arrayList.get(i));
+//            mRealmList.add(incidentPhoto);
+//        }
+//        return mRealmList;
+//    }
+
+    public static void updateListDrug(Realm realm, String id, ArrayList<String> listDrug){
+        realm.beginTransaction();
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        RealmList<RealmDrug> mRealmListDrug = mNote.getmListDrug();
+        mRealmListDrug.deleteAllFromRealm();
+        for(int i = 0; i<listDrug.size(); i++){
+            mRealmListDrug.add(new RealmDrug(listDrug.get(i)));
+        }
+        realm.commitTransaction();
+    }
+
+    public static void updateNoteObj(final Realm mRealm, final String id, final NoteObj newNote) {
         mRealm.beginTransaction();
         NoteObj db = mRealm.where(NoteObj.class).equalTo("id", id).findFirst();
         db.setmNoteLuongKinh(newNote.getmNoteLuongKinh());
@@ -330,6 +336,7 @@ public class Utils {
         db.setmNoteTemperature(newNote.getmNoteTemperature());
         mRealm.copyToRealmOrUpdate(db);
         mRealm.commitTransaction();
+
     }
 
     public static void deleteNoteObj(Realm realm, final String id) {
@@ -337,7 +344,7 @@ public class Utils {
             @Override
             public void execute(Realm realm) {
                 RealmResults<NoteObj> rows = realm.where(NoteObj.class).equalTo("id", id).findAll();
-                rows.clear();
+                rows.deleteAllFromRealm();
 
             }
         });

@@ -37,7 +37,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Utils.writeToFile(14 + "", Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE, this);
-        realm = Realm.getInstance(this);
+//        realm = Realm.getInstance(this);
         initView();
         addEvent();
     }
