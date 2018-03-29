@@ -1,29 +1,25 @@
 package com.skyfree.kinhnguyetmangthai.fragment;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.activity.CalendarActivity;
 import com.skyfree.kinhnguyetmangthai.adapter.RecycleViewCalendarAdapter;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateCalItem;
+import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateInfoForCalendarActivity;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateTopTime;
-import com.skyfree.kinhnguyetmangthai.database.DatabaseHelper;
 import com.skyfree.kinhnguyetmangthai.model.CalendarItem;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import io.realm.Realm;
 
 /**
  * Created by KienBeu on 3/16/2018.
@@ -34,6 +30,8 @@ public class FragmentCalendar extends Fragment{
     private Calendar mCaNow = Calendar.getInstance();
     private IUpdateTopTime mUpdateTopTime;
     private IUpdateCalItem mUpdateCalItem;
+    private IUpdateInfoForCalendarActivity mUpdateInfo;
+    private Realm realm;
 
     public int getmMonth() {
         return mMonth;
@@ -54,11 +52,12 @@ public class FragmentCalendar extends Fragment{
     public FragmentCalendar() {
     }
 
-    public FragmentCalendar(int month, int year, IUpdateTopTime mUpdate, IUpdateCalItem mUpdateItem) {
+    public FragmentCalendar(int month, int year, IUpdateTopTime mUpdate, IUpdateCalItem mUpdateItem, IUpdateInfoForCalendarActivity updateInfoForCalendarActivity) {
         this.mMonth = month;
         this.mYear = year;
         this.mUpdateTopTime = mUpdate;
         this.mUpdateCalItem = mUpdateItem;
+        this.mUpdateInfo = updateInfoForCalendarActivity;
     }
 
     @Override
@@ -78,6 +77,8 @@ public class FragmentCalendar extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        realm = Realm.getDefaultInstance();
 
         String dayWeek = Utils.getThuMayLaMung1(mMonth, mYear);
 
@@ -100,6 +101,7 @@ public class FragmentCalendar extends Fragment{
 //                    Log.d("aaa", (position - numberOfDataNull + 1) + " - " + (mMonth + 1) + " - " + mYear);
 //                    View viewItem = mRcv.getLayoutManager().findViewByPosition(position);
 //                    viewItem.setBackgroundResource(R.drawable.bg_cal_today);
+                    mUpdateInfo.updateInfo(Utils.getNoteObj(realm, (position - numberOfDataNull + 1) + "" + mMonth + "" + mYear), position - numberOfDataNull + 1, mMonth, mYear);
                 }
             }
 
@@ -126,5 +128,11 @@ public class FragmentCalendar extends Fragment{
 //            mDb = new DatabaseHelper(getContext());
 //            Log.d("aaa", mDb.getListAcount().size() + " frag");
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 }

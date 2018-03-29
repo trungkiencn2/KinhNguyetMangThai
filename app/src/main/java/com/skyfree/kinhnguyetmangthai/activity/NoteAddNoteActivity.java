@@ -10,9 +10,13 @@ import android.widget.ImageView;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
+import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
+import com.skyfree.kinhnguyetmangthai.model.RealmMood;
+import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class NoteAddNoteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +25,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
 
     private NoteObj mNoteObj;
     private Realm realm;
+    private String mId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +46,8 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
 
     private void addEvent(){
         realm = Realm.getDefaultInstance();
-        mNoteObj = Utils.getNoteObj(realm, getIntent().getStringExtra(Utils.PUT_ID));
+        mId = getIntent().getStringExtra(Utils.PUT_ID);
+        mNoteObj = Utils.getNoteObj(realm, mId);
 
         if(mNoteObj != null){
             mEdtNote.setText(mNoteObj.getmNoteNote());
@@ -59,6 +65,11 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra(Utils.BACK_NOTE, mEdtNote.getText().toString());
                 setResult(Activity.RESULT_OK,returnIntent);
+                if(mNoteObj!= null){
+                    Utils.updateNoteOfNote(realm, mId, mEdtNote.getText().toString());
+                }else {
+                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, mEdtNote.getText().toString(), 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                }
                 finish();
                 break;
         }

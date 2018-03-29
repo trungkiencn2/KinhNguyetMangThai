@@ -65,6 +65,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_normal"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/normal"
@@ -79,6 +80,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_sad"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/sad"
@@ -93,6 +95,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_sleepy"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/sleepy"
@@ -107,6 +110,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_strees"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/stress"
@@ -121,6 +125,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_boring"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/boring"
@@ -135,6 +140,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_dizzy"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/dizzy"
@@ -149,6 +155,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_rough"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/rough"
@@ -163,6 +170,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_allergy"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/allergy"
@@ -177,12 +185,14 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_inlove"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/in_love"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/hai_muoi_dp"
                     android:layout_marginBottom="@dimen/muoi_dp"/>
+
                 <ImageView
                     android:id="@+id/img_mood_jealous"
                     android:src="@drawable/icon_mood_jealous"
@@ -190,6 +200,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_jealous"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/jealous"
@@ -204,6 +215,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_disappoinm"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/disappointment"
@@ -228,6 +240,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_monocotyle"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/monocotyledon"
@@ -242,6 +255,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_forgetful"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/forgetful"
@@ -256,6 +270,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_miserable"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/miserable"
@@ -270,6 +285,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_panic"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/panic"
@@ -284,6 +300,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_notsafe"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/not_safe"
@@ -298,6 +315,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_exhausted"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/exhausted"
@@ -312,6 +330,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_worry"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/worry"
@@ -326,6 +345,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_hadto"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/hard_to_understand"
@@ -340,6 +360,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_heartless"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/heartless"
@@ -354,6 +375,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_incredulous"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/incredulous"
@@ -368,6 +390,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_naughty"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/naughty"
@@ -392,6 +415,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_weak"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/weak"
@@ -406,6 +430,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_bad"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/bad"
@@ -420,6 +445,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_hasty"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/hasty"
@@ -434,6 +460,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_satisfy"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/satisfy"
@@ -448,6 +475,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_attenuate"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/attenuate"
@@ -462,6 +490,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_good"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/good"
@@ -476,6 +505,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_proud"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/proud"
@@ -490,6 +520,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_confident"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/confident"
@@ -504,6 +535,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_angry"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/angry"
@@ -518,6 +550,7 @@
                     android:layout_height="@dimen/nam_muoi_dp" />
 
                 <TextView
+                    android:id="@+id/tv_mood_thin"
                     android:textSize="@dimen/muoi_sp"
                     android:gravity="center"
                     android:text="@string/thin"

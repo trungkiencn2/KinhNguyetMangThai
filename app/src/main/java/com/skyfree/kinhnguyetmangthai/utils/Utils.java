@@ -66,7 +66,9 @@ public class Utils {
     public static final String BACK_MOOD = "BACK_MOOD";
 
     public static final String PUT_ID = "PUT_ID";
-    public static final String PUT_LUONG_KINH = "PUT_LUONG_KINH";
+    public static final String PUT_DAY = "PUT_DAY";
+    public static final String PUT_MONTH = "PUT_MONTH";
+    public static final String PUT_YEAR = "PUT_YEAR";
 
     public static String STATE = "";
     public static final String BACK_TO_RESULT = "BACK_TO_RESULT";
@@ -286,6 +288,66 @@ public class Utils {
         for(int i = 0; i<listDrug.size(); i++){
             mRealmListDrug.add(new RealmDrug(listDrug.get(i)));
         }
+        mNote.setmListDrug(mRealmListDrug);
+        realm.copyToRealmOrUpdate(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateListSymptom(Realm realm, String id, ArrayList<String> listSymptom){
+        realm.beginTransaction();
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        RealmList<RealmSymptom> mRealmListSymptom = mNote.getmListSymptom();
+        mRealmListSymptom.deleteAllFromRealm();
+        for(int i = 0; i<listSymptom.size(); i++){
+            mRealmListSymptom.add(new RealmSymptom(listSymptom.get(i)));
+        }
+        mNote.setmListSymptom(mRealmListSymptom);
+        realm.copyToRealmOrUpdate(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateListMood(Realm realm, String id, ArrayList<String> listMood){
+        realm.beginTransaction();
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        RealmList<RealmMood> mRealmListMood = mNote.getmListMood();
+        mRealmListMood.deleteAllFromRealm();
+        for(int i = 0; i<listMood.size(); i++){
+            mRealmListMood.add(new RealmMood(listMood.get(i)));
+        }
+        mNote.setmListMood(mRealmListMood);
+        realm.copyToRealmOrUpdate(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateNoteOfNote(Realm realm, String id, String newNote){
+        realm.beginTransaction();
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        mNote.setmNoteNote(newNote);
+        realm.copyToRealm(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateWeight(Realm realm, String id, float weight){
+        realm.beginTransaction();;
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        mNote.setmNoteWeight(weight);
+        realm.copyToRealm(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateTemperature(Realm realm, String id, float temperature){
+        realm.beginTransaction();;
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        mNote.setmNoteTemperature(temperature);
+        realm.copyToRealm(mNote);
+        realm.commitTransaction();
+    }
+
+    public static void updateLuongKinh(Realm realm, String id, int luongKinh){
+        realm.beginTransaction();
+        NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        mNote.setmNoteLuongKinh(luongKinh);
+        realm.copyToRealm(mNote);
         realm.commitTransaction();
     }
 

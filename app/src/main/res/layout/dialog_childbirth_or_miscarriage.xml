@@ -25,6 +25,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:padding="@dimen/nam_dp"
             android:id="@+id/btn_no_longer_dialog_childbirth_or_miscarriage"
             android:textSize="@dimen/muoi_hai_sp"
             android:background="@color/colorWhite"

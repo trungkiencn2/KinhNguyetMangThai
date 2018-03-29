@@ -25,6 +25,8 @@ import com.skyfree.kinhnguyetmangthai.adapter.ListOtherDrugAdapter;
 import com.skyfree.kinhnguyetmangthai.adapter.ListPillBirthControlAdapter;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
+import com.skyfree.kinhnguyetmangthai.model.RealmMood;
+import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
@@ -170,11 +172,17 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
 
-                Log.d("aaa drug size result ", mListAllDrugForResult.size() + "");
+                RealmList<RealmDrug> mRealmListDrug = new RealmList<>();
+                for(int i = 0; i<mListAllDrugForResult.size(); i++){
+                    mRealmListDrug.add(new RealmDrug(mListAllDrugForResult.get(i)));
+                }
 
-                Intent intent = new Intent();
-                intent.putStringArrayListExtra(Utils.BACK_DRUG, mListAllDrugForResult);
-                setResult(Activity.RESULT_OK, intent);
+
+                if(mNoteObj != null){
+                    Utils.updateListDrug(realm, mId, mListAllDrugForResult);
+                }else {
+                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, mRealmListDrug, new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                }
 
                 finish();
                 break;
@@ -184,7 +192,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        realm.close();
+        realm.close();
     }
 
     private void alertBirthControlPills() {

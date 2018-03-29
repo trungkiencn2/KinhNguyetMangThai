@@ -69,7 +69,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Abdominal cramps"
+                    android:text="@string/abdominal_cramps"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -99,7 +99,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Anxiety"
+                    android:text="@string/anxiety"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -129,7 +129,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Astriction"
+                    android:text="@string/astriction"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -159,7 +159,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Backaches"
+                    android:text="@string/backaches"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -189,7 +189,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Bloating"
+                    android:text="@string/bloating"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -219,7 +219,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Body aches"
+                    android:text="@string/body_aches"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -249,7 +249,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Cervical mucus"
+                    android:text="@string/cervical_mucus"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -279,7 +279,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Chills"
+                    android:text="@string/chills"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -309,7 +309,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Confused"
+                    android:text="@string/confused"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -339,7 +339,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Cramps"
+                    android:text="@string/cramps"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -369,7 +369,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Creamy"
+                    android:text="@string/creamy"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -399,7 +399,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Diarrhea"
+                    android:text="@string/diarrhea"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -429,7 +429,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Dizziness"
+                    android:text="@string/dizziness"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -459,7 +459,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Dry"
+                    android:text="@string/dry"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -489,7 +489,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Dyspepsia"
+                    android:text="@string/dyspepsia"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -519,7 +519,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Fatigue"
+                    android:text="@string/fatigue"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -549,7 +549,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Headaches"
+                    android:text="@string/headaches"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -579,7 +579,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Hectic fever"
+                    android:text="@string/hectic_fever"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -609,7 +609,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Hungry"
+                    android:text="@string/hungry"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -639,7 +639,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Illness"
+                    android:text="@string/illness"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -669,7 +669,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Influenza"
+                    android:text="@string/influenza"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -699,7 +699,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Insomnia"
+                    android:text="@string/insomnia"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -729,7 +729,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Irritability"
+                    android:text="@string/irritability"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -759,7 +759,7 @@
                     android:gravity="center_vertical"
                     android:textColor="@color/colorDone"
                     android:textSize="@dimen/muoi_lam_sp"
-                    android:text="Irritation"
+                    android:text="@string/irritation"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />

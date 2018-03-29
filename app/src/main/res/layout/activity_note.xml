@@ -329,6 +329,7 @@
                             android:layout_height="match_parent" />
 
                         <TextView
+                            android:text=""
                             android:id="@+id/tv_weight_note_activity"
                             android:gravity="center_vertical"
                             android:textSize="@dimen/muoi_hai_sp"
@@ -374,6 +375,7 @@
                             android:layout_height="match_parent" />
 
                         <TextView
+                            android:text=""
                             android:id="@+id/tv_temperature_note_activity"
                             android:gravity="center_vertical"
                             android:textSize="@dimen/muoi_hai_sp"
