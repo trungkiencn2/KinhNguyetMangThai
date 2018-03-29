@@ -25,9 +25,9 @@ import io.realm.RealmList;
 public class ListPillBirthControlAdapter extends BaseAdapter {
 
     private Context mContext;
-    private RealmList<RealmDrug> mListPillBirthControl;
+    private ArrayList<String> mListPillBirthControl;
 
-    public ListPillBirthControlAdapter(Context mContext, RealmList<RealmDrug> mListPillBirthControl) {
+    public ListPillBirthControlAdapter(Context mContext, ArrayList<String> mListPillBirthControl) {
         this.mContext = mContext;
         this.mListPillBirthControl = mListPillBirthControl;
     }
@@ -52,7 +52,7 @@ public class ListPillBirthControlAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mRow = inflater.inflate(R.layout.item_drug, null);
         TextView mTvDrug = (TextView) mRow.findViewById(R.id.tv_item_drug);
-        mTvDrug.setText(mListPillBirthControl.get(i).getmDrug());
+        mTvDrug.setText(mListPillBirthControl.get(i));
         return mRow;
     }
 }

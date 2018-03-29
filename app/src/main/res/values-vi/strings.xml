@@ -224,7 +224,6 @@
     <string name="height">Chiều cao</string>
     <string name="on">BẬT</string>
     <string name="off">TẮT</string>
-
     <string name="lack_of_extreme_weight">Thiếu cân vô cùng trầm trọng</string>
     <string name="severe_weight_loss">Thiếu cân trầm trọng</string>
     <string name="underweight">Thiếu cân</string>
@@ -233,5 +232,7 @@
     <string name="quite_fat">Khá béo</string>
     <string name="very_fat">Rất béo</string>
     <string name="fat">Béo phì</string>
+
+    <string name="ask_delete">Bạn có chắc chắn muốn xóa?</string>
 
 </resources>

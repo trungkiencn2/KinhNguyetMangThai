@@ -9,12 +9,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
+
+import io.realm.Realm;
 
 public class NoteAddNoteActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView mImgBack, mImgDone;
     private EditText mEdtNote;
+
+    private NoteObj mNoteObj;
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,12 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void addEvent(){
-        mEdtNote.setText(getIntent().getStringExtra(Utils.PUT_NOTE));
+        realm = Realm.getDefaultInstance();
+        mNoteObj = Utils.getNoteObj(realm, getIntent().getStringExtra(Utils.PUT_ID));
+
+        if(mNoteObj != null){
+            mEdtNote.setText(mNoteObj.getmNoteNote());
+        }
     }
 
     @Override
@@ -51,5 +62,11 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 }

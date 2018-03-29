@@ -7,6 +7,7 @@ import java.util.Objects;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 /**
  * Created by KienBeu on 3/21/2018.
@@ -15,6 +16,7 @@ import io.realm.annotations.PrimaryKey;
 public class NoteObj extends RealmObject{
     @PrimaryKey
     private String id;
+
     private int mNoteLuongKinh;
     private String mNoteNote;
     private float mNoteWeight, mNoteTemperature;

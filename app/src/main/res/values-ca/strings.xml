@@ -224,7 +224,6 @@
     <string name="height">Alçada</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
-
     <string name="lack_of_extreme_weight">Manca de pes extrem</string>
     <string name="severe_weight_loss">Pèrdua de pes greu</string>
     <string name="underweight">Underweight</string>
@@ -233,5 +232,7 @@
     <string name="quite_fat">Bastant greix</string>
     <string name="very_fat">Molt greix</string>
     <string name="fat">Greix</string>
+
+    <string name="ask_delete">Esteu segur que voleu suprimir?</string>
 
 </resources>

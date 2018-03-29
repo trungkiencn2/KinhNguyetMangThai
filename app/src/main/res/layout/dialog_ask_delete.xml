@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:paddingLeft="@dimen/nam_dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="@string/ask_delete"
+        android:textColor="@color/colorBlack"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/hai_muoi_sp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nam_muoi_dp" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/hai_muoi_dp"
+        android:gravity="right"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nam_muoi_dp">
+
+        <TextView
+            android:id="@+id/tv_cancel_dialog_ask_delete"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_ok_dialog_ask_delete"
+            android:textSize="@dimen/muoi_lam_sp"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -8,19 +8,17 @@
 
     <TextView
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/ba_muoi_sp"
+        android:textSize="@dimen/hai_muoi_sp"
         android:gravity="center_vertical"
         android:text="@string/are_you_sure"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="@dimen/nam_muoi_dp" />
 
     <LinearLayout
         android:layout_marginTop="@dimen/hai_muoi_dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="5"
-        android:layout_weight="1"
+        android:layout_height="@dimen/nam_muoi_dp"
+        android:weightSum="4"
         android:gravity="right">
 
         <Button

@@ -324,7 +324,7 @@
                             android:textColor="@color/colorRed"
                             android:textSize="@dimen/muoi_lam_sp"
                             android:gravity="center_vertical"
-                            android:layout_weight="3"
+                            android:layout_weight="4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 
@@ -333,7 +333,7 @@
                             android:gravity="center_vertical"
                             android:textSize="@dimen/muoi_hai_sp"
                             android:textColor="@color/colorBlur"
-                            android:layout_weight="5"
+                            android:layout_weight="4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" />
 

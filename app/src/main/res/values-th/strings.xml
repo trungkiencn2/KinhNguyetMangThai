@@ -224,7 +224,6 @@
     <string name="height">ความสูง</string>
     <string name="on">บน</string>
     <string name="off">ปิด</string>
-
     <string name="lack_of_extreme_weight">ขาดน้ำหนักมาก</string>
     <string name="severe_weight_loss">การลดน้ำหนักอย่างรุนแรง</string>
     <string name="underweight">ความหนักน้อย</string>
@@ -233,5 +232,7 @@
     <string name="quite_fat">ค่อนข้างอ้วน</string>
     <string name="very_fat">มีไขมันมาก</string>
     <string name="fat">อ้วน</string>
+
+    <string name="ask_delete">คุณแน่ใจหรือว่าต้องการลบ?</string>
 
 </resources>

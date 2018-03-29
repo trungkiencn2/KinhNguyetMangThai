@@ -224,7 +224,6 @@
     <string name="height">Altura</string>
     <string name="on">EM</string>
     <string name="off">FORA</string>
-
     <string name="lack_of_extreme_weight">Falta de peso extremo</string>
     <string name="severe_weight_loss">Perda de peso grave</string>
     <string name="underweight">Abaixo do peso</string>
@@ -233,5 +232,7 @@
     <string name="quite_fat">Muito gordo</string>
     <string name="very_fat">Muito gordo</string>
     <string name="fat">Gordo</string>
+
+    <string name="ask_delete">Tem certeza de que deseja excluir?</string>
 
 </resources>

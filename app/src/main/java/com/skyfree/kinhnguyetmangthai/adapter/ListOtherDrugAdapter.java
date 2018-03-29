@@ -21,9 +21,9 @@ import io.realm.RealmList;
 public class ListOtherDrugAdapter extends BaseAdapter {
 
     private Context mContext;
-    private RealmList<RealmDrug> mListOtherDrug;
+    private ArrayList<String> mListOtherDrug;
 
-    public ListOtherDrugAdapter(Context mContext, RealmList<RealmDrug> mListOtherDrug) {
+    public ListOtherDrugAdapter(Context mContext, ArrayList<String> mListOtherDrug) {
         this.mContext = mContext;
         this.mListOtherDrug = mListOtherDrug;
     }
@@ -48,7 +48,7 @@ public class ListOtherDrugAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View mRow = inflater.inflate(R.layout.item_drug, null);
         TextView mTvDrug = (TextView) mRow.findViewById(R.id.tv_item_drug);
-        mTvDrug.setText(mListOtherDrug.get(i).getmDrug());
+        mTvDrug.setText(mListOtherDrug.get(i));
         return mRow;
     }
 }

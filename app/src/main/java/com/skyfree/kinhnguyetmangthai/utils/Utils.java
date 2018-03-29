@@ -65,10 +65,8 @@ public class Utils {
     public static final String BACK_SYMPTOM = "BACK_SYMPTOM";
     public static final String BACK_MOOD = "BACK_MOOD";
 
-    public static final String PUT_NOTE = "PUT_NOTE";
-    public static final String PUT_LIST_DRUG = "PUT_LIST_DRUG";
-    public static final String PUT_LIST_SYMPTOM = "PUT_LIST_SYMPTOM";
-    public static final String PUT_LIST_MOOD = "PUT_LIST_MOOD";
+    public static final String PUT_ID = "PUT_ID";
+    public static final String PUT_LUONG_KINH = "PUT_LUONG_KINH";
 
     public static String STATE = "";
     public static final String BACK_TO_RESULT = "BACK_TO_RESULT";
@@ -247,32 +245,10 @@ public class Utils {
         return mListItem;
     }
 
-    public static boolean checkDrugExist(RealmList<RealmDrug> mList, String str) {
+    public static boolean checkStringExist(ArrayList<String> mList, String str) {
         if (mList.size() > 0) {
             for (int i = 0; i < mList.size(); i++) {
-                if (mList.get(i).getmDrug().equals(str)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static boolean checkSymptomExist(RealmList<RealmSymptom> mList, String str) {
-        if (mList.size() > 0) {
-            for (int i = 0; i < mList.size(); i++) {
-                if (mList.get(i).getmSymptom().equals(str)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static boolean checkMoodExist(RealmList<RealmMood> mList, String str) {
-        if (mList.size() > 0) {
-            for (int i = 0; i < mList.size(); i++) {
-                if (mList.get(i).getmMood().equals(str)) {
+                if (mList.get(i).equals(str)) {
                     return true;
                 }
             }
@@ -302,17 +278,6 @@ public class Utils {
         }
     }
 
-//    public RealmList<IncidentPhoto> toRealmList(Realm realm, ArrayList<String> arrayList) {
-//        mRealmList = new RealmList<IncidentPhoto>();
-//        for (int i = 0; i < arrayList.size(); i++){
-//            // Create a IncidentPhoto object which is managed by Realm.
-//            IncidentPhoto incidentPhoto = realm.createObject(IncidentPhoto.class);
-//            incidentPhoto.setPhotoPath(arrayList.get(i));
-//            mRealmList.add(incidentPhoto);
-//        }
-//        return mRealmList;
-//    }
-
     public static void updateListDrug(Realm realm, String id, ArrayList<String> listDrug){
         realm.beginTransaction();
         NoteObj mNote = realm.where(NoteObj.class).equalTo("id", id).findFirst();
@@ -326,17 +291,17 @@ public class Utils {
 
     public static void updateNoteObj(final Realm mRealm, final String id, final NoteObj newNote) {
         mRealm.beginTransaction();
+        NoteObj mManageNoteObjCheck = mRealm.copyToRealmOrUpdate(newNote);
         NoteObj db = mRealm.where(NoteObj.class).equalTo("id", id).findFirst();
-        db.setmNoteLuongKinh(newNote.getmNoteLuongKinh());
-        db.setmNoteNote(newNote.getmNoteNote());
-        db.setmListDrug(newNote.getmListDrug());
-        db.setmListSymptom(newNote.getmListSymptom());
-        db.setmListMood(newNote.getmListMood());
-        db.setmNoteWeight(newNote.getmNoteWeight());
-        db.setmNoteTemperature(newNote.getmNoteTemperature());
+        db.setmNoteLuongKinh(mManageNoteObjCheck.getmNoteLuongKinh());
+        db.setmNoteNote(mManageNoteObjCheck.getmNoteNote());
+        db.setmListDrug(mManageNoteObjCheck.getmListDrug());
+        db.setmListSymptom(mManageNoteObjCheck.getmListSymptom());
+        db.setmListMood(mManageNoteObjCheck.getmListMood());
+        db.setmNoteWeight(mManageNoteObjCheck.getmNoteWeight());
+        db.setmNoteTemperature(mManageNoteObjCheck.getmNoteTemperature());
         mRealm.copyToRealmOrUpdate(db);
         mRealm.commitTransaction();
-
     }
 
     public static void deleteNoteObj(Realm realm, final String id) {
@@ -355,7 +320,7 @@ public class Utils {
             @Override
             public void execute(Realm realm) {
                 RealmResults<NoteObj> rows = realm.where(NoteObj.class).findAll();
-                rows.clear();
+                rows.deleteAllFromRealm();
             }
         });
     }

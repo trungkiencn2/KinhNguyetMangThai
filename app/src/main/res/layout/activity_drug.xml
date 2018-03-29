@@ -50,7 +50,7 @@
             android:orientation="vertical"
             android:layout_marginTop="@dimen/nam_dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/linear_birth_control_pills"
@@ -137,5 +137,4 @@
                 android:layout_height="wrap_content"></ListView>
 
         </LinearLayout>
-
 </LinearLayout>
