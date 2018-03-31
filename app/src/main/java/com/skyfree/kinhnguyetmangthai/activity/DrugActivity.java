@@ -1,17 +1,12 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,7 +25,6 @@ import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -198,7 +192,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
     private void alertBirthControlPills() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_birth_control_pills, null);
+        View dialogView = inflater.inflate(R.layout.dialog_contraceptives, null);
         dialogBuilder.setView(dialogView);
 
         final CheckBox mCbContraceptives = (CheckBox) dialogView.findViewById(R.id.cb_pill_birth_control);

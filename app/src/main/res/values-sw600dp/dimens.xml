@@ -5,6 +5,7 @@
     <dimen name="muoi_dp">17dp</dimen>
     <dimen name="muoi_lam_dp">26dp</dimen>
     <dimen name="hai_muoi_dp">35dp</dimen>
+    <dimen name="hai_lam_dp">42dp</dimen>
     <dimen name="ba_muoi_dp">47dp</dimen>
     <dimen name="bon_muoi_dp">65dp</dimen>
     <dimen name="bon_lam_dp">70dp</dimen>

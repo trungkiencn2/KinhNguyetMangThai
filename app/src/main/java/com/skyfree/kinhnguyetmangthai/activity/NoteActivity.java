@@ -1,13 +1,11 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -17,21 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.database.DatabaseHelper;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
 import com.skyfree.kinhnguyetmangthai.model.RealmMood;
 import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmList;
-import io.realm.RealmMigration;
 import io.realm.RealmResults;
 import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
@@ -58,8 +51,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     private int mLoadLuongKinh;
     private String mLoadNote;
     private String mId;
-    private int mGetDayFromCA, mGetMonthFromCA, mGetYearFromCA;
-
+//    private int mGetDayFromCA, mGetMonthFromCA, mGetYearFromCA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,17 +93,19 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addEvent() {
-        mGetDayFromCA = getIntent().getIntExtra(Utils.PUT_DAY, mCa.get(Calendar.DAY_OF_MONTH));
-        mGetMonthFromCA = getIntent().getIntExtra(Utils.PUT_MONTH, mCa.get(Calendar.MONTH));
-        mGetYearFromCA = getIntent().getIntExtra(Utils.PUT_YEAR, mCa.get(Calendar.YEAR));
 
+        mCa.set(getIntent().getIntExtra(Utils.PUT_YEAR, mCa.get(Calendar.YEAR)), getIntent().getIntExtra(Utils.PUT_MONTH, mCa.get(Calendar.MONTH)),
+                getIntent().getIntExtra(Utils.PUT_DAY, mCa.get(Calendar.DAY_OF_MONTH)));
 
-        mTvDate.setText(mGetDayFromCA + " - " + (mGetMonthFromCA + 1) + " - " + mGetYearFromCA);
+        mId = mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR);
+        loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
+
     }
 
-    private void loadData() {
-        if (Utils.checkNoteObjExistById(realm, mGetDayFromCA + "" + mGetMonthFromCA + "" + mGetYearFromCA)) {
-            NoteObj mCurrentNote = Utils.getNoteObj(realm, mGetDayFromCA + "" + mGetMonthFromCA + "" + mGetYearFromCA);
+    private void loadData(int day, int month, int year) {
+        mTvDate.setText(day + " - " + (month + 1) + " - " + year);
+        if (Utils.checkNoteObjExistById(realm, day + "" + month + "" + year)) {
+            NoteObj mCurrentNote = Utils.getNoteObj(realm, day + "" + month + "" + year);
             mRatingBar.setProgress(mCurrentNote.getmNoteLuongKinh());
 
             mTvNote.setText(mCurrentNote.getmNoteNote());
@@ -141,8 +135,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        loadData();
-
+        loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
     }
 
     @Override
@@ -169,116 +162,27 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.img_back_date:
                 updateLuongKinh();
                 mCa.add(Calendar.DAY_OF_MONTH, -1);
+                mId = mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR);
                 addEvent();
-                loadData();
+                loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
                 break;
             case R.id.img_next_date:
                 updateLuongKinh();
                 mCa.add(Calendar.DAY_OF_MONTH, 1);
+                mId = mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR);
                 addEvent();
-                loadData();
+                loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
                 break;
             case R.id.img_back_add_note:
                 updateLuongKinh();
                 finish();
                 break;
             case R.id.img_done_add_note:
+                updateLuongKinh();
                 finish();
-//                mNoteLuongKinh = mRatingBar.getProgress();
-//                realm.beginTransaction();
-//                mNoteListDrug.clear();
-//                mNoteListSymptoms.clear();
-//                mNoteListMood.clear();
-//                for (int i = 0; i < mNoteListDrugArr.size(); i++) {
-//                    mNoteListDrug.add(new RealmDrug(mNoteListDrugArr.get(i)));
-//                }
-//                for (int i = 0; i < mNoteListSymptomsArr.size(); i++) {
-//                    mNoteListSymptoms.add(new RealmSymptom(mNoteListSymptomsArr.get(i)));
-//                }
-//                for (int i = 0; i < mNoteListMoodArr.size(); i++) {
-//                    mNoteListMood.add(new RealmMood(mNoteListMoodArr.get(i)));
-//                }
-//                realm.commitTransaction();
-//
-//                String idCheck = mId;
-//                NoteObj mNoteObjCheck = new NoteObj(idCheck , mNoteLuongKinh,
-//                        mNoteNote, mNoteWeight, mNoteTemperature, mNoteListDrug, mNoteListSymptoms, mNoteListMood);
-//
-//                if(Utils.checkNoteObjExistById(realm, mNoteObjCheck.getId())){
-//                    String id = mNoteObjCheck.getId();
-//                    Utils.updateNoteObj(realm, id, mNoteObjCheck);
-//
-//                    NoteObj mNoteObj = Utils.getNoteObj(realm, mNoteObjCheck.getId());
-//                }else {
-//                    Toast.makeText(this, getString(R.string.done), Toast.LENGTH_SHORT).show();
-//                    Utils.insertNoteObj(realm, mNoteObjCheck);
-//                }
-                break;
-            case R.id.rating_bar_add_note:
-                Toast.makeText(this, "" + mRatingBar.getProgress(), Toast.LENGTH_SHORT).show();
                 break;
         }
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == Utils.REQUEST_NOTE) {
-//            if (resultCode == Activity.RESULT_OK) {
-//                String result = data.getStringExtra(Utils.BACK_NOTE);
-//                mNoteNote = result;
-//                mTvNote.setText(mNoteNote);
-//            }
-//        } else if (requestCode == Utils.REQUEST_DRUG) {
-//            if (resultCode == Activity.RESULT_OK) {
-//                ArrayList<String> listDrug = data.getStringArrayListExtra(Utils.BACK_DRUG);
-//                mNoteListDrugArr.clear();
-//                for(int i = 0; i<listDrug.size(); i++){
-//                    if(!Utils.checkStringExist(mNoteListDrugArr, listDrug.get(i))){
-//                        mNoteListDrugArr.add(listDrug.get(i));
-//                    }
-//                }
-//                Toast.makeText(this, "size drug" + mNoteListDrugArr.size(), Toast.LENGTH_SHORT).show();
-//                realm.beginTransaction();
-//                for(int i = 0; i<mNoteListDrugArr.size(); i++){
-//                    mNoteListDrug.add(new RealmDrug(mNoteListDrugArr.get(i)));
-//                }
-//                realm.commitTransaction();
-//            }
-//        } else if (requestCode == Utils.REQUEST_SYMPTOM) {
-//            if (resultCode == Activity.RESULT_OK) {
-//                ArrayList<String> listSymptom = data.getStringArrayListExtra(Utils.BACK_SYMPTOM);
-//                mNoteListSymptomsArr.clear();
-//                for(int i = 0; i<listSymptom.size(); i++){
-//                    if(!Utils.checkStringExist(mNoteListSymptomsArr, listSymptom.get(i))){
-//                        mNoteListSymptomsArr.add(listSymptom.get(i));
-//                    }
-//                }
-//                Toast.makeText(this, "size symptom " + mNoteListSymptomsArr.size(), Toast.LENGTH_SHORT).show();
-//                realm.beginTransaction();
-//                for(int i = 0; i<mNoteListSymptomsArr.size(); i++){
-//                    mNoteListSymptoms.add(new RealmSymptom(mNoteListSymptomsArr.get(i)));
-//                }
-//                realm.commitTransaction();
-//            }
-//        } else if (requestCode == Utils.REQUEST_MOOD) {
-//            if (resultCode == Activity.RESULT_OK) {
-//                ArrayList<String> listMood = data.getStringArrayListExtra(Utils.BACK_MOOD);
-//                mNoteListMoodArr.clear();
-//                for(int i = 0; i<listMood.size(); i++){
-//                    if(!Utils.checkStringExist(mNoteListMoodArr, listMood.get(i))){
-//                        mNoteListMoodArr.add(listMood.get(i));
-//                    }
-//                }
-//                Toast.makeText(this, "size mood " + mNoteListMoodArr.size(), Toast.LENGTH_SHORT).show();
-//                realm.beginTransaction();
-//                for(int i = 0; i<mNoteListMoodArr.size(); i++){
-//                    mNoteListMood.add(new RealmMood(mNoteListMoodArr.get(i)));
-//                }
-//                realm.commitTransaction();
-//            }
-//        }
-//    }
 
     @Override
     protected void onDestroy() {
@@ -553,7 +457,14 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
     
     private void updateLuongKinh(){
-        Utils.updateLuongKinh(realm, mId, mRatingBar.getProgress());
+
+        if(!checkIdExist(mId)){
+            Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+        }else {
+            Utils.updateLuongKinh(realm, mId, mRatingBar.getProgress());
+        }
+
+
     }
 
     @Override
@@ -561,4 +472,20 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         super.onPause();
         updateLuongKinh();
     }
+
+    private boolean checkIdExist(String id){
+        RealmResults<NoteObj> listNoteSave = Utils.getAllNoteObj(realm);
+        if(listNoteSave.size() > 0){
+            for(int i = 0; i<listNoteSave.size(); i++){
+                if(listNoteSave.get(i).getId().equals(mId)){
+                    return true;
+                }
+            }
+        }else {
+            return false;
+        }
+        return false;
+
+    }
+
 }

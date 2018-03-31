@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.ChartActivity">
 
-
-
+    <com.numetriclabz.numandroidcharts.MultiLineChart
+        android:background="@color/colorDone"
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.numetriclabz.numandroidcharts.MultiLineChart>
 
 </LinearLayout>

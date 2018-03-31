@@ -117,23 +117,23 @@
                     android:layout_weight="1">
 
                     <TextView
-                        android:padding="@dimen/nam_dp"
+                        android:paddingLeft="@dimen/nam_dp"
                         android:textSize="@dimen/muoi_lam_sp"
                         android:id="@+id/tv_guess_one"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1.5"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="0.5">
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                             android:id="@+id/rc_guess_one"
                             android:layout_gravity="bottom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp"
+                            android:layout_height="match_parent"
                             app:rcBackgroundColor="@color/colorWhite"
                             app:rcRadius="@dimen/muoi_dp"
                             app:rcReverse="false"
@@ -142,7 +142,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:id="@+id/tv_left_pro_one_frag_menstruation_diary"
@@ -195,18 +195,18 @@
                         android:id="@+id/tv_guess_two"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1.5"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="0.5">
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                             android:id="@+id/rc_guess_two"
                             android:layout_gravity="bottom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp"
+                            android:layout_height="match_parent"
                             app:rcBackgroundColor="@color/colorWhite"
                             app:rcRadius="@dimen/muoi_dp"
                             app:rcReverse="false"
@@ -215,7 +215,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:id="@+id/tv_left_pro_two_frag_menstruation_diary"
@@ -268,18 +268,18 @@
                         android:id="@+id/tv_guess_three"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1.5"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="0.5">
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                             android:id="@+id/rc_guess_three"
                             android:layout_gravity="bottom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp"
+                            android:layout_height="match_parent"
                             app:rcBackgroundColor="@color/colorWhite"
                             app:rcRadius="@dimen/muoi_dp"
                             app:rcReverse="false"
@@ -288,7 +288,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:id="@+id/tv_left_pro_three_frag_menstruation_diary"
@@ -341,18 +341,18 @@
                         android:id="@+id/tv_guess_four"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1.5"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="0.5">
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                             android:id="@+id/rc_guess_four"
                             android:layout_gravity="bottom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp"
+                            android:layout_height="match_parent"
                             app:rcBackgroundColor="@color/colorWhite"
                             app:rcRadius="@dimen/muoi_dp"
                             app:rcReverse="false"
@@ -361,7 +361,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:id="@+id/tv_left_pro_four_frag_menstruation_diary"
@@ -414,18 +414,18 @@
                         android:id="@+id/tv_guess_five"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1.5"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="0.5">
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                             android:id="@+id/rc_guess_five"
                             android:layout_gravity="bottom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp"
+                            android:layout_height="match_parent"
                             app:rcBackgroundColor="@color/colorWhite"
                             app:rcRadius="@dimen/muoi_dp"
                             app:rcReverse="false"
@@ -434,7 +434,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/muoi_dp">
+                            android:layout_height="match_parent">
 
                             <TextView
                                 android:id="@+id/tv_left_pro_five_frag_menstruation_diary"

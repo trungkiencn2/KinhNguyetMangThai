@@ -313,10 +313,6 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
                 }else {
                     Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, new RealmList<RealmDrug>(), mRealmList, new RealmList<RealmMood>()));
                 }
-
-//                Intent intent = new Intent();
-//                intent.putStringArrayListExtra(Utils.BACK_SYMPTOM, mListAllSymptomForResult);
-//                setResult(Activity.RESULT_OK, intent);
                 finish();
                 break;
         }
@@ -340,7 +336,7 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
             }
         } else {
             if (Utils.checkStringExist(mListAllSymptomForResult, mTvAnxiet.getText().toString())) {
-                mListAllSymptomForResult.remove(new RealmSymptom(mTvAnxiet.getText().toString()));
+                mListAllSymptomForResult.remove(mTvAnxiet.getText().toString());
             }
         }
 

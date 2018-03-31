@@ -4,8 +4,10 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:padding="@dimen/mot_dp"
+        android:scaleType="fitXY"
         android:id="@+id/img_item_list_note_calendar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/muoi_lam_dp" />
+        android:layout_height="@dimen/hai_lam_dp" />
 
 </LinearLayout>
