@@ -51,7 +51,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     private int mLoadLuongKinh;
     private String mLoadNote;
     private String mId;
-//    private int mGetDayFromCA, mGetMonthFromCA, mGetYearFromCA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,26 +190,30 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void note() {
-        Intent i = new Intent(this, NoteAddNoteActivity.class);
-        i.putExtra(Utils.PUT_ID, mId);
-        startActivity(i);
+        Intent it = new Intent(this, NoteAddNoteActivity.class);
+        it.putExtra(Utils.PUT_ID, mId);
+        it.putExtra(Utils.PUT_TIME_MILI, mCa.getTimeInMillis());
+        startActivity(it);
     }
 
     private void drug() {
         Intent it = new Intent(this, DrugActivity.class);
         it.putExtra(Utils.PUT_ID, mId);
+        it.putExtra(Utils.PUT_TIME_MILI, mCa.getTimeInMillis());
         startActivity(it);
     }
 
     private void symptom() {
         Intent it = new Intent(this, SymptomActivity.class);
         it.putExtra(Utils.PUT_ID, mId);
+        it.putExtra(Utils.PUT_TIME_MILI, mCa.getTimeInMillis());
         startActivity(it);
     }
 
     private void mood() {
         Intent it = new Intent(this, MoodActivity.class);
         it.putExtra(Utils.PUT_ID, mId);
+        it.putExtra(Utils.PUT_TIME_MILI, mCa.getTimeInMillis());
         startActivity(it);
     }
 
@@ -367,7 +370,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
                 if (mNoteTam != null) {
                     Utils.updateWeight(realm, mId, mNoteWeight);
                 } else {
-                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", mNoteWeight, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                    Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", mNoteWeight, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                 }
 
                 alertStartDialog.cancel();
@@ -416,20 +419,31 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         mImgDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Float.parseFloat(mEdtTemperature.getText().toString()) > 50 || Float.parseFloat(mEdtTemperature.getText().toString()) < 30) {
-                    Toast.makeText(NoteActivity.this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
-                } else {
-                    mNoteTemperature = Float.parseFloat(mEdtTemperature.getText().toString());
-                    mTvTemperature.setText(mNoteTemperature + " °C");
+                NoteObj mNoteTam = Utils.getNoteObj(realm, mId);
 
-                    NoteObj mNoteTam = Utils.getNoteObj(realm, mId);
+
+                if(mEdtTemperature.getText().toString().equals("")){
                     if (mNoteTam != null) {
-                        Utils.updateTemperature(realm, mId, mNoteTemperature);
+                        Utils.updateTemperature(realm, mId, 0);
                     } else {
-                        Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+//                        Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
-
                     alertStartDialog.cancel();
+                }else {
+                    if (Float.parseFloat(mEdtTemperature.getText().toString()) > 50 || Float.parseFloat(mEdtTemperature.getText().toString()) < 30) {
+                        Toast.makeText(NoteActivity.this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
+                    } else {
+                        mNoteTemperature = Float.parseFloat(mEdtTemperature.getText().toString());
+                        mTvTemperature.setText(mNoteTemperature + " °C");
+
+                        if (mNoteTam != null) {
+                            Utils.updateTemperature(realm, mId, mNoteTemperature);
+                        } else {
+                            Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                        }
+
+                        alertStartDialog.cancel();
+                    }
                 }
             }
         });
@@ -459,7 +473,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     private void updateLuongKinh(){
 
         if(!checkIdExist(mId)){
-            Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+            Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
         }else {
             Utils.updateLuongKinh(realm, mId, mRatingBar.getProgress());
         }

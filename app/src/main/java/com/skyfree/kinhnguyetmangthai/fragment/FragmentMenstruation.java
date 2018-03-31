@@ -20,7 +20,7 @@ import java.util.Calendar;
  * Created by KienBeu on 3/21/2018.
  */
 
-public class FragmentHanhKinh extends Fragment {
+public class FragmentMenstruation extends Fragment {
 
     @Nullable
     @Override

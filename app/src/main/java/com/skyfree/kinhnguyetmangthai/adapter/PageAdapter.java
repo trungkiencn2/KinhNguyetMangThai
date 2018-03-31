@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.fragment.FragmentHanhKinh;
-import com.skyfree.kinhnguyetmangthai.fragment.FragmentRungTrung;
-import com.skyfree.kinhnguyetmangthai.fragment.FragmentThuThai;
+import com.skyfree.kinhnguyetmangthai.fragment.FragmentMenstruation;
+import com.skyfree.kinhnguyetmangthai.fragment.FragmentOvulation;
+import com.skyfree.kinhnguyetmangthai.fragment.FragmentConception;
 
 /**
  * Created by KienBeu on 3/21/2018.
@@ -28,13 +28,13 @@ public class PageAdapter extends FragmentStatePagerAdapter {
         Fragment frag = null;
         switch (position){
             case 0:
-                frag = new FragmentHanhKinh();
+                frag = new FragmentMenstruation();
                 break;
             case 1:
-                frag = new FragmentThuThai();
+                frag = new FragmentConception();
                 break;
             case 2:
-                frag = new FragmentRungTrung();
+                frag = new FragmentOvulation();
                 break;
         }
 

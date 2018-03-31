@@ -48,6 +48,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
 
     private NoteObj mNoteObj;
     private String mId;
+    private long mTimeMili;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +96,8 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
         mArrOtherDrugTam = new ArrayList<>();
 
         mId = getIntent().getStringExtra(Utils.PUT_ID);
+        mTimeMili = getIntent().getLongExtra(Utils.PUT_TIME_MILI, 0);
+
         mNoteObj = Utils.getNoteObj(realm, mId);
         if (mNoteObj != null) {
             for (int i = 0; i < mNoteObj.getmListDrug().size(); i++) {
@@ -175,7 +178,7 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
                 if(mNoteObj != null){
                     Utils.updateListDrug(realm, mId, mListAllDrugForResult);
                 }else {
-                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, mRealmListDrug, new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                    Utils.insertNoteObj(realm, new NoteObj(mId, mTimeMili ,0, "", 0, 0, mRealmListDrug, new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                 }
 
                 finish();

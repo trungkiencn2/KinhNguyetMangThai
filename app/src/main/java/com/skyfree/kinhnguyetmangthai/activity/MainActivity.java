@@ -31,13 +31,16 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
     private Calendar mCaDayleft = Calendar.getInstance();
     private Calendar mCaMinTimeForDatePicker = Calendar.getInstance();
     private LinearLayout mLinearSetting, mLinearDiary, mLinearCalendar, mLinearChart, mLinearNote;
-    private TextView mTvDaysLeft, mTvNextCycle, mTvEasyToConceive;
+    private TextView mTvDaysLeft, mTvNextCycle, mTvEasyToConceive, mTvEndCycle;
+
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCaMinTimeForDatePicker.set(2017, 2, 1);
+        realm = Realm.getDefaultInstance();
         initView();
     }
 
@@ -76,10 +79,17 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
+    }
+
     private void initView(){
         mTvDaysLeft = (TextView) findViewById(R.id.days_left_main);
         mTvNextCycle = (TextView) findViewById(R.id.tv_next_cycle_main);
         mTvEasyToConceive = (TextView) findViewById(R.id.tv_easy_conceive_main);
+        mTvEndCycle = (TextView) findViewById(R.id.tv_end_cycle_main_activity);
         mLinearSetting = (LinearLayout) findViewById(R.id.linear_setting);
         mLinearDiary = (LinearLayout) findViewById(R.id.linear_diary);
         mLinearCalendar = (LinearLayout) findViewById(R.id.linear_calendar);
@@ -91,6 +101,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         mLinearCalendar.setOnClickListener(this);
         mLinearChart.setOnClickListener(this);
         mLinearNote.setOnClickListener(this);
+        mTvEndCycle.setOnClickListener(this);
     }
 
     private void startDialog(){
@@ -179,6 +190,22 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 break;
             case R.id.linear_note:
                 startActivity(new Intent(this, NoteActivity.class));
+                break;
+            case R.id.tv_end_cycle_main_activity:
+                Utils.writeToFile(Utils.TRUE, Utils.FILE_NEW_USER, getApplicationContext());
+                getApplicationContext().deleteFile(Utils.FILE_CHU_KY_KINH_NGUYET);
+                getApplicationContext().deleteFile(Utils.FILE_CHU_KY_HANH_KINH);
+                getApplicationContext().deleteFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET);
+                getApplicationContext().deleteFile(Utils.FILE_OVULATION);
+                getApplicationContext().deleteFile(Utils.FILE_DATE_ESTIMATE);
+                getApplicationContext().deleteFile(Utils.FILE_REPORT_CYCLE);
+                getApplicationContext().deleteFile(Utils.FILE_REPORT_EASY_TO_CONCEIVE);
+                getApplicationContext().deleteFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE);
+                Utils.deleteAllNoteObj(realm);
+                Intent refresh = new Intent(this, MainActivity.class);
+                startActivity(refresh);
+
+                Toast.makeText(MainActivity.this, getString(R.string.you_just_delete_all_data), Toast.LENGTH_SHORT).show();
                 break;
         }
     }

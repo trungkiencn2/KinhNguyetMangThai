@@ -232,7 +232,11 @@
     <string name="quite_fat">Muito gordo</string>
     <string name="very_fat">Muito gordo</string>
     <string name="fat">Gordo</string>
-
     <string name="ask_delete">Tem certeza de que deseja excluir?</string>
 
+    <string name="add_weight">Adicionar peso</string>
+    <string name="add_temperature">Adicionar temperatura</string>
+    <string name="enter_weight">Insira o peso</string>
+    <string name="enter_temperature">Insira a temperatura</string>
+    <string name="end_cycle">Ciclo final</string>
 </resources>

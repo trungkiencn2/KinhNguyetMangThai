@@ -17,6 +17,7 @@ public class NoteObj extends RealmObject{
     @PrimaryKey
     private String id;
 
+    private long mTimeMili;
     private int mNoteLuongKinh;
     private String mNoteNote;
     private float mNoteWeight, mNoteTemperature;
@@ -28,9 +29,22 @@ public class NoteObj extends RealmObject{
     public NoteObj() {
     }
 
-    public NoteObj(String id, int mNoteLuongKinh, String mNoteNote, float mNoteWeight, float mNoteTemperature, RealmList<RealmDrug> mListDrug, RealmList<RealmSymptom> mListSymptom, RealmList<RealmMood> mListMood) {
+    public String getId() {
 
+        return id;
+    }
+
+    public long getmTimeMili() {
+        return mTimeMili;
+    }
+
+    public void setmTimeMili(long mTimeMili) {
+        this.mTimeMili = mTimeMili;
+    }
+
+    public NoteObj(String id, long mTimeMili, int mNoteLuongKinh, String mNoteNote, float mNoteWeight, float mNoteTemperature, RealmList<RealmDrug> mListDrug, RealmList<RealmSymptom> mListSymptom, RealmList<RealmMood> mListMood) {
         this.id = id;
+        this.mTimeMili = mTimeMili;
         this.mNoteLuongKinh = mNoteLuongKinh;
         this.mNoteNote = mNoteNote;
         this.mNoteWeight = mNoteWeight;
@@ -38,11 +52,6 @@ public class NoteObj extends RealmObject{
         this.mListDrug = mListDrug;
         this.mListSymptom = mListSymptom;
         this.mListMood = mListMood;
-    }
-
-    public String getId() {
-
-        return id;
     }
 
     public void setId(String id) {

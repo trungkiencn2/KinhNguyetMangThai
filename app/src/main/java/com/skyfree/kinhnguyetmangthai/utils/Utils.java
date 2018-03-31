@@ -69,6 +69,7 @@ public class Utils {
     public static final String PUT_DAY = "PUT_DAY";
     public static final String PUT_MONTH = "PUT_MONTH";
     public static final String PUT_YEAR = "PUT_YEAR";
+    public static final String PUT_TIME_MILI = "PUT_TIME_MILI";
 
     public static String STATE = "";
     public static final String BACK_TO_RESULT = "BACK_TO_RESULT";
@@ -389,6 +390,16 @@ public class Utils {
 
     public static NoteObj getNoteObj(Realm realm, String id) {
         NoteObj noteObj = realm.where(NoteObj.class).equalTo("id", id).findFirst();
+        return noteObj;
+    }
+
+    public static NoteObj getNoteObjByWeight(Realm realm, float weight){
+        NoteObj noteObj = realm.where(NoteObj.class).equalTo("mNoteWeight", weight).findFirst();
+        return noteObj;
+    }
+
+    public static NoteObj getNoteObjByTemperature(Realm realm, float temperature){
+        NoteObj noteObj = realm.where(NoteObj.class).equalTo("mNoteTemperature", temperature).findFirst();
         return noteObj;
     }
 

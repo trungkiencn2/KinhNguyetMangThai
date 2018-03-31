@@ -47,6 +47,7 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
 
     private NoteObj mNoteObj;
     private String mId;
+    private long mTimeMile;
     
     private ArrayList<String> mListAllSymptomForResult;
     private ArrayList<String> mArrSymptomTam;
@@ -65,6 +66,7 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
         mArrSymptomTam = new ArrayList<>();
 
         mId = getIntent().getStringExtra(Utils.PUT_ID);
+        mTimeMile = getIntent().getLongExtra(Utils.PUT_TIME_MILI, 0);
         mNoteObj = Utils.getNoteObj(realm, mId);
         if(mNoteObj != null){
             for(int i = 0; i<mNoteObj.getmListSymptom().size(); i++){
@@ -311,7 +313,7 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
                 if(mNoteObj != null){
                     Utils.updateListSymptom(realm, mId, mListAllSymptomForResult);
                 }else {
-                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, "", 0, 0, new RealmList<RealmDrug>(), mRealmList, new RealmList<RealmMood>()));
+                    Utils.insertNoteObj(realm, new NoteObj(mId, mTimeMile,0, "", 0, 0, new RealmList<RealmDrug>(), mRealmList, new RealmList<RealmMood>()));
                 }
                 finish();
                 break;

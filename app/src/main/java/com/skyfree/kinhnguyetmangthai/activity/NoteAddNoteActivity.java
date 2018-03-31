@@ -26,6 +26,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
     private NoteObj mNoteObj;
     private Realm realm;
     private String mId;
+    private long mTimeMili;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
     private void addEvent(){
         realm = Realm.getDefaultInstance();
         mId = getIntent().getStringExtra(Utils.PUT_ID);
+        mTimeMili = getIntent().getLongExtra(Utils.PUT_TIME_MILI, 0);
         mNoteObj = Utils.getNoteObj(realm, mId);
 
         if(mNoteObj != null){
@@ -68,7 +70,7 @@ public class NoteAddNoteActivity extends AppCompatActivity implements View.OnCli
                 if(mNoteObj!= null){
                     Utils.updateNoteOfNote(realm, mId, mEdtNote.getText().toString());
                 }else {
-                    Utils.insertNoteObj(realm, new NoteObj(mId, 0, mEdtNote.getText().toString(), 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                    Utils.insertNoteObj(realm, new NoteObj(mId,mTimeMili, 0, mEdtNote.getText().toString(), 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                 }
                 finish();
                 break;

@@ -4,10 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    android:orientation="vertical"
+    android:padding="@dimen/muoi_dp"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.ChartActivity">
 
+    <LinearLayout
+        android:layout_marginBottom="@dimen/nam_dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bon_muoi_dp">
+
+        <ImageView
+            android:id="@+id/img_back_chart"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_back"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/nam_dp"
+            android:textColor="@color/colorDone"
+            android:textSize="@dimen/hai_lam_sp"
+            android:gravity="center"
+            android:layout_weight="8"
+            android:text="@string/chart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/img_add_chart"
+            android:layout_margin="@dimen/nam_dp"
+            android:src="@drawable/ic_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/colorDivide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mot_dp"></LinearLayout>
+
     <com.numetriclabz.numandroidcharts.MultiLineChart
-        android:background="@color/colorDone"
+        android:layout_marginTop="@dimen/muoi_dp"
+        android:layout_marginBottom="@dimen/nam_muoi_dp"
+        android:background="@color/colorWhite"
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></com.numetriclabz.numandroidcharts.MultiLineChart>

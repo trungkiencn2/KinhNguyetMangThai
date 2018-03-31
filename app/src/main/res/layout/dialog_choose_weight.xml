@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/tram_nam_muoi_dp"
+<LinearLayout
     android:orientation="vertical"
-    android:padding="@dimen/muoi_dp">
+    android:padding="@dimen/muoi_dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/bon_muoi_dp"
         android:gravity="center_vertical"
-        android:text="@string/add_medicine"
+        android:text="@string/add_weight"
         android:textSize="@dimen/hai_lam_sp" />
 
     <EditText
-        android:id="@+id/edt_dialog_other_drug"
+        android:inputType="numberDecimal"
+        android:id="@+id/edt_dialog_choose_weight"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bon_muoi_dp"
         android:background="@drawable/bg_edittext"
-        android:hint="@string/enter_name_drug"
+        android:hint="@string/enter_weight"
         android:paddingLeft="@dimen/nam_dp" />
 
     <LinearLayout
@@ -27,7 +28,7 @@
         android:weightSum="4">
 
         <TextView
-            android:id="@+id/tv_cancel_dialog_other_drug"
+            android:id="@+id/tv_cancel_dialog_choose_weight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -36,7 +37,7 @@
             android:textSize="@dimen/muoi_lam_sp" />
 
         <TextView
-            android:id="@+id/tv_ok_dialog_other_drug"
+            android:id="@+id/tv_ok_dialog_choose_weight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -19,45 +19,51 @@ import java.util.Calendar;
  * Created by KienBeu on 3/21/2018.
  */
 
-public class FragmentThuThai extends Fragment {
+public class FragmentOvulation extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View mView = inflater.inflate(R.layout.fragment_conception_diary, container, false);
+        View mView = inflater.inflate(R.layout.fragment_ovulation_diary, container, false);
 
-        TextView mTvDoDaiKiKinh = (TextView) mView.findViewById(R.id.tv_do_dai_ky_kinh_fragment_conception_diar);
-        TextView mTvDoDaiChuKy = (TextView) mView.findViewById(R.id.tv_do_dai_chu_ky_fragment_conception_diary);
-        TextView mTvStart1 = (TextView) mView.findViewById(R.id.tv_start_one_fragment_conception_diary);
-        TextView mTvStart2 = (TextView) mView.findViewById(R.id.tv_start_two_fragment_conception_diary);
-        TextView mTvStart3 = (TextView) mView.findViewById(R.id.tv_start_three_fragment_conception_diary);
-        TextView mTvStart4 = (TextView) mView.findViewById(R.id.tv_start_four_fragment_conception_diary);
-        TextView mTvStart5 = (TextView) mView.findViewById(R.id.tv_start_five_fragment_conception_diary);
-        TextView mTvStart6 = (TextView) mView.findViewById(R.id.tv_start_six_fragment_conception_diary);
-        TextView mTvStart7 = (TextView) mView.findViewById(R.id.tv_start_seven_fragment_conception_diary);
-        TextView mTvStart8 = (TextView) mView.findViewById(R.id.tv_start_eight_fragment_conception_diary);
-        TextView mTvStart9 = (TextView) mView.findViewById(R.id.tv_start_nine_fragment_conception_diary);
-        TextView mTvStart10 = (TextView) mView.findViewById(R.id.tv_start_ten_fragment_conception_diary);
-        TextView mTvEnd1 = (TextView) mView.findViewById(R.id.tv_end_one_fragment_conception_diary);
-        TextView mTvEnd2 = (TextView) mView.findViewById(R.id.tv_end_two_fragment_conception_diary);
-        TextView mTvEnd3 = (TextView) mView.findViewById(R.id.tv_end_three_fragment_conception_diary);
-        TextView mTvEnd4 = (TextView) mView.findViewById(R.id.tv_end_four_fragment_conception_diary);
-        TextView mTvEnd5 = (TextView) mView.findViewById(R.id.tv_end_five_fragment_conception_diary);
-        TextView mTvEnd6 = (TextView) mView.findViewById(R.id.tv_end_six_fragment_conception_diary);
-        TextView mTvEnd7 = (TextView) mView.findViewById(R.id.tv_end_seven_fragment_conception_diary);
-        TextView mTvEnd8 = (TextView) mView.findViewById(R.id.tv_end_eight_fragment_conception_diary);
-        TextView mTvEnd9 = (TextView) mView.findViewById(R.id.tv_end_nine_fragment_conception_diary);
-        TextView mTvEnd10 = (TextView) mView.findViewById(R.id.tv_end_ten_fragment_conception_diary);
+        TextView mTvDoDaiKiKinh = (TextView) mView.findViewById(R.id.tv_do_dai_ky_kinh_fragment_ovulation_diar);
+        TextView mTvDoDaiChuKy = (TextView) mView.findViewById(R.id.tv_do_dai_chu_ky_fragment_ovulation_diary);
+        TextView mTvStart1 = (TextView) mView.findViewById(R.id.tv_start_one_fragment_ovulation_diary);
+        TextView mTvStart2 = (TextView) mView.findViewById(R.id.tv_start_two_fragment_ovulation_diary);
+        TextView mTvStart3 = (TextView) mView.findViewById(R.id.tv_start_three_fragment_ovulation_diary);
+        TextView mTvStart4 = (TextView) mView.findViewById(R.id.tv_start_four_fragment_ovulation_diary);
+        TextView mTvStart5 = (TextView) mView.findViewById(R.id.tv_start_five_fragment_ovulation_diary);
+        TextView mTvStart6 = (TextView) mView.findViewById(R.id.tv_start_six_fragment_ovulation_diary);
+        TextView mTvStart7 = (TextView) mView.findViewById(R.id.tv_start_seven_fragment_ovulation_diary);
+        TextView mTvStart8 = (TextView) mView.findViewById(R.id.tv_start_eight_fragment_ovulation_diary);
+        TextView mTvStart9 = (TextView) mView.findViewById(R.id.tv_start_nine_fragment_ovulation_diary);
+        TextView mTvStart10 = (TextView) mView.findViewById(R.id.tv_start_ten_fragment_ovulation_diary);
+        TextView mTvEnd1 = (TextView) mView.findViewById(R.id.tv_end_one_fragment_ovulation_diary);
+        TextView mTvEnd2 = (TextView) mView.findViewById(R.id.tv_end_two_fragment_ovulation_diary);
+        TextView mTvEnd3 = (TextView) mView.findViewById(R.id.tv_end_three_fragment_ovulation_diary);
+        TextView mTvEnd4 = (TextView) mView.findViewById(R.id.tv_end_four_fragment_ovulation_diary);
+        TextView mTvEnd5 = (TextView) mView.findViewById(R.id.tv_end_five_fragment_ovulation_diary);
+        TextView mTvEnd6 = (TextView) mView.findViewById(R.id.tv_end_six_fragment_ovulation_diary);
+        TextView mTvEnd7 = (TextView) mView.findViewById(R.id.tv_end_seven_fragment_ovulation_diary);
+        TextView mTvEnd8 = (TextView) mView.findViewById(R.id.tv_end_eight_fragment_ovulation_diary);
+        TextView mTvEnd9 = (TextView) mView.findViewById(R.id.tv_end_nine_fragment_ovulation_diary);
+        TextView mTvEnd10 = (TextView) mView.findViewById(R.id.tv_end_ten_fragment_ovulation_diary);
 
-        RoundCornerProgressBar mRc = (RoundCornerProgressBar) mView.findViewById(R.id.rc_frag_conception_diary);
-        TextView mTvLeftRc = (TextView) mView.findViewById(R.id.tv_left_rc_frag_conception_diary);
-        TextView mTvRightRc = (TextView) mView.findViewById(R.id.tv_right_rc_frag_conception_diary);
+        RoundCornerProgressBar mRc = (RoundCornerProgressBar) mView.findViewById(R.id.rc_frag_ovulation_diary);
+        TextView mTvLeftRc = (TextView) mView.findViewById(R.id.tv_left_rc_frag_ovulation_diary);
+        TextView mTvRightRc = (TextView) mView.findViewById(R.id.tv_right_rc_frag_ovulation_diary);
 
         long mNgayBatDauChuKyKinhNguyet = Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext()));
         int mChuKyKinhNguyet = Integer.parseInt(Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, getContext()));
         int mChuKyHanhKinh = Integer.parseInt(Utils.readFromFile(Utils.FILE_CHU_KY_HANH_KINH, getContext()));
         int mSoNgayDenNgayThuThai = Utils.getDayLeftToDateEasyToConceive(mChuKyKinhNguyet);
         long mTimeToHanhKinh = mSoNgayDenNgayThuThai * Utils.mOneDay;
+        long mTimeToOvulation;
+        if(Utils.readFromFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE, getContext()) != ""){
+            mTimeToOvulation = Integer.parseInt(Utils.readFromFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE, getContext())) * Utils.mOneDay;
+        }else {
+            mTimeToOvulation = 14 * Utils.mOneDay;
+        }
 
         mRc.setProgress(mSoNgayDenNgayThuThai);
         mRc.setSecondaryProgress(mChuKyKinhNguyet);
@@ -88,7 +94,7 @@ public class FragmentThuThai extends Fragment {
         Calendar mCaGuessEnd9 = Calendar.getInstance();
         Calendar mCaGuessEnd10 = Calendar.getInstance();
 
-        mCaGuessStart1.setTimeInMillis(mNgayBatDauChuKyKinhNguyet + mTimeToHanhKinh);
+        mCaGuessStart1.setTimeInMillis(mNgayBatDauChuKyKinhNguyet + mTimeToOvulation);
         mCaGuessStart2.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyKinhNguyet * Utils.mOneDay);
         mCaGuessStart3.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyKinhNguyet * Utils.mOneDay * 2);
         mCaGuessStart4.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyKinhNguyet * Utils.mOneDay * 3);
@@ -99,16 +105,16 @@ public class FragmentThuThai extends Fragment {
         mCaGuessStart9.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyKinhNguyet * Utils.mOneDay * 8);
         mCaGuessStart10.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyKinhNguyet * Utils.mOneDay * 9);
 
-        mCaGuessEnd1.setTimeInMillis(mCaGuessStart1.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd2.setTimeInMillis(mCaGuessStart2.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd3.setTimeInMillis(mCaGuessStart3.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd4.setTimeInMillis(mCaGuessStart4.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd5.setTimeInMillis(mCaGuessStart5.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd6.setTimeInMillis(mCaGuessStart6.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd7.setTimeInMillis(mCaGuessStart7.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd8.setTimeInMillis(mCaGuessStart8.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd9.setTimeInMillis(mCaGuessStart9.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
-        mCaGuessEnd10.setTimeInMillis(mCaGuessStart10.getTimeInMillis() + mChuKyHanhKinh * Utils.mOneDay);
+        mCaGuessEnd1.setTimeInMillis(mCaGuessStart1.getTimeInMillis());
+        mCaGuessEnd2.setTimeInMillis(mCaGuessStart2.getTimeInMillis());
+        mCaGuessEnd3.setTimeInMillis(mCaGuessStart3.getTimeInMillis());
+        mCaGuessEnd4.setTimeInMillis(mCaGuessStart4.getTimeInMillis());
+        mCaGuessEnd5.setTimeInMillis(mCaGuessStart5.getTimeInMillis());
+        mCaGuessEnd6.setTimeInMillis(mCaGuessStart6.getTimeInMillis());
+        mCaGuessEnd7.setTimeInMillis(mCaGuessStart7.getTimeInMillis());
+        mCaGuessEnd8.setTimeInMillis(mCaGuessStart8.getTimeInMillis());
+        mCaGuessEnd9.setTimeInMillis(mCaGuessStart9.getTimeInMillis());
+        mCaGuessEnd10.setTimeInMillis(mCaGuessStart10.getTimeInMillis());
 
         mTvDoDaiKiKinh.setText(mSoNgayDenNgayThuThai + getString(R.string.day_the_average_length_of_the_period));
         mTvDoDaiChuKy.setText(mChuKyKinhNguyet + getString(R.string.day_average_cycle_length));

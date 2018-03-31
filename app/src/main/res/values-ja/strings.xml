@@ -232,7 +232,12 @@
     <string name="quite_fat">かなりの脂肪</string>
     <string name="very_fat">とても太っている</string>
     <string name="fat">脂肪</string>
-
     <string name="ask_delete">消去してもよろしいですか？</string>
+
+    <string name="add_weight">重量を追加する</string>
+    <string name="add_temperature">温度を加える</string>
+    <string name="enter_weight">体重を入力</string>
+    <string name="enter_temperature">温度入力</string>
+    <string name="end_cycle">終了サイクル</string>
 
 </resources>
