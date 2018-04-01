@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="@dimen/muoi_dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@color/colorAccent"
+            android:layout_width="@dimen/hai_muoi_dp"
+            android:layout_height="@dimen/hai_muoi_dp" />
+
+        <TextView
+            android:gravity="center_vertical"
+            android:text="Ngày bắt đầu chu kỳ"
+            android:textColor="@color/colorDone"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:paddingLeft="@dimen/muoi_dp"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/nam_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/bg_cal_today"
+            android:layout_width="@dimen/hai_muoi_dp"
+            android:layout_height="@dimen/hai_muoi_dp" />
+
+        <TextView
+            android:gravity="center_vertical"
+            android:text="Ngày hiện tại"
+            android:textColor="@color/colorDone"
+            android:textSize="@dimen/muoi_hai_sp"
+            android:paddingLeft="@dimen/muoi_dp"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_ok_dialog_hoi_cham"
+        android:layout_marginTop="@dimen/muoi_dp"
+        android:textSize="@dimen/hai_muoi_sp"
+        android:textColor="@color/colorDone"
+        android:gravity="center"
+        android:text="@string/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

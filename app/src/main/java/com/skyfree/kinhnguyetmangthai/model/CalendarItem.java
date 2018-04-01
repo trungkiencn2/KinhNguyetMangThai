@@ -5,8 +5,16 @@ package com.skyfree.kinhnguyetmangthai.model;
  */
 
 public class CalendarItem {
-    private Integer mDes;
+    private Integer mBg, mDes;
     private String mDate, mMonth, mYear;
+
+    public Integer getmBg() {
+        return mBg;
+    }
+
+    public void setmBg(Integer mBg) {
+        this.mBg = mBg;
+    }
 
     public Integer getmDes() {
         return mDes;
@@ -40,10 +48,13 @@ public class CalendarItem {
         this.mYear = mYear;
     }
 
+
+
     public CalendarItem() {
     }
 
-    public CalendarItem(Integer mDes, String mDate, String mMonth, String mYear) {
+    public CalendarItem(Integer mBg, Integer mDes, String mDate, String mMonth, String mYear) {
+        this.mBg = mBg;
         this.mDes = mDes;
         this.mDate = mDate;
         this.mMonth = mMonth;

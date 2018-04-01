@@ -85,7 +85,7 @@
 
                 <TextView
                     android:id="@+id/tv_end_cycle_main_activity"
-                    android:textSize="@dimen/muoi_lam_sp"
+                    android:textSize="@dimen/muoi_hai_sp"
                     android:textColor="@color/colorDone"
                     android:text="@string/end_cycle"
                     android:gravity="center"

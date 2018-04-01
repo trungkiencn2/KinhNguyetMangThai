@@ -240,10 +240,10 @@ public class Utils {
     public static ArrayList<CalendarItem> createListCaItem(int numberOfDataNull, int maxDayInMonth, int month, int year) {
         ArrayList<CalendarItem> mListItem = new ArrayList<>();
         for (int i = 0; i < numberOfDataNull; i++) {
-            mListItem.add(new CalendarItem(null, "", "", ""));
+            mListItem.add(new CalendarItem(null, null, "", "", ""));
         }
         for (int i = 1; i <= maxDayInMonth; i++) {
-            mListItem.add(new CalendarItem(null, i + "", month + "", year + ""));
+            mListItem.add(new CalendarItem(null, null, i + "", month + "", year + ""));
         }
         return mListItem;
     }

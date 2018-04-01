@@ -1,4 +1,4 @@
-package com.skyfree.kinhnguyetmangthai.fragment;
+package com.skyfree.kinhnguyetmangthai.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * Created by lamnd on 3/2/2017.
  */
 
-public class PageThangAdapter extends FragmentStatePagerAdapter {
+public class PageMonthAdapter extends FragmentStatePagerAdapter {
     ArrayList<Fragment> list;
-    public PageThangAdapter(FragmentManager fm) {
+    public PageMonthAdapter(FragmentManager fm) {
 
         super(fm);
         this.list= new ArrayList<Fragment>();
@@ -22,7 +22,6 @@ public class PageThangAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
         return list.get(position);
     }
 

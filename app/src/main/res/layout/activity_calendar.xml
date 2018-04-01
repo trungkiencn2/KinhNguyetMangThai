@@ -149,15 +149,35 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv_date_note_calendar_activity"
-                android:paddingLeft="@dimen/nam_dp"
-                android:textColor="@color/colorDone"
-                android:textSize="@dimen/muoi_lam_sp"
-                android:gravity="center_vertical"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_date_note_calendar_activity"
+                    android:paddingLeft="@dimen/nam_dp"
+                    android:textColor="@color/colorDone"
+                    android:textSize="@dimen/muoi_lam_sp"
+                    android:gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/img_hoicham_calendar_activity"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_hoicham"
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_weight="0.05"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
 
             <ScrollView
                 android:background="@drawable/bg_calendar_note"

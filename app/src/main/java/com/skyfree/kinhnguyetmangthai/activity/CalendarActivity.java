@@ -3,10 +3,12 @@ package com.skyfree.kinhnguyetmangthai.activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -15,10 +17,9 @@ import android.widget.TextView;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.adapter.ListOptionAdapter;
 import com.skyfree.kinhnguyetmangthai.custom_interface.ISetIdForCalendarActivity;
-import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateCalItem;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateTopTime;
 import com.skyfree.kinhnguyetmangthai.fragment.FragmentCalendar;
-import com.skyfree.kinhnguyetmangthai.fragment.PageThangAdapter;
+import com.skyfree.kinhnguyetmangthai.adapter.PageMonthAdapter;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
@@ -28,17 +29,18 @@ import java.util.Calendar;
 import io.realm.Realm;
 import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
-public class CalendarActivity extends AppCompatActivity implements IUpdateTopTime, IUpdateCalItem, ISetIdForCalendarActivity, View.OnClickListener {
+public class CalendarActivity extends AppCompatActivity implements IUpdateTopTime, ISetIdForCalendarActivity, View.OnClickListener {
 
     private TextView mTvDateCalendarActivity, mTvNote, mTvDrug, mTvSymptom, mTvMood, mTvWeight, mTvTemperature;
     private TextView mTvDateNote;
+    private ImageView mImgHoiCham;
     private ListView mLvDrug, mLvSymptom, mLvMood;
     private LinearLayout mLinearInfo;
     private ImageView mImgBack;
-    private ViewPager mPager;
+    public static ViewPager mPager;
     private MaterialRatingBar mRatingBarLuongKinh;
 
-    private PageThangAdapter mFragmentAdapter;
+    private PageMonthAdapter mFragmentAdapter;
 
     private Calendar mCaSetForPager = Calendar.getInstance();
     private Calendar mCurrentCa = Calendar.getInstance();
@@ -74,6 +76,7 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     }
 
     private void initView() {
+        mImgHoiCham = (ImageView) findViewById(R.id.img_hoicham_calendar_activity);
         mTvDateCalendarActivity = (TextView) findViewById(R.id.tv_date_calendar_activity);
         mTvNote = (TextView) findViewById(R.id.tv_note_calendar_activity);
         mTvDrug = (TextView) findViewById(R.id.tv_drug_calendar_activity);
@@ -89,13 +92,13 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         mLvMood = (ListView) findViewById(R.id.lv_mood_calendar_activity);
         mRatingBarLuongKinh = (MaterialRatingBar) findViewById(R.id.ratingbar_luong_kinh_calendar_activity);
 
+        mImgHoiCham.setOnClickListener(this);
         mImgBack.setOnClickListener(this);
         mLinearInfo.setOnClickListener(this);
-
         mCaSetForPager.add(Calendar.MONTH, -24);
-        mFragmentAdapter = new PageThangAdapter(getSupportFragmentManager());
+        mFragmentAdapter = new PageMonthAdapter(getSupportFragmentManager());
         for (int i = 0; i <= 47; i++) {
-            Fragment fragment = new FragmentCalendar(mCaSetForPager.get(Calendar.MONTH), mCaSetForPager.get(Calendar.YEAR), this, this, this);
+            Fragment fragment = new FragmentCalendar(mCaSetForPager.get(Calendar.MONTH), mCaSetForPager.get(Calendar.YEAR), this, this);
             mCaSetForPager.add(Calendar.MONTH, 1);
             if (mCaSetForPager.get(Calendar.MONTH) > 11) {
                 mCaSetForPager.set(Calendar.MONTH, 0);
@@ -109,7 +112,8 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
 
         mPager = findViewById(R.id.view_pager_calendar);
         mPager.setAdapter(mFragmentAdapter);
-        mPager.setCurrentItem(24, false);
+        mPager.setCurrentItem(24);
+
 
     }
 
@@ -136,8 +140,11 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         String listSymptom = "";
         String listMood = "";
 
+        String dateStr = mCurrentCa.get(Calendar.DAY_OF_MONTH) + " - " + (mCurrentCa.get(Calendar.MONTH) + 1) + " - " + mCurrentCa.get(Calendar.YEAR);
+        mTvDateNote.setText(dateStr);
+
         if (mCurrentNoteObj != null) {
-            mTvDateNote.setText(mCurrentCa.get(Calendar.DAY_OF_MONTH) + " - " + (mCurrentCa.get(Calendar.MONTH) + 1) + " - " + mCurrentCa.get(Calendar.YEAR));
+
             mTvNote.setText(mCurrentNoteObj.getmNoteNote());
 
             for (int i = 0; i < mCurrentNoteObj.getmListDrug().size(); i++) {
@@ -159,8 +166,6 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
             mAdapterForSymptom.notifyDataSetChanged();
             getListImageMood(mListMoodStr);
             mAdapterForMood.notifyDataSetChanged();
-
-            Log.d("aaa size dr ", mListDrugStr.size() + "");
 
             mTvDrug.setText(listDrug);
             mTvSymptom.setText(listSymptom);
@@ -366,11 +371,6 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     }
 
     @Override
-    public void updateCalItem(int position) {
-
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         mRealm.close();
@@ -389,7 +389,29 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
             case R.id.img_back_calendar_activity:
                 finish();
                 break;
+            case R.id.img_hoicham_calendar_activity:
+                showAlertHoiCham();
+                break;
         }
+    }
+
+    private void showAlertHoiCham() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_hoi_cham, null);
+        dialogBuilder.setView(dialogView);
+
+        TextView mTvOk = (TextView) dialogView.findViewById(R.id.tv_ok_dialog_hoi_cham);
+
+        final AlertDialog alertStartDialog = dialogBuilder.create();
+        alertStartDialog.show();
+
+        mTvOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertStartDialog.cancel();
+            }
+        });
     }
 
     @Override
@@ -398,4 +420,5 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         mCurrentId = day + "" + month + "" + year;
         addEvent();
     }
+
 }

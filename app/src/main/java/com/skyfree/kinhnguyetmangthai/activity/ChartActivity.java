@@ -71,7 +71,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 
     private void addEvent() {
         RealmResults<NoteObj> mListNote = Utils.getAllNoteObj(realm);
-        if(mListNote.size()>=2){
+        if (mListNote.size() >= 2) {
             mListNote = mListNote.sort("mTimeMili");
             ArrayList<Float> mListWeight = new ArrayList<>();
             ArrayList<Float> mListTemperature = new ArrayList<>();
@@ -137,27 +137,42 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.img_add_chart:
 
-                DatePickerDialog mDatePicker = new DatePickerDialog(this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            public void onDateSet(DatePicker datepicker, int year, int selectedmonth, int dayOfMonth) {
-                                int month = selectedmonth + 1;
-                                mCa.setTimeInMillis(System.currentTimeMillis()); //refresh to now
-                                mCa.set(Calendar.YEAR, year);
-                                mCa.set(Calendar.MONTH, selectedmonth);
-                                mCa.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                            }
-                        }, mCa.get(Calendar.YEAR), mCa.get(Calendar.MONTH), mCa.get(Calendar.DAY_OF_MONTH));
-                mDatePicker.getDatePicker().setMaxDate(mCaNow.getTimeInMillis() + 2*365*Utils.mOneDay);
-                mDatePicker.getDatePicker().setMinDate(mCaNow.getTimeInMillis() - 2*365*Utils.mOneDay);
-                mDatePicker.setTitle(getString(R.string.select_date));
-                mDatePicker.show();
-
-                mDatePicker.setButton(DialogInterface.BUTTON1, "Btn 1", new DialogInterface.OnClickListener() {
+                DatePickerDialog.OnDateSetListener callback = new DatePickerDialog.OnDateSetListener() {
+                    //Sự kiện khi click vào nút Done trên Dialog
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        mCa.set(year, month, day);
                         showAlertWeightOrTemperature();
                     }
-                });
+                };
+
+                DatePickerDialog pic=new DatePickerDialog(
+                        ChartActivity.this,
+                        callback, mCaNow.get(Calendar.YEAR), mCaNow.get(Calendar.MONTH), mCaNow.get(Calendar.DAY_OF_MONTH));
+                pic.setTitle("Chọn ngày hoàn thành");
+                pic.show();
+
+//                DatePickerDialog mDatePicker = new DatePickerDialog(this,
+//                        new DatePickerDialog.OnDateSetListener() {
+//                            public void onDateSet(DatePicker datepicker, int year, int selectedmonth, int dayOfMonth) {
+//                                int month = selectedmonth + 1;
+//                                mCa.setTimeInMillis(System.currentTimeMillis()); //refresh to now
+//                                mCa.set(Calendar.YEAR, year);
+//                                mCa.set(Calendar.MONTH, selectedmonth);
+//                                mCa.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                            }
+//                        }, mCaNow.get(Calendar.YEAR), mCaNow.get(Calendar.MONTH), mCaNow.get(Calendar.DAY_OF_MONTH));
+//                mDatePicker.getDatePicker().setMaxDate(mCaNow.getTimeInMillis() + 2*365*Utils.mOneDay);
+//                mDatePicker.getDatePicker().setMinDate(mCaNow.getTimeInMillis() - 2*365*Utils.mOneDay);
+//                mDatePicker.setTitle(getString(R.string.select_date));
+//                mDatePicker.show();
+//
+//                mDatePicker.setButton(DialogInterface.BUTTON1, "Btn 1", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        showAlertWeightOrTemperature();
+//                    }
+//                });
 
                 break;
         }
@@ -193,7 +208,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    private void chooseWeight(){
+    private void chooseWeight() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_choose_weight, null);
@@ -216,30 +231,32 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         mTvOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mEdtWeight.getText().toString().equals("")){
-                    if(Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
+                if (mEdtWeight.getText().toString().equals("")) {
+                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
                         Utils.updateWeight(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), 0);
-                    }else {
+                    } else {
                         Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
                                 mCa.getTimeInMillis(), 0, "", 0, 0, new RealmList<RealmDrug>(),
                                 new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
-                }else {
-                    if(Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
+                } else {
+                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
                         Utils.updateWeight(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), Float.parseFloat(mEdtWeight.getText().toString()));
-                    }else {
+                    } else {
                         Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
                                 mCa.getTimeInMillis(), 0, "", Float.parseFloat(mEdtWeight.getText().toString()), 0, new RealmList<RealmDrug>(),
                                 new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
                 }
-                addEvent();
+                Intent refresh = new Intent(getApplicationContext(), ChartActivity.class);
+                finish();
+                startActivity(refresh);
                 alertStartDialog.cancel();
             }
         });
     }
 
-    private void chooseTemperature(){
+    private void chooseTemperature() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_choose_temperature, null);
@@ -262,31 +279,26 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         mTvOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mEdtTemperature.getText().toString().equals("")){
-                    if(Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
+                if (mEdtTemperature.getText().toString().equals("")) {
+                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
                         Utils.updateTemperature(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), 0);
-                    }else {
+                    } else {
                         Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
                                 mCa.getTimeInMillis(), 0, "", 0, 0, new RealmList<RealmDrug>(),
                                 new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
-                }else {
-                    if(Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))){
+                } else {
+                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
                         Utils.updateTemperature(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), Float.parseFloat(mEdtTemperature.getText().toString()));
-                    }else {
+                    } else {
                         Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
                                 mCa.getTimeInMillis(), 0, "", 0, Float.parseFloat(mEdtTemperature.getText().toString()), new RealmList<RealmDrug>(),
                                 new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
                 }
-                addEvent();
-
-//                Intent intent = getIntent();
-//                overridePendingTransition(0, 0);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                finish();
-//                overridePendingTransition(0, 0);
-//                startActivity(intent);
+                Intent refresh = new Intent(getApplicationContext(), ChartActivity.class);
+                finish();
+                startActivity(refresh);
                 alertStartDialog.cancel();
             }
         });

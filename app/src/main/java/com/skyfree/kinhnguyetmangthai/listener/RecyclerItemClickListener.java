@@ -1,4 +1,4 @@
-package com.skyfree.kinhnguyetmangthai.fragment;
+package com.skyfree.kinhnguyetmangthai.listener;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

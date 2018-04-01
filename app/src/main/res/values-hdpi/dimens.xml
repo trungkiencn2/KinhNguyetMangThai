@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="mot_dp">1dp</dimen>
+    <dimen name="ba_dp">3dp</dimen>
     <dimen name="nam_dp">5dp</dimen>
     <dimen name="muoi_dp">10dp</dimen>
     <dimen name="muoi_lam_dp">15dp</dimen>
