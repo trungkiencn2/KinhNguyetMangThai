@@ -20,10 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    dexOptions {
-//        incremental true
-//    }
-//
+
 //    compileOptions {
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
@@ -45,9 +42,6 @@ dependencies {
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     testCompile 'junit:junit:4.12'
     apply plugin: 'realm-android'
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
-    implementation 'com.github.PhilJay:MPAndroidChart-Realm:v3.0.3@aar'
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-    compile 'com.numetriclabz.numandroidcharts:numandroidcharts:1.0.3'
+
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
 }

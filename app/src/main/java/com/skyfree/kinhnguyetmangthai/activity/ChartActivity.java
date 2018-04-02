@@ -10,20 +10,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.numetriclabz.numandroidcharts.ChartData;
-import com.numetriclabz.numandroidcharts.MultiLineChart;
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
@@ -33,6 +29,7 @@ import com.skyfree.kinhnguyetmangthai.model.RealmMood;
 import com.skyfree.kinhnguyetmangthai.model.RealmSymptom;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,14 +38,23 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
+import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
+import lecho.lib.hellocharts.model.Line;
+import lecho.lib.hellocharts.model.LineChartData;
+import lecho.lib.hellocharts.model.PointValue;
+import lecho.lib.hellocharts.view.LineChartView;
 
 public class ChartActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private MultiLineChart mChart;
+    Realm realm;
+    private LineChartView mChart;
     private ImageView mImgBack, mImgAdd;
+    private Spinner mSpinner;
 
-    private Realm realm;
-    private String mId;
+    private final String WEIGHT = "WEIGHT";
+    private final String TEMPERATURE = "TEMPERATURE";
+    private String CHOOSE = WEIGHT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +62,9 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_chart);
         realm = Realm.getDefaultInstance();
         initView();
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         addEvent();
-    }
 
-    private float mXStart = 1f;
-    private float mXStartTem = 1f;
+    }
 
     private void addEvent() {
         RealmResults<NoteObj> mListNote = Utils.getAllNoteObj(realm);
@@ -84,59 +81,87 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
 
-            List<ChartData> mValueWeight = new ArrayList<>();
-            for (int i = 0; i < mListWeight.size(); i++) {
-                mValueWeight.add(new ChartData(mListWeight.get(i), mXStart));
-                mXStart += 1f;
+
+            String decimalPattern = "#.##";
+            DecimalFormat decimalFormat = new DecimalFormat(decimalPattern);
+
+            List<PointValue> values = new ArrayList<PointValue>();
+            PointValue tempPointValue;
+
+
+            if(CHOOSE.equals(WEIGHT)){
+                for (int i = 0; i < mListWeight.size(); i++) {
+                    tempPointValue = new PointValue(i, mListWeight.get(i));
+                    tempPointValue.setLabel(decimalFormat.format(Math.abs(mListWeight.get(i))) + " kg");
+                    values.add(tempPointValue);
+                }
+            }else if(CHOOSE.equals(TEMPERATURE)){
+                for(int i = 0; i<mListTemperature.size(); i++){
+                    tempPointValue = new PointValue(i, mListTemperature.get(i));
+                    tempPointValue.setLabel(decimalFormat.format(Math.abs(mListTemperature.get(i))) + " °C");
+                    values.add(tempPointValue);
+                }
             }
 
-            List<ChartData> mValueTemperature = new ArrayList<>();
-            for (int i = 0; i < mListTemperature.size(); i++) {
-                mValueTemperature.add(new ChartData(mListTemperature.get(i), mXStartTem));
-                mXStartTem += 1f;
-            }
+            Line line = new Line(values)
+                    .setColor(getColor(R.color.colorAccent))
+                    .setCubic(false)
+                    .setHasPoints(true).setHasLabels(true);
+            List<Line> lines = new ArrayList<Line>();
+            lines.add(line);
 
-            List<String> legends = new ArrayList<>();
-            List<ChartData> value3 = new ArrayList<>();
-            if (mValueWeight.size() >= 2) {
-                value3.add(new ChartData(mValueWeight));
-                legends.add(getString(R.string.weight));
-            }
-            if (mValueTemperature.size() >= 2) {
-                value3.add(new ChartData(mValueTemperature));
-                legends.add(getString(R.string.temperature));
-            }
-            mChart.setData(value3);
-            mChart.setLegends(legends);
+            LineChartData data = new LineChartData();
+            data.setLines(lines);
+
+            mChart.setLineChartData(data);
         }
-
     }
 
-    private void initView() {
-        mChart = (MultiLineChart) findViewById(R.id.chart);
+    private void initView(){
+        mChart = (LineChartView) findViewById(R.id.chart);
         mImgBack = (ImageView) findViewById(R.id.img_back_chart);
         mImgAdd = (ImageView) findViewById(R.id.img_add_chart);
+        mSpinner = (Spinner) findViewById(R.id.spinner_wei_or_temp);
         mImgBack.setOnClickListener(this);
         mImgAdd.setOnClickListener(this);
+
+        List<String> list = new ArrayList<>();
+        list.add(getString(R.string.weight));
+        list.add(getString(R.string.temperature));
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,list);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        mSpinner.setAdapter(adapter);
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i == 0){
+                    CHOOSE = WEIGHT;
+                    addEvent();
+                }else if(i == 1){
+                    CHOOSE = TEMPERATURE;
+                    addEvent();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(ChartActivity.this, "nothing", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        realm.close();
-    }
-
-    private Calendar mCaNow = Calendar.getInstance();
     private Calendar mCa = Calendar.getInstance();
+    private Calendar mCaNow = Calendar.getInstance();
+
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+        switch (v.getId()){
             case R.id.img_back_chart:
                 finish();
                 break;
             case R.id.img_add_chart:
-
                 DatePickerDialog.OnDateSetListener callback = new DatePickerDialog.OnDateSetListener() {
                     //Sự kiện khi click vào nút Done trên Dialog
                     @Override
@@ -149,31 +174,8 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 DatePickerDialog pic=new DatePickerDialog(
                         ChartActivity.this,
                         callback, mCaNow.get(Calendar.YEAR), mCaNow.get(Calendar.MONTH), mCaNow.get(Calendar.DAY_OF_MONTH));
-                pic.setTitle("Chọn ngày hoàn thành");
+                pic.setTitle(getString(R.string.select_date));
                 pic.show();
-
-//                DatePickerDialog mDatePicker = new DatePickerDialog(this,
-//                        new DatePickerDialog.OnDateSetListener() {
-//                            public void onDateSet(DatePicker datepicker, int year, int selectedmonth, int dayOfMonth) {
-//                                int month = selectedmonth + 1;
-//                                mCa.setTimeInMillis(System.currentTimeMillis()); //refresh to now
-//                                mCa.set(Calendar.YEAR, year);
-//                                mCa.set(Calendar.MONTH, selectedmonth);
-//                                mCa.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//                            }
-//                        }, mCaNow.get(Calendar.YEAR), mCaNow.get(Calendar.MONTH), mCaNow.get(Calendar.DAY_OF_MONTH));
-//                mDatePicker.getDatePicker().setMaxDate(mCaNow.getTimeInMillis() + 2*365*Utils.mOneDay);
-//                mDatePicker.getDatePicker().setMinDate(mCaNow.getTimeInMillis() - 2*365*Utils.mOneDay);
-//                mDatePicker.setTitle(getString(R.string.select_date));
-//                mDatePicker.show();
-//
-//                mDatePicker.setButton(DialogInterface.BUTTON1, "Btn 1", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        showAlertWeightOrTemperature();
-//                    }
-//                });
-
                 break;
         }
     }
