@@ -270,7 +270,6 @@ public class Utils {
     }
 
     public static void insertNoteObj(Realm realm, final NoteObj noteObj) {
-
         if(!checkNoteObjExistById(realm, noteObj.getId())){
             realm.executeTransaction(new Realm.Transaction() {
                 @Override

@@ -1,9 +1,13 @@
 package com.skyfree.kinhnguyetmangthai.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +35,7 @@ public class FragmentCalendar extends Fragment {
     private IUpdateTopTime mUpdateTopTime;
     private Realm realm;
     private ISetIdForCalendarActivity mSetDate;
+    private int xxx = -1;
 
     public FragmentCalendar() {
     }
@@ -57,8 +62,6 @@ public class FragmentCalendar extends Fragment {
         return mListCaItem;
     }
 
-    private Calendar mCaNgayBatDauChuKy = Calendar.getInstance();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -70,10 +73,9 @@ public class FragmentCalendar extends Fragment {
         int maxDayInMonth = Utils.getSoNgayTrong1Thang(mMonth, mYear);
         mListCaItem = Utils.createListCaItem(numberOfDataNull, maxDayInMonth, mMonth, mYear);
 
-
         final View v = inflater.inflate(R.layout.fragment_month_calendar, container, false);
         RecyclerView mRcv = v.findViewById(R.id.rcv_fragment_month_calendar);
-        RecycleViewCalendarAdapter mAdapter = new RecycleViewCalendarAdapter(mListCaItem, getContext());
+        final RecycleViewCalendarAdapter mAdapter = new RecycleViewCalendarAdapter(mListCaItem, getContext());
         mRcv.setLayoutManager(new GridLayoutManager(getContext(), 7));
         mRcv.setHasFixedSize(true);
         mRcv.setAdapter(mAdapter);
@@ -95,15 +97,11 @@ public class FragmentCalendar extends Fragment {
                     Integer.parseInt(mListCaItem.get(i).getmMonth()), Integer.parseInt(mListCaItem.get(i).getmYear()));
 
             if (posNgayBatDauChuKy != -1) {
-                mCaTam.add(Calendar.DAY_OF_MONTH, 1);
                 CalendarItem mCaItem = mListCaItem.get(posNgayBatDauChuKy);
                 mCaItem.setmBg(R.color.colorAccent);
                 mListCaItem.set(posNgayBatDauChuKy, mCaItem);
                 mAdapter.notifyItemChanged(posNgayBatDauChuKy);
-                continue;
             }
-
-
         }
 
         mRcv.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRcv, new RecyclerItemClickListener.OnItemClickListener() {
@@ -114,6 +112,19 @@ public class FragmentCalendar extends Fragment {
 //                    Log.d("aaa", (position - numberOfDataNull + 1) + " - " + (mMonth + 1) + " - " + mYear);
 //                    View viewItem = mRcv.getLayoutManager().findViewByPosition(position);
 //                    viewItem.setBackgroundResource(R.drawable.bg_cal_today);
+                    if(xxx > 0){
+                        CalendarItem mCaItemTam = mListCaItem.get(xxx);
+                        mCaItemTam.setmBg(R.drawable.bg_date);
+                        mListCaItem.set(xxx, mCaItemTam);
+                        mAdapter.notifyItemChanged(xxx);
+                    }
+
+                    CalendarItem mCaItem = mListCaItem.get(position);
+                    mCaItem.setmBg(R.drawable.bg_cal_selector);
+                    mListCaItem.set(position, mCaItem);
+                    mAdapter.notifyItemChanged(position);
+                    xxx = position;
+
                     mSetDate.setDate(position - numberOfDataNull + 1, mMonth, mYear);
                 }
             }
@@ -134,11 +145,12 @@ public class FragmentCalendar extends Fragment {
         String dayWeek = Utils.getThuMayLaMung1(mMonth, mYear);
         final int numberOfDataNull = Utils.getNumberDataNull(dayWeek);
         int maxDayInMonth = Utils.getSoNgayTrong1Thang(mMonth, mYear);
-        mListCaItem = Utils.createListCaItem(numberOfDataNull, maxDayInMonth, mMonth, mYear);
 
         if (menuVisible) {
             mUpdateTopTime.updateTopTime((mMonth + 1) + " - " + mYear);
         }
+
+
     }
 
     @Override
@@ -161,7 +173,6 @@ public class FragmentCalendar extends Fragment {
     private Integer getPositionNgayBatDauChuKy(int numberNull, int day, int month, int year) {
 
         mCaTam.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext())));
-//        mCaNgayBatDauChuKy.setTimeInMillis(mCaTam.getTimeInMillis());
         if (day == mCaTam.get(Calendar.DAY_OF_MONTH) && month == mCaTam.get(Calendar.MONTH) && year == mCaTam.get(Calendar.YEAR)) {
             if (mDem < 5) {
                 mCaTam.add(Calendar.DAY_OF_MONTH, mDem);
@@ -174,42 +185,6 @@ public class FragmentCalendar extends Fragment {
             return -1;
         }
 
-//        ArrayList<Integer> mList = new ArrayList<>();
-//        Calendar mCaTam = Calendar.getInstance();
-//        Calendar mCaTam2 = Calendar.getInstance();
-//        Calendar mCaTam3 = Calendar.getInstance();
-//        Calendar mCaTam4 = Calendar.getInstance();
-//        mCaTam.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext())));
-//        mCaTam2.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext())));
-//        mCaTam3.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext())));
-//        mCaTam4.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, getContext())));
-//        mCaTam2.add(Calendar.DAY_OF_MONTH, 1);
-//        mCaTam3.add(Calendar.DAY_OF_MONTH, 2);
-//        mCaTam4.add(Calendar.DAY_OF_MONTH, 3);
-//        int mDayStart = mCaTam.get(Calendar.DAY_OF_MONTH);
-//        int mMonthStart = mCaTam.get(Calendar.MONTH);
-//        int mYearStart = mCaTam.get(Calendar.YEAR);
-//        int mDayStart2 = mCaTam2.get(Calendar.DAY_OF_MONTH);
-//        int mMonthStart2 = mCaTam2.get(Calendar.MONTH);
-//        int mYearStart2 = mCaTam2.get(Calendar.YEAR);
-//        int mDayStart3 = mCaTam3.get(Calendar.DAY_OF_MONTH);
-//        int mMonthStart3 = mCaTam3.get(Calendar.MONTH);
-//        int mYearStart3 = mCaTam3.get(Calendar.YEAR);
-//        int mDayStart4 = mCaTam4.get(Calendar.DAY_OF_MONTH);
-//        int mMonthStart4 = mCaTam4.get(Calendar.MONTH);
-//        int mYearStart4 = mCaTam4.get(Calendar.YEAR);
-//
-//        if(day == mDayStart && month == mMonthStart && year == mYearStart){
-//            mList.add(numberNull + day - 1);
-//        }else if(day == mDayStart2 && month == mMonthStart2 && year == mYearStart2){
-//            mList.add(numberNull + day - 1);
-//        }else if(day == mDayStart3 && month == mMonthStart3 && year == mYearStart3){
-//            mList.add(numberNull + day - 1);
-//        }else if(day == mDayStart && month == mMonthStart && year == mYearStart){
-//            mList.add(numberNull + day - 1);
-//        }
-//
-//        return mList;
     }
 
 }

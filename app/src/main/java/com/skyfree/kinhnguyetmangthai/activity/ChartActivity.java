@@ -38,11 +38,13 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
+import lecho.lib.hellocharts.formatter.AxisValueFormatter;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
+import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
 public class ChartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -82,38 +84,75 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
             }
 
 
-            String decimalPattern = "#.##";
-            DecimalFormat decimalFormat = new DecimalFormat(decimalPattern);
+
 
             List<PointValue> values = new ArrayList<PointValue>();
             PointValue tempPointValue;
 
-
-            if(CHOOSE.equals(WEIGHT)){
-                for (int i = 0; i < mListWeight.size(); i++) {
-                    tempPointValue = new PointValue(i, mListWeight.get(i));
-                    tempPointValue.setLabel(decimalFormat.format(Math.abs(mListWeight.get(i))) + " kg");
-                    values.add(tempPointValue);
-                }
-            }else if(CHOOSE.equals(TEMPERATURE)){
-                for(int i = 0; i<mListTemperature.size(); i++){
-                    tempPointValue = new PointValue(i, mListTemperature.get(i));
-                    tempPointValue.setLabel(decimalFormat.format(Math.abs(mListTemperature.get(i))) + " °C");
-                    values.add(tempPointValue);
-                }
-            }
-
             Line line = new Line(values)
-                    .setColor(getColor(R.color.colorAccent))
+                    .setColor(Color.RED)
                     .setCubic(false)
                     .setHasPoints(true).setHasLabels(true);
             List<Line> lines = new ArrayList<Line>();
             lines.add(line);
 
-            LineChartData data = new LineChartData();
-            data.setLines(lines);
 
-            mChart.setLineChartData(data);
+
+
+            if(CHOOSE.equals(WEIGHT)){
+                for (int i = 0; i < mListWeight.size(); i++) {
+                    tempPointValue = new PointValue(i, mListWeight.get(i));
+                    tempPointValue.setLabel(mListWeight.get(i) + " kg");
+                    values.add(tempPointValue);
+                }
+
+                LineChartData data = new LineChartData();
+                data.setLines(lines);
+
+                List<AxisValue> axisValuesForY = new ArrayList<>();
+                AxisValue tempAxisValue;
+                for (int i = 0; i <= 120; i += 15){
+                    tempAxisValue = new AxisValue(i);
+                    tempAxisValue.setLabel(i+"");
+                    axisValuesForY.add(tempAxisValue);
+                }
+
+                Axis yAxis = new Axis(axisValuesForY);
+                yAxis.setHasLines(true);
+                yAxis.setTextColor(Color.BLACK);
+                yAxis.setName(getString(R.string.weight));
+                data.setAxisYLeft(yAxis);
+
+                mChart.setDrawingCacheBackgroundColor(Color.BLACK);
+                mChart.setLineChartData(data);
+            }else if(CHOOSE.equals(TEMPERATURE)){
+                for(int i = 0; i<mListTemperature.size(); i++){
+                    tempPointValue = new PointValue(i, mListTemperature.get(i));
+                    tempPointValue.setLabel(mListTemperature.get(i) + " °C");
+                    values.add(tempPointValue);
+                }
+
+                LineChartData data = new LineChartData();
+                data.setLines(lines);
+
+                List<AxisValue> axisValuesForY = new ArrayList<>();
+                AxisValue tempAxisValue;
+                for(int i = 0; i<= 40; i+= 5){
+                    tempAxisValue = new AxisValue(i);
+                    tempAxisValue.setLabel(i + "");
+                    axisValuesForY.add(tempAxisValue);
+                }
+
+                Axis yAxis = new Axis(axisValuesForY);
+                yAxis.setHasLines(true);
+                yAxis.setTextColor(Color.BLACK);
+                yAxis.setName(getString(R.string.temperature));
+                data.setAxisYLeft(yAxis);
+
+                mChart.setDrawingCacheBackgroundColor(Color.BLACK);
+                mChart.setLineChartData(data);
+            }
+
         }
     }
 
@@ -153,7 +192,6 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 
     private Calendar mCa = Calendar.getInstance();
     private Calendar mCaNow = Calendar.getInstance();
-
 
     @Override
     public void onClick(View v) {

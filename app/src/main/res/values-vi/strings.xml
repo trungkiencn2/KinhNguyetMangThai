@@ -4,7 +4,7 @@
     <string name="diary">Nhật ký</string>
     <string name="setting">Cài đặt</string>
     <string name="chart">Biểu đồ</string>
-    <string name="length_cycle_menstruation">Độ dài của chu kỳ hành kinh \nChu kỳ thường kéo dài 4-7 ngày</string>
+    <string name="length_cycle_menstruation">Độ dài của chu kỳ hành kinh \nChu kỳ thường kéo dài 3-15 ngày</string>
     <string name="length_cycle_periods">Chu kỳ kinh nguyệt? Thời gian trong ngày bắt đầu hai chu kỳ, thường là 23-35 ngày</string>
     <string name="date_your_period">Ngày thời gian kinh nguyệt cuối cùng của bạn?</string>
     <string name="touch_here">Chạm vào đây để đặt</string>
@@ -34,11 +34,11 @@
     <string name="share">Chia sẻ</string>
     <string name="day">ngày</string>
     <string name="delete_all_data">Xóa tất cả dữ liệu</string>
-    <string name="menstrual_period_lasts">Thời kỳ kinh nguyệt kéo dài từ 4 đến 7 ngày</string>
+    <string name="menstrual_period_lasts">Thời kỳ kinh nguyệt kéo dài từ 3 đến 15 ngày</string>
     <string name="ok">OK</string>
     <string name="cancel">Hủy</string>
     <string name="try_again">Thử lại!!!</string>
-    <string name="you_should_typing_menstrual">Bạn nên vào giai đoạn kinh nguyệt từ 4 đến 7 ngày</string>
+    <string name="you_should_typing_menstrual">Bạn nên vào giai đoạn kinh nguyệt từ 3 đến 15 ngày</string>
     <string name="you_should_typing_cycle">Bạn nên nhập chu kỳ chu kỳ từ 23 đến 35 ngày</string>
     <string name="length_of_the_luteal_phase">Độ dài giai đoạn hoàng thể</string>
     <string name="we_base_the_luteal_phase">Chúng tôi căn cứ theo chiều dài của giai đoạn hoàng thể trên ước tính rụng trứng tiếp theo của bạn. Chiều dài này thường từ 13 đến 18 ngày</string>
@@ -80,7 +80,7 @@
     <string name="stop_watching">Ngừng xem chu kỳ kinh nguyệt của bạn và bắt đầu đếm ngược đến ngày sinh</string>
     <string name="pregnant">Có thai</string>
     <string name="congratulations">Xin chúc mừng! Nhấn OK để bật chế độ mang thai</string>
-    <string name="estimate_the_due_date">Ước tính ngày đáo hạn</string>
+    <string name="estimate_the_due_date">Ước tính ngày sinh</string>
     <string name="childbirth_or_miscarriage">Sinh con hoặc sẩy thai</string>
     <string name="no_longer_pregnant">Không còn mang thai</string>
     <string name="enable_by_mistake">Bật do nhầm lẫn</string>
@@ -187,7 +187,7 @@
     <string name="bloating">Sưng</string>
     <string name="body_aches">Nhức mỏi cơ thể</string>
     <string name="cervical_mucus">Chất nhầy cổ tử cung</string>
-    <string name="chills">Ớt lạnh</string>
+    <string name="chills">Ớn lạnh</string>
     <string name="confused">Bối rối</string>
     <string name="cramps">Chuột rút</string>
     <string name="creamy">Kem</string>
@@ -219,7 +219,7 @@
     <string name="tension">Căng thẳng</string>
     <string name="watery">Loãng</string>
     <string name="weight_gain">Tăng cân</string>
-    <string name="with_blood">Với máu</string>
+    <string name="with_blood">Chảy máu</string>
     <string name="add_symptoms">Thêm triệu chứng</string>
     <string name="height">Chiều cao</string>
     <string name="on">BẬT</string>

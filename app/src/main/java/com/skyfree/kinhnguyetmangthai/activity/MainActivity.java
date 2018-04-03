@@ -133,7 +133,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         mTvDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( Integer.parseInt(mEdtTop.getText().toString()) < 4 || Integer.parseInt(mEdtTop.getText().toString()) > 7 || Integer.parseInt(mEdtBottom.getText().toString()) < 23 || Integer.parseInt(mEdtBottom.getText().toString()) > 35){
+                if( Integer.parseInt(mEdtTop.getText().toString()) < 3 || Integer.parseInt(mEdtTop.getText().toString()) > 15 || Integer.parseInt(mEdtBottom.getText().toString()) < 23 || Integer.parseInt(mEdtBottom.getText().toString()) > 35){
                     Toast.makeText(MainActivity.this, getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                 }else {
                     Utils.writeToFile(mEdtTop.getText().toString(), Utils.FILE_CHU_KY_HANH_KINH, getApplicationContext());

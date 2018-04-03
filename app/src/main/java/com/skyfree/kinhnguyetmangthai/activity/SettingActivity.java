@@ -358,7 +358,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 if(!mEdtCount.getText().toString().equals("")){
-                    if(Integer.parseInt(mEdtCount.getText().toString()) < 4 || Integer.parseInt(mEdtCount.getText().toString()) >7){
+                    if(Integer.parseInt(mEdtCount.getText().toString()) < 3 || Integer.parseInt(mEdtCount.getText().toString()) >15){
                         Toast.makeText(SettingActivity.this, getString(R.string.you_should_typing_menstrual), Toast.LENGTH_SHORT).show();
                     }else {
                         mTvMenstrualLength.setText(Integer.parseInt(mEdtCount.getText().toString()) +"");
