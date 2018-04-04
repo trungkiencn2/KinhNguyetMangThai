@@ -1,6 +1,5 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
-import android.icu.util.Calendar;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,11 +13,15 @@ import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
+import java.util.Calendar;
+
 public class OptionPregnantActivity extends BaseDatePicker implements View.OnClickListener {
 
     private LinearLayout mLinearEstimate, mLinearEnable;
     private TextView mTvEstimate;
 
+//    private Calendar mCaEstimate = Calendar.getInstance();
+//    private Calendar mCaEndPregnant = Calendar.getInstance();
     private Calendar mCaEstimate = Calendar.getInstance();
     private Calendar mCaEndPregnant = Calendar.getInstance();
 
@@ -32,7 +35,7 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
 
     private void addEvent() {
         mCaEstimate.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this)) + 270 * Utils.mOneDay);
-        mTvEstimate.setText(mCaEstimate.get(Calendar.DAY_OF_MONTH) + " - " + (mCaEstimate.get(Calendar.MONDAY) + 1) + " - " + mCaEstimate.get(Calendar.YEAR));
+        mTvEstimate.setText(mCaEstimate.get(Calendar.DAY_OF_MONTH) + " - " + (mCaEstimate.get(Calendar.MONTH) + 1) + " - " + mCaEstimate.get(Calendar.YEAR));
     }
 
     private void initView() {

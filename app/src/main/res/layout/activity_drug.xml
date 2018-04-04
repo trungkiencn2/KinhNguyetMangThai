@@ -10,22 +10,22 @@
     tools:context="com.skyfree.kinhnguyetmangthai.activity.DrugActivity">
 
     <LinearLayout
-        android:layout_marginBottom="@dimen/nam_dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bon_muoi_dp">
+        android:layout_height="@dimen/nam_sau_dp">
 
         <ImageView
             android:id="@+id/img_back_drug"
-            android:layout_margin="@dimen/nam_dp"
             android:src="@drawable/ic_back"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_width="72dp"
             android:layout_height="match_parent" />
 
         <TextView
-            android:layout_marginLeft="@dimen/nam_dp"
+            android:textStyle="bold"
             android:textColor="@color/colorDone"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:gravity="center_vertical"
             android:layout_weight="8"
             android:text="@string/add_medicine"

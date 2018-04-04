@@ -8,20 +8,17 @@
         android:textSize="@dimen/muoi_lam_sp"
         android:text="@string/congratulations"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="@dimen/nam_muoi_dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"></LinearLayout>
+        android:layout_height="@dimen/muoi_dp"></LinearLayout>
 
     <LinearLayout
         android:gravity="right"
         android:weightSum="4"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="@dimen/nam_muoi_dp">
 
         <Button
             android:id="@+id/btn_cancel_dialog_maternity"

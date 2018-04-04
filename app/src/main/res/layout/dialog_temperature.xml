@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/bg_note_add_note">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nam_muoi_dp"
-        android:padding="@dimen/muoi_dp">
+        android:layout_height="@dimen/nam_sau_dp"
+        android:paddingRight="16dp">
 
         <ImageView
             android:id="@+id/img_back_dialog_temperature"
-            android:layout_width="0dp"
+            android:layout_width="72dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:src="@drawable/ic_back" />
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/muoi_dp"
             android:text="@string/temperature"
             android:textColor="@color/colorDone"
             android:textSize="@dimen/hai_muoi_sp" />
@@ -30,7 +31,7 @@
             android:id="@+id/img_done_dialog_temperature"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:src="@drawable/ic_done" />
 
     </LinearLayout>

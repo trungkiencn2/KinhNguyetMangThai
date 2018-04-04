@@ -257,9 +257,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtWeight.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) + 0.1));
-                    mTvPoint.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtWeight.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) + 0.5));
+                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -268,9 +268,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtHeight.setText(String.format("%.1f", Float.parseFloat(mEdtHeight.getText().toString()) + 0.1));
-                    mTvPoint.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtHeight.setText(String.valueOf( Float.parseFloat(mEdtHeight.getText().toString()) + 0.5));
+                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -279,9 +279,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtWeight.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) - 0.1));
-                    mTvPoint.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtWeight.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) - 0.5));
+                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -290,9 +290,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtHeight.setText(String.format("%.1f", Float.parseFloat(mEdtHeight.getText().toString()) - 0.1));
-                    mTvPoint.setText(String.format("%.1f", Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtHeight.setText(String.valueOf( Float.parseFloat(mEdtHeight.getText().toString()) - 0.5));
+                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -322,8 +322,8 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mTvPoint.setText(String.format("%.1f",Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
 
@@ -342,8 +342,8 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mTvPoint.setText((String.format("%.1f",Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100)));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.format("%.1f", Float.parseFloat(mTvPoint.getText().toString())))));
+                    mTvPoint.setText((String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100)));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
 
@@ -396,14 +396,14 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         mTvPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEdtTemperature.setText(String.format("%.1f", Float.parseFloat(mEdtTemperature.getText().toString()) + 0.1));
+                mEdtTemperature.setText(String.valueOf(Float.parseFloat(mEdtTemperature.getText().toString()) + 0.5));
             }
         });
 
         mTvMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEdtTemperature.setText(String.format("%.1f", Float.parseFloat(mEdtTemperature.getText().toString()) - 0.1));
+                mEdtTemperature.setText(String.valueOf(Float.parseFloat(mEdtTemperature.getText().toString()) - 0.5));
             }
         });
 
@@ -425,8 +425,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
                 if(mEdtTemperature.getText().toString().equals("")){
                     if (mNoteTam != null) {
                         Utils.updateTemperature(realm, mId, 0);
-                    } else {
-//                        Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
                     alertStartDialog.cancel();
                 }else {

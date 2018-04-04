@@ -245,6 +245,7 @@ public class Utils {
         for (int i = 1; i <= maxDayInMonth; i++) {
             mListItem.add(new CalendarItem(null, null, i + "", month + "", year + ""));
         }
+        Log.d("aaa date month ", mListItem.get(10).getmDate() + " - " + mListItem.get(10).getmMonth());
         return mListItem;
     }
 

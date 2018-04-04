@@ -11,6 +11,7 @@
     <dimen name="bon_muoi_dp">46dp</dimen>
     <dimen name="bon_lam_dp">52dp</dimen>
     <dimen name="nam_muoi_dp">58dp</dimen>
+    <dimen name="nam_sau_dp">56dp</dimen>
     <dimen name="bay_muoi_dp">75dp</dimen>
     <dimen name="mot_tram_dp">117dp</dimen>
     <dimen name="tram_hai_muoi_dp">141dp</dimen>

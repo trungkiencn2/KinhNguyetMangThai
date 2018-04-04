@@ -4,7 +4,7 @@
     <string name="diary">Diário</string>
     <string name="setting">Configuração</string>
     <string name="chart">Gráfico</string>
-    <string name="length_cycle_menstruation">Comprimento do ciclo \nA jornada geralmente dura 4-7 dias</string>
+    <string name="length_cycle_menstruation">Comprimento do ciclo \nA jornada geralmente dura 3 - 15 dias</string>
     <string name="length_cycle_periods">Comprimento menstrual do ciclo? A hora do dia começa dois ciclos, geralmente 23-35 dias</string>
     <string name="date_your_period">Data do seu último período menstrual?</string>
     <string name="touch_here">Toque aqui para pedir</string>
@@ -34,11 +34,11 @@
     <string name="share">Compartilhar</string>
     <string name="day">Dia</string>
     <string name="delete_all_data">Apague todos os dados</string>
-    <string name="menstrual_period_lasts">O período menstrual é de 4 a 7 dias</string>
+    <string name="menstrual_period_lasts">O período menstrual é de 3 a 15 dias</string>
     <string name="ok">Está bem</string>
     <string name="cancel">Cancelar</string>
     <string name="try_again">Tente novamente!!!</string>
-    <string name="you_should_typing_menstrual">Você deve inserir o período menstrual de 4 a 7 dias</string>
+    <string name="you_should_typing_menstrual">Você deve inserir o período menstrual de 3 a 15 dias</string>
     <string name="you_should_typing_cycle">Você deve inserir o período de ciclo de 23 a 35 dias</string>
     <string name="length_of_the_luteal_phase">Comprimento da fase lútea</string>
     <string name="we_base_the_luteal_phase">Baseamos esse período de fase lútea na sua próxima estimativa de ovulação. Este comprimento geralmente varia de 13 a 18 dias</string>

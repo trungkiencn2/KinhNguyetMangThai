@@ -11,7 +11,7 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nam_muoi_dp">
+        android:layout_height="@dimen/nam_sau_dp">
 
     </android.support.design.widget.TabLayout>
 

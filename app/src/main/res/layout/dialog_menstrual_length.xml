@@ -41,7 +41,7 @@
             android:textColor="@color/colorBlack"
             android:gravity="center"
             android:text="@string/day"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
@@ -89,7 +89,7 @@
     <TextView
         android:textSize="@dimen/muoi_lam_sp"
         android:gravity="center_vertical"
-        android:text="@string/menstrual_period_lasts"
+        android:text="@string/length_cycle_menstruation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>

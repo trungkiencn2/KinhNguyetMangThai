@@ -3,28 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_note_add_note"
-    android:weightSum="8"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="@dimen/muoi_dp">
+        android:layout_height="@dimen/nam_sau_dp"
+        android:paddingRight="16dp">
 
         <ImageView
             android:id="@+id/img_back_dialog_weight"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_back" />
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:src="@drawable/ic_back"
+            android:layout_width="72dp"
+            android:layout_height="match_parent" />
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/muoi_dp"
             android:text="@string/weight"
             android:textColor="@color/colorDone"
             android:textSize="@dimen/hai_muoi_sp" />
@@ -32,8 +31,8 @@
         <ImageView
             android:id="@+id/img_done_dialog_weight"
             android:layout_width="0dp"
+            android:layout_weight="1.5"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:src="@drawable/ic_done" />
 
     </LinearLayout>
@@ -46,14 +45,12 @@
     <LinearLayout
         android:padding="@dimen/muoi_dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="112dp"
             android:padding="@dimen/nam_dp">
 
             <LinearLayout
@@ -87,7 +84,7 @@
                         android:layout_weight="2"
                         android:background="@color/colorProcessBackgroundColorBlur"
                         android:gravity="center"
-                        android:text="40.0"
+                        android:text="40"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/hai_muoi_sp" />
 
@@ -163,8 +160,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="112dp"
             android:padding="@dimen/nam_dp">
 
             <LinearLayout
@@ -275,31 +271,31 @@
         <LinearLayout
             android:weightSum="3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/muoi_dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5">
+                android:layout_height="@dimen/bon_muoi_dp">
 
                 <TextView
                     android:textSize="@dimen/muoi_hai_sp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2.5"
+                    android:layout_weight="3.5"
                     android:gravity="center_vertical"
                     android:text="BMI(kg/m²)"
                     android:textColor="@color/colorDone" />
 
                 <TextView
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/muoi_hai_sp"
                     android:textColor="@color/colorDone"
                     android:id="@+id/tv_point_dialog_weight"
-                    android:layout_weight="2.5"
+                    android:layout_weight="1.5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
 
@@ -325,8 +321,7 @@
                 android:visibility="gone"
                 android:id="@+id/linear_result_dialog_weight"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_height="@dimen/tram_nam_muoi_dp"
                 android:gravity="top"
                 android:orientation="vertical"
                 android:weightSum="2">
@@ -338,8 +333,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8">
+                    android:layout_height="@dimen/nam_muoi_dp">
 
                     <ImageView
                         android:id="@+id/img_one_weight"
@@ -412,8 +406,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.3">
+                    android:layout_height="@dimen/muoi_lam_dp">
 
                     <TextView
                         android:layout_width="0dp"
@@ -513,8 +506,7 @@
                     android:textSize="@dimen/muoi_hai_sp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"/>
+                    android:layout_height="@dimen/hai_muoi_dp" />
 
             </LinearLayout>
 

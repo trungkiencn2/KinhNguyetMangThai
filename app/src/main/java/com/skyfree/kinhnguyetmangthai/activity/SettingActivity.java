@@ -11,74 +11,85 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.adapter.MyAdapter;
+import com.skyfree.kinhnguyetmangthai.model.Setting;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
+import java.util.ArrayList;
+
 import io.realm.Realm;
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
-public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private LinearLayout mLinearMenstrualLength, mLinearCycleLength, mLinearOvulation,
-            mLinearMaternity, mLinearRemind,  mLinearPassword, mLinearSendMessage,
-            mLinearRate, mLinearShare, mLinearDelete;
-
-    private TextView mTvMenstrualLength, mTvCycleLength;
+public class SettingActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     Realm realm;
+
+    private ImageView mImgBack;
+    private ListView mLvSetting;
+    private MyAdapter mAdapter;
+    private ArrayList<Setting> mListSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        realm = Realm.getDefaultInstance();
         Utils.writeToFile(14 + "", Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE, this);
         realm = Realm.getDefaultInstance();
         initView();
         addEvent();
     }
 
-    private void addEvent() {
-        mTvMenstrualLength.setText(Utils.readFromFile(Utils.FILE_CHU_KY_HANH_KINH, this));
-        mTvCycleLength.setText(Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, this));
+    private void initView() {
+        mImgBack = (ImageView) findViewById(R.id.img_back_setting_activity);
+        mImgBack.setOnClickListener(this);
+        mLvSetting = (ListView) findViewById(R.id.lv_setting);
+        mLvSetting.setOnItemClickListener(this);
     }
 
-    private void initView() {
-        mLinearMenstrualLength = (LinearLayout) findViewById(R.id.st_menstrual_length);
-        mLinearCycleLength = (LinearLayout) findViewById(R.id.st_cycle_length);
-        mLinearOvulation = (LinearLayout) findViewById(R.id.st_ovulation);
-        mLinearMaternity = (LinearLayout) findViewById(R.id.st_maternity);
-        mLinearRemind = (LinearLayout) findViewById(R.id.st_remind);
-        mLinearPassword = (LinearLayout) findViewById(R.id.st_password);
-        mLinearSendMessage = (LinearLayout) findViewById(R.id.st_message_us);
-        mLinearRate = (LinearLayout) findViewById(R.id.st_rate);
-        mLinearShare = (LinearLayout) findViewById(R.id.st_share);
-        mLinearDelete = (LinearLayout) findViewById(R.id.st_delete);
-        mTvMenstrualLength = (TextView) findViewById(R.id.tv_menstrual_length_st);
-        mTvCycleLength = (TextView) findViewById(R.id.tv_cycle_length_st);
+    private void addEvent(){
+        mListSetting = new ArrayList<>();
+        mListSetting.add(new Setting(0, 0, getString(R.string.menstruation), ""));
+        mListSetting.add(new Setting(R.drawable.icon_setting_reminders, 1, getString(R.string.length_periods), Utils.readFromFile(Utils.FILE_CHU_KY_HANH_KINH, this)));
+        mListSetting.add(new Setting(R.drawable.icon_setting_period, 1, getString(R.string.length_cycle), Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, this)));
+        mListSetting.add(new Setting( R.drawable.icon_setting_ovulation, 1, getString(R.string.ovulation), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_pregnancy, 1, getString(R.string.maternity), ""));
 
-        mLinearMenstrualLength.setOnClickListener(this);
-        mLinearCycleLength.setOnClickListener(this);
-        mLinearOvulation.setOnClickListener(this);
-        mLinearMaternity.setOnClickListener(this);
-        mLinearRemind.setOnClickListener(this);
-        mLinearPassword.setOnClickListener(this);
-        mLinearSendMessage.setOnClickListener(this);
-        mLinearRate.setOnClickListener(this);
-        mLinearShare.setOnClickListener(this);
-        mLinearDelete.setOnClickListener(this);
+        mListSetting.add(new Setting(0, 0, getString(R.string.remind), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_pill, 1, getString(R.string.remind), ""));
+
+        mListSetting.add(new Setting(0, 0, getString(R.string.data_and_account), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_password,1, getString(R.string.password), ""));
+
+        mListSetting.add(new Setting(0, 0, getString(R.string.support_us), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_forum,1, getString(R.string.send_message_to_us), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_rate,1, getString(R.string.rate_us), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_share,1, getString(R.string.share), ""));
+        mListSetting.add(new Setting( R.drawable.icon_setting_reset,1, getString(R.string.delete_all_data), ""));
+
+        mAdapter = new MyAdapter(this, 5, mListSetting);
+        mLvSetting.setAdapter(mAdapter);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if(Utils.readFromFile(Utils.FILE_NEW_USER, this).equals(Utils.DANG_MANG_THAI)){
-            mTvCycleLength.setText("");
-            mTvMenstrualLength.setText("");
+            mListSetting.get(1).setmCountDay("");
+            mListSetting.get(2).setmCountDay("");
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -91,34 +102,43 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.st_menstrual_length:
+            case R.id.img_back_setting_activity:
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 1:
                 menstrualLeng();
                 break;
-            case R.id.st_cycle_length:
+            case 2:
                 cycleLength();
                 break;
-            case R.id.st_ovulation:
+            case 3:
                 ovulation();
                 break;
-            case R.id.st_maternity:
+            case 4:
                 maternity();
                 break;
-            case R.id.st_remind:
+            case 6:
                 remind();
                 break;
-            case R.id.st_password:
+            case 8:
                 password();
                 break;
-            case R.id.st_message_us:
+            case 10:
                 messageUs();
                 break;
-            case R.id.st_rate:
+            case 11:
                 rate();
                 break;
-            case R.id.st_share:
+            case 12:
                 share();
                 break;
-            case R.id.st_delete:
+            case 13:
                 delete();
                 break;
 
@@ -131,20 +151,20 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_delete_all_data, null);
         dialogBuilder.setView(dialogView);
-        
+
         Button mBtnCancel = (Button) dialogView.findViewById(R.id.btn_cancel_dialog_delete);
         Button mBtnOk = (Button) dialogView.findViewById(R.id.btn_ok_dialog_delete);
 
         final AlertDialog alertStartDialog = dialogBuilder.create();
         alertStartDialog.show();
-        
+
         mBtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertStartDialog.cancel();
             }
         });
-        
+
         mBtnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +186,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
             }
         });
-        
+
     }
 
     private void share() {
@@ -304,8 +324,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                     if(Integer.parseInt(mEdtCount.getText().toString()) < 23 || Integer.parseInt(mEdtCount.getText().toString()) >35){
                         Toast.makeText(SettingActivity.this, getString(R.string.you_should_typing_cycle), Toast.LENGTH_SHORT).show();
                     }else {
-                        mTvCycleLength.setText(Integer.parseInt(mEdtCount.getText().toString()) +"");
-                        Utils.writeToFile(mTvCycleLength.getText().toString(), Utils.FILE_CHU_KY_KINH_NGUYET, getApplicationContext());
+                        mListSetting.get(2).setmCountDay((Integer.parseInt(mEdtCount.getText().toString()) +""));
+                        mAdapter.notifyDataSetChanged();
+                        Utils.writeToFile(mListSetting.get(2).getmCountDay(), Utils.FILE_CHU_KY_KINH_NGUYET, getApplicationContext());
                         alertStartDialog.cancel();
                     }
                 }else {
@@ -354,15 +375,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         });
 
         mBtnOk.setOnClickListener(new View.OnClickListener() {
-            SharedPreferences prefs = getPreferences(MODE_PRIVATE);
             @Override
             public void onClick(View v) {
                 if(!mEdtCount.getText().toString().equals("")){
                     if(Integer.parseInt(mEdtCount.getText().toString()) < 3 || Integer.parseInt(mEdtCount.getText().toString()) >15){
                         Toast.makeText(SettingActivity.this, getString(R.string.you_should_typing_menstrual), Toast.LENGTH_SHORT).show();
                     }else {
-                        mTvMenstrualLength.setText(Integer.parseInt(mEdtCount.getText().toString()) +"");
-                        Utils.writeToFile(mTvMenstrualLength.getText().toString(), Utils.FILE_CHU_KY_HANH_KINH, getApplicationContext());
+                        mListSetting.get(1).setmCountDay((Integer.parseInt(mEdtCount.getText().toString()) +""));
+                        mAdapter.notifyDataSetChanged();
+                        Utils.writeToFile(mListSetting.get(1).getmCountDay(), Utils.FILE_CHU_KY_HANH_KINH, getApplicationContext());
                         alertStartDialog.cancel();
                     }
                 }else {

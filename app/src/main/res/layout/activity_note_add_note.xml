@@ -9,21 +9,21 @@
     tools:context="com.skyfree.kinhnguyetmangthai.activity.NoteAddNoteActivity">
 
     <LinearLayout
-        android:padding="@dimen/muoi_dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="@dimen/nam_sau_dp">
 
         <ImageView
             android:id="@+id/img_back_note_add_note"
             android:src="@drawable/ic_back"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:layout_width="72dp"
             android:layout_height="match_parent" />
 
         <TextView
-            android:paddingLeft="@dimen/muoi_dp"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textStyle="bold"
+            android:textSize="@dimen/hai_muoi_sp"
             android:gravity="center_vertical"
             android:text="@string/add_note"
             android:layout_weight="8"
@@ -33,7 +33,7 @@
         <ImageView
             android:id="@+id/img_done_note_add_note"
             android:src="@drawable/ic_done"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
 

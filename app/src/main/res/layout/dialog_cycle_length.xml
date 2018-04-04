@@ -41,7 +41,7 @@
             android:textColor="@color/colorBlack"
             android:gravity="center"
             android:text="@string/day"
-            android:textSize="@dimen/hai_lam_sp"
+            android:textSize="@dimen/hai_muoi_sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />

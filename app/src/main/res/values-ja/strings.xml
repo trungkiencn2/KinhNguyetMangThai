@@ -4,7 +4,7 @@
     <string name="diary">日記</string>
     <string name="setting">設定</string>
     <string name="chart">チャート</string>
-    <string name="length_cycle_menstruation">サイクルの長さ \n旅は通常4〜7日間続きます</string>
+    <string name="length_cycle_menstruation">サイクルの長さ \n旅は通常3〜15日間続きます</string>
     <string name="length_cycle_periods">月経周期長？時間は2サイクル、通常23〜35日</string>
     <string name="date_your_period">あなたの最後の月経の日付？</string>
     <string name="touch_here">注文するにはここをクリック</string>
@@ -34,11 +34,11 @@
     <string name="share">シェア</string>
     <string name="day">日</string>
     <string name="delete_all_data">すべてのデータを削除する</string>
-    <string name="menstrual_period_lasts">月経期間は4〜7日間続きます</string>
+    <string name="menstrual_period_lasts">月経期間は3〜15日間続きます</string>
     <string name="ok">[OK]</string>
     <string name="cancel">キャンセル</string>
     <string name="try_again">再試行する！！！</string>
-    <string name="you_should_typing_menstrual">あなたは4から7日間の月経期間を入力する必要があります</string>
+    <string name="you_should_typing_menstrual">あなたは3から15日間の月経期間を入力する必要があります</string>
     <string name="you_should_typing_cycle">23〜35日間のサイクル期間を入力する必要があります</string>
     <string name="length_of_the_luteal_phase">黄体期の長さ</string>
     <string name="we_base_the_luteal_phase">我々は、この長さの黄体期をあなたの次の排卵推定に基づいています。この長さは通常13日から18日</string>

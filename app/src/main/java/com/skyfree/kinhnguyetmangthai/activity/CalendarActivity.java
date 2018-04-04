@@ -33,7 +33,7 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
 
     private TextView mTvDateCalendarActivity, mTvNote, mTvDrug, mTvSymptom, mTvMood, mTvWeight, mTvTemperature;
     private TextView mTvDateNote;
-    private ImageView mImgHoiCham;
+    private ImageView mImgHoiCham, mImgBackMonth, mImgNextMonth;
     private ListView mLvDrug, mLvSymptom, mLvMood;
     private LinearLayout mLinearInfo;
     private ImageView mImgBack;
@@ -76,6 +76,8 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     }
 
     private void initView() {
+        mImgBackMonth = (ImageView) findViewById(R.id.img_back_month);
+        mImgNextMonth = (ImageView) findViewById(R.id.img_next_month);
         mImgHoiCham = (ImageView) findViewById(R.id.img_hoicham_calendar_activity);
         mTvDateCalendarActivity = (TextView) findViewById(R.id.tv_date_calendar_activity);
         mTvNote = (TextView) findViewById(R.id.tv_note_calendar_activity);
@@ -92,6 +94,8 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         mLvMood = (ListView) findViewById(R.id.lv_mood_calendar_activity);
         mRatingBarLuongKinh = (MaterialRatingBar) findViewById(R.id.ratingbar_luong_kinh_calendar_activity);
 
+        mImgBackMonth.setOnClickListener(this);
+        mImgNextMonth.setOnClickListener(this);
         mImgHoiCham.setOnClickListener(this);
         mImgBack.setOnClickListener(this);
         mLinearInfo.setOnClickListener(this);
@@ -391,6 +395,20 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
                 break;
             case R.id.img_hoicham_calendar_activity:
                 showAlertHoiCham();
+                break;
+            case R.id.img_back_month:
+                if(mPager.getCurrentItem() == 0){
+                    mPager.setCurrentItem(47);
+                }else {
+                    mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+                }
+                break;
+            case R.id.img_next_month:
+                if(mPager.getCurrentItem() == 47){
+                    mPager.setCurrentItem(0);
+                }else {
+                    mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+                }
                 break;
         }
     }

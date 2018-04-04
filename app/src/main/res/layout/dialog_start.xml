@@ -26,7 +26,7 @@
         android:layout_marginTop="@dimen/nam_dp"
         android:textSize="@dimen/muoi_lam_sp"
         android:textColor="@color/colorBlack"
-        android:text="@string/length_cycle_periods"
+        android:text="@string/length_cycle_menstruation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

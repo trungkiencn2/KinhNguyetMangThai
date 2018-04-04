@@ -169,7 +169,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 mTvDay.setText(dayOfMonth + "-" + (month) + "-" + year);
                 mCa.setTimeInMillis(currentSelectedDate.getTimeInMillis());
             }
-        }, mCaNow.getTimeInMillis(), getString(R.string.select_date), mCaMinTimeForDatePicker.getTimeInMillis());
+        }, mCaNow.getTimeInMillis(), getString(R.string.select_date), mCaMinTimeForDatePicker.getTimeInMillis() - 3600000);
     }
 
     @Override

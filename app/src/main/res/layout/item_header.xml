@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:paddingLeft="@dimen/muoi_dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textSize="@dimen/muoi_lam_sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorHeader"
+        android:layout_margin="@dimen/nam_dp"
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hai_muoi_dp" />
+
+</LinearLayout>

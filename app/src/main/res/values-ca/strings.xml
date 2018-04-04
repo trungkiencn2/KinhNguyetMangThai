@@ -4,7 +4,7 @@
     <string name="diary">Agenda</string>
     <string name="setting">Configuració</string>
     <string name="chart">Gràfic</string>
-    <string name="length_cycle_menstruation">Durada del cicle \nEl viatge sol durar 4-7 dies</string>
+    <string name="length_cycle_menstruation">Durada del cicle \nEl viatge sol durar 3 - 15 dies</string>
     <string name="length_cycle_periods">Longitud del cicle menstrual? L`hora del dia comença dos cicles, generalment de 23 a 35 dies</string>
     <string name="date_your_period">Data el darrer període menstrual?</string>
     <string name="touch_here">Toca aquí per ordenar</string>
@@ -34,11 +34,11 @@
     <string name="share">Compartir</string>
     <string name="day">Dia</string>
     <string name="delete_all_data">Suprimeix totes les dades</string>
-    <string name="menstrual_period_lasts">El període menstrual dura de 4 a 7 dies</string>
+    <string name="menstrual_period_lasts">El període menstrual dura de 3 a 15 dies</string>
     <string name="ok">D`acord</string>
     <string name="cancel">Cancel · lar</string>
     <string name="try_again">Torna a provar!</string>
-    <string name="you_should_typing_menstrual">Heu d`introduir el període menstrual de 4 a 7 dies</string>
+    <string name="you_should_typing_menstrual">Heu d`introduir el període menstrual de 3 a 15 dies</string>
     <string name="you_should_typing_cycle">Heu d`introduir el període de cicle de 23 a 35 dies</string>
     <string name="length_of_the_luteal_phase">Durada de la fase luteal</string>
     <string name="we_base_the_luteal_phase">Basem aquesta durada de la fase lútea en la seva pròxima estimació d`ovulació. Normalment, aquesta longitud oscil·la entre 13 i 18 dies</string>

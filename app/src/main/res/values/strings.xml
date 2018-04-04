@@ -4,7 +4,7 @@
     <string name="diary">Diary</string>
     <string name="setting">Setting</string>
     <string name="chart">Chart</string>
-    <string name="length_cycle_menstruation">Length of the cycle \nThe journey usually lasts 4-7 days.</string>
+    <string name="length_cycle_menstruation">Length of the cycle \nThe journey usually lasts 3 - 15 days.</string>
     <string name="length_cycle_periods">Menstrual cycle length? \nThe time of day begins two cycles, usually 23-35 days.</string>
     <string name="date_your_period">Date your last menstrual period?</string>
     <string name="touch_here">Touch here to order</string>
@@ -34,11 +34,11 @@
     <string name="share">Share</string>
     <string name="day">Day</string>
     <string name="delete_all_data">Delete all data</string>
-    <string name="menstrual_period_lasts">Menstrual period lasts from 4 to 7 days</string>
+    <string name="menstrual_period_lasts">Menstrual period lasts from 23 to 35 days</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="try_again">Try again!!!</string>
-    <string name="you_should_typing_menstrual">You should enter the menstrual period from 4 to 7 days</string>
+    <string name="you_should_typing_menstrual">You should enter the menstrual period from 3 to 15 days</string>
     <string name="you_should_typing_cycle">You should enter the cycle period from 23 to 35 days</string>
     <string name="length_of_the_luteal_phase">Length of the luteal phase</string>
     <string name="we_base_the_luteal_phase">We base this length of luteal phase on your next ovulation estimate. This length usually ranges from 13 to 18 days</string>

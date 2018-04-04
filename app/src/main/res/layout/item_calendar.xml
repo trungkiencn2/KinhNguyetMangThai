@@ -7,6 +7,11 @@
     android:gravity="left">
 
     <ImageView
+        android:id="@+id/img_bg_above_item_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
         android:id="@+id/img_bg_item_calendar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

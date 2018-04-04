@@ -14,15 +14,16 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:padding="@dimen/muoi_dp"
+            android:paddingRight="@dimen/muoi_dp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/nam_muoi_dp">
+            android:layout_height="@dimen/nam_sau_dp">
 
             <ImageView
                 android:id="@+id/img_back_calendar_activity"
                 android:src="@drawable/ic_back"
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:layout_width="72dp"
                 android:layout_height="match_parent" />
 
             <LinearLayout
@@ -33,6 +34,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/img_back_month"
                     android:src="@drawable/ic_back_calendar"
                     android:layout_width="@dimen/muoi_lam_dp"
                     android:layout_height="20dp" />
@@ -47,6 +49,7 @@
                     android:layout_height="match_parent" />
 
                 <ImageView
+                    android:id="@+id/img_next_month"
                     android:src="@drawable/ic_next_calendar"
                     android:layout_width="@dimen/muoi_lam_dp"
                     android:layout_height="match_parent" />
@@ -166,11 +169,9 @@
 
                 <ImageView
                     android:id="@+id/img_hoicham_calendar_activity"
-                    android:scaleType="fitXY"
                     android:src="@drawable/ic_hoicham"
-                    android:layout_weight="0.2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="@dimen/ba_muoi_dp"
+                    android:layout_height="@dimen/ba_muoi_dp" />
 
                 <ImageView
                     android:layout_weight="0.05"
@@ -193,6 +194,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:textStyle="bold"
                         android:text="@string/note"
                         android:id="@+id/tv_final_note"
                         android:textSize="@dimen/muoi_lam_sp"
@@ -209,6 +211,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:text="@string/drug"
                         android:id="@+id/tv_final_drug"
                         android:textSize="@dimen/muoi_lam_sp"
@@ -225,6 +228,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:text="@string/symptom"
                         android:id="@+id/tv_final_symptom"
                         android:textSize="@dimen/muoi_lam_sp"
@@ -241,6 +245,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:text="@string/mood"
                         android:id="@+id/tv_final_mood"
                         android:textSize="@dimen/muoi_lam_sp"
@@ -276,15 +281,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.8">
+                android:layout_height="@dimen/hai_muoi_dp">
 
                 <ImageView
-                    android:scaleType="fitXY"
                     android:src="@drawable/ic_luongkinh"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="@dimen/hai_muoi_dp"
+                    android:layout_height="@dimen/hai_muoi_dp" />
 
                 <me.zhanghai.android.materialratingbar.MaterialRatingBar
                     android:id="@+id/ratingbar_luong_kinh_calendar_activity"
@@ -297,15 +299,12 @@
             <LinearLayout
                 android:padding="@dimen/mot_dp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.8">
+                android:layout_height="@dimen/hai_muoi_dp">
 
                 <ImageView
-                    android:scaleType="fitXY"
                     android:src="@drawable/ic_note_temperature"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="@dimen/hai_muoi_dp"
+                    android:layout_height="@dimen/hai_muoi_dp" />
 
                 <TextView
                     android:id="@+id/tv_temperature_calendar_activity"
@@ -323,15 +322,12 @@
             <LinearLayout
                 android:padding="@dimen/mot_dp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.8">
+                android:layout_height="@dimen/hai_muoi_dp">
 
                 <ImageView
-                    android:scaleType="fitXY"
                     android:src="@drawable/ic_note_weight"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="@dimen/hai_muoi_dp"
+                    android:layout_height="@dimen/hai_muoi_dp" />
 
                 <TextView
                     android:id="@+id/tv_weight_calendar_activity"
@@ -349,37 +345,30 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="7">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_height="@dimen/ba_muoi_dp">
 
                     <ImageView
-                        android:scaleType="fitXY"
                         android:src="@drawable/ic_thuoc"
                         android:layout_margin="@dimen/mot_dp"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent" />
+                        android:layout_width="@dimen/ba_muoi_dp"
+                        android:layout_height="@dimen/ba_muoi_dp" />
 
                     <ImageView
-                        android:scaleType="fitXY"
                         android:src="@drawable/ic_trieuchung"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent" />
+                        android:layout_margin="@dimen/mot_dp"
+                        android:layout_width="@dimen/ba_muoi_dp"
+                        android:layout_height="@dimen/ba_muoi_dp" />
 
                     <ImageView
                         android:padding="@dimen/mot_dp"
-                        android:scaleType="fitXY"
                         android:src="@drawable/ic_tamtrang"
                         android:layout_margin="@dimen/mot_dp"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent" />
+                        android:layout_width="@dimen/ba_muoi_dp"
+                        android:layout_height="@dimen/ba_muoi_dp" />
 
                 </LinearLayout>
 
@@ -390,8 +379,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5">
+                    android:layout_height="match_parent">
 
                     <ListView
                         android:id="@+id/lv_drug_calendar_activity"

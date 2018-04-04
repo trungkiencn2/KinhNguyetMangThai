@@ -2,6 +2,7 @@ package com.skyfree.kinhnguyetmangthai.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class RecycleViewCalendarAdapter extends RecyclerView.Adapter<RecycleView
     private Context mContext;
     public static int position = 0;
     private Calendar mCa = Calendar.getInstance();
-
+    int dayStart =3;
     public RecycleViewCalendarAdapter(ArrayList<CalendarItem> mListItem, Context mContext) {
         this.mListItem = mListItem;
         this.mContext = mContext;

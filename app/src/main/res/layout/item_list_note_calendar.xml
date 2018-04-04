@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
+        android:layout_gravity="center"
         android:padding="@dimen/mot_dp"
         android:scaleType="fitXY"
         android:id="@+id/img_item_list_note_calendar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/hai_lam_dp" />
+        android:layout_width="@dimen/hai_muoi_dp"
+        android:layout_height="@dimen/hai_muoi_dp" />
 
 </LinearLayout>

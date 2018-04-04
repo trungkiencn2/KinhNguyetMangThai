@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:padding="@dimen/muoi_dp">
+
+    <ImageView
+        android:id="@+id/img_avatar_item_setting"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_name_item_setting"
+        android:paddingLeft="@dimen/muoi_dp"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:gravity="center_vertical"
+        android:layout_weight="8"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_count_day_item_setting"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:gravity="center"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

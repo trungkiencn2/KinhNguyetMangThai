@@ -21,4 +21,5 @@
     <color name="colorFour">#b7ffff00</color>
     <color name="colorFive">#96e60c</color>
     <color name="colorSix">#d9d24904</color>
+    <color name="colorHeader">#a2a2a2</color>
 </resources>

@@ -4,7 +4,7 @@
     <string name="diary">ไดอารี่</string>
     <string name="setting">การตั้งค่า</string>
     <string name="chart">กราฟ</string>
-    <string name="length_cycle_menstruation">ความยาวของรอบ \nโปรแกรมนี้ใช้เวลาประมาณ 4-7 วัน</string>
+    <string name="length_cycle_menstruation">ความยาวของรอบ \nโปรแกรมนี้ใช้เวลาประมาณ 3 - 15 วัน</string>
     <string name="length_cycle_periods">รอบประจำเดือน? เวลากลางวันเริ่มต้นสองรอบโดยปกติจะเป็น 23-35 วัน</string>
     <string name="date_your_period">ในช่วงเวลาที่มีประจำเดือนครั้งล่าสุดหรือไม่?</string>
     <string name="touch_here">แตะที่นี่เพื่อสั่งซื้อ</string>
@@ -34,11 +34,11 @@
     <string name="share">หุ้น</string>
     <string name="day">วัน</string>
     <string name="delete_all_data">ลบข้อมูลทั้งหมด</string>
-    <string name="menstrual_period_lasts">ประจำเดือนมีระยะเวลา 4 - 7 วัน</string>
+    <string name="menstrual_period_lasts">ประจำเดือนมีระยะเวลา 3 - 15 วัน</string>
     <string name="ok">ตกลง</string>
     <string name="cancel">ยกเลิก</string>
     <string name="try_again">ลองใหม่อีกครั้ง !!!</string>
-    <string name="you_should_typing_menstrual">คุณควรเข้าสู่ช่วงมีประจำเดือน 4-7 วัน</string>
+    <string name="you_should_typing_menstrual">คุณควรเข้าสู่ช่วงมีประจำเดือน 3-15 วัน</string>
     <string name="you_should_typing_cycle">คุณควรป้อนรอบ 23 ถึง 35 วัน</string>
     <string name="length_of_the_luteal_phase">ความยาวของระยะ luteal</string>
     <string name="we_base_the_luteal_phase">เรากำหนดความยาวของระยะ luteal ในการประมาณการการตกไข่ครั้งต่อไปของคุณ ความยาวนี้มีตั้งแต่ 13 ถึง 18 วัน</string>

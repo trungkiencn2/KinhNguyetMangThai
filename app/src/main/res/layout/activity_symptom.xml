@@ -9,20 +9,20 @@
 
     <LinearLayout
         android:background="@color/colorGuessBlur"
-        android:padding="@dimen/muoi_dp"
+        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+        android:layout_height="@dimen/nam_sau_dp">
 
         <ImageView
             android:id="@+id/img_back_symptom_activity"
-            android:layout_margin="@dimen/nam_dp"
             android:src="@drawable/ic_back_white"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_width="72dp"
             android:layout_height="match_parent" />
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:paddingLeft="@dimen/muoi_dp"
             android:gravity="center_vertical"
@@ -35,7 +35,7 @@
         <ImageView
             android:id="@+id/img_done_symptom_activity"
             android:src="@drawable/ic_done_white"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
