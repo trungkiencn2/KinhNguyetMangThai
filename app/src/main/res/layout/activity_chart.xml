@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_main"
+    android:paddingBottom="@dimen/nam_muoi_dp"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.ChartActivity">
 
     <LinearLayout
@@ -50,9 +51,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/mot_dp"></LinearLayout>
 
-    <lecho.lib.hellocharts.view.LineChartView
-        android:id="@+id/chart"
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_margin="@dimen/muoi_dp"
+        android:background="@color/colorWhite"
+        android:id="@+id/linechart"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

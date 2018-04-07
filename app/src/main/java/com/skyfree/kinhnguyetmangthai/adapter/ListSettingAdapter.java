@@ -18,19 +18,17 @@ import com.skyfree.kinhnguyetmangthai.model.Setting;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
-
 /**
  * Created by KienBeu on 4/4/2018.
  */
 
-public class MyAdapter extends ArrayAdapter<Setting>{
+public class ListSettingAdapter extends ArrayAdapter<Setting>{
 
     private Context mContext;
     private LayoutInflater mInflater;
     private ArrayList<Setting> mListSetting;
 
-    public MyAdapter(@NonNull Context context, int resource, @NonNull List<Setting> objects) {
+    public ListSettingAdapter(@NonNull Context context, int resource, @NonNull List<Setting> objects) {
         super(context, resource, objects);
         mContext = context;
         mInflater = LayoutInflater.from(mContext);

@@ -34,8 +34,6 @@ public class BaseDatePicker extends AppCompatActivity{
                         listener.onDateSet(mCurrentSelectedDate);
                     }
                 }, mCurrentSelectedDate.get(Calendar.YEAR), mCurrentSelectedDate.get(Calendar.MONTH), mCurrentSelectedDate.get(Calendar.DAY_OF_MONTH));
-//        mDatePicker.getDatePicker().setMaxDate(maxTime);
-//        mDatePicker.getDatePicker().setMinDate(minTime);
         try {
             mDatePicker.getDatePicker().setMaxDate(maxTime);
             mDatePicker.getDatePicker().setMinDate(minTime);

@@ -87,16 +87,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void addNote(NoteObj note){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-//        values.put(KEY_DATE_NOTE, note.getDate());
-//        values.put(KEY_MONTH_NOTE, note.getMonth());
-//        values.put(KEY_YEAR_NOTE, note.getYear());
-//        values.put(KEY_LUONGKINH_NOTE, note.getLuongKinh());
-//        values.put(KEY_GHICHU_NOTE, note.getGhiChu());
-//        values.put(KEY_THUOC_NOTE, note.getThuoc());
-//        values.put(KEY_TRIEUCHUNG_NOTE, note.getTrieuChung());
-//        values.put(KEY_TAMTRANG_NOTE, note.getTamTrang());
-//        values.put(KEY_CANNANG_NOTE, note.getCanNang());
-//        values.put(KEY_NHIETDO_NOTE, note.getNhietDo());
         db.insert(TABLE_NOTE, null, values);
         db.close();
     }
@@ -135,12 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "," + KEY_TAMTRANG_NOTE + "," + KEY_CANNANG_NOTE
                 + "," + KEY_NHIETDO_NOTE + " from " + TABLE_NOTE;
         Cursor cursor = db.rawQuery(sql, null);
-//        while (cursor.moveToNext()) {
-//            mListNote.add(new NoteObj(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4),
-//                    cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9)));
-//        }
         return mListNote;
-
     }
 }
 

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -27,6 +28,8 @@ import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
+
+import static java.lang.Math.PI;
 
 /**
  * Created by KienBeu on 3/9/2018.
@@ -54,6 +57,7 @@ public class Utils {
     public static final String TRUE = "TRUE";
     public static final String FALSE = "FALSE";
     public static final String DANG_MANG_THAI = "DANG_MANG_THAI";
+    public static String CALENDAR_TO_NOTE = FALSE;
 
     public static final int REQUEST_NOTE = 1;
     public static final int REQUEST_DRUG = 2;
@@ -245,7 +249,6 @@ public class Utils {
         for (int i = 1; i <= maxDayInMonth; i++) {
             mListItem.add(new CalendarItem(null, null, i + "", month + "", year + ""));
         }
-        Log.d("aaa date month ", mListItem.get(10).getmDate() + " - " + mListItem.get(10).getmMonth());
         return mListItem;
     }
 

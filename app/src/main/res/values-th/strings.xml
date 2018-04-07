@@ -233,10 +233,15 @@
     <string name="very_fat">มีไขมันมาก</string>
     <string name="fat">อ้วน</string>
     <string name="ask_delete">คุณแน่ใจหรือว่าต้องการลบ?</string>
-
     <string name="add_weight">เพิ่มน้ำหนัก</string>
     <string name="add_temperature">เพิ่มอุณหภูมิ</string>
     <string name="enter_weight">ป้อนน้ำหนัก</string>
     <string name="enter_temperature">ป้อนอุณหภูมิ</string>
     <string name="end_cycle">รอบสิ้นสุด</string>
+    <string name="weight_chart">แผนภูมิน้ำหนัก</string>
+    <string name="temperature_chart">แผนภูมิอุณหภูมิ</string>
+    <string name="no_date_exist">ไม่มีข้อมูล</string>
+
+    <string name="upper_limit">ขีด จำกัด ด้านบน</string>
+    <string name="lower_limit">ขีด จำกัด ล่าง</string>
 </resources>

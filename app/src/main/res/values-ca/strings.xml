@@ -233,10 +233,15 @@
     <string name="very_fat">Molt greix</string>
     <string name="fat">Greix</string>
     <string name="ask_delete">Esteu segur que voleu suprimir?</string>
-
     <string name="add_weight">Afegiu pes</string>
     <string name="add_temperature">Afegeix temperatura</string>
     <string name="enter_weight">Introduïu el pes</string>
     <string name="enter_temperature">Introduïu la temperatura</string>
     <string name="end_cycle">Cicle final</string>
+    <string name="weight_chart">Gràfic de peses</string>
+    <string name="temperature_chart">Taula de temperatura</string>
+    <string name="no_date_exist">No hi ha dades</string>
+
+    <string name="upper_limit">Límit superior</string>
+    <string name="lower_limit">Límit inferior</string>
 </resources>

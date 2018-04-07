@@ -7,6 +7,31 @@
     android:orientation="vertical"
     android:background="@drawable/bg_diary"
     tools:context="com.skyfree.kinhnguyetmangthai.activity.DiaryActivity">
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/muoi_dp"
+        android:paddingRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/img_back_diary_activity"
+            android:src="@drawable/ic_back"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"  />
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="@dimen/hai_muoi_sp"
+            android:textColor="@color/colorDone"
+            android:gravity="center_vertical"
+            android:text="@string/diary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
     
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"

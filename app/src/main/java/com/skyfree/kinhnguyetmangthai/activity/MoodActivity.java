@@ -746,9 +746,6 @@ public class MoodActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.img_done_mood_add_note:
-//                Intent intent = new Intent();
-//                intent.putStringArrayListExtra(Utils.BACK_MOOD, mListAllMoodForResult);
-//                setResult(Activity.RESULT_OK, intent);
 
                 RealmList<RealmMood> mRealmList = new RealmList<>();
                 for(int i = 0; i<mListAllMoodForResult.size(); i++){

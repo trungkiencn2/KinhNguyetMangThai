@@ -2,12 +2,16 @@ package com.skyfree.kinhnguyetmangthai.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.util.ChineseCalendar;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,24 +20,37 @@ import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
+import com.skyfree.kinhnguyetmangthai.utils.VietCalendar;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import io.realm.Realm;
 
 public class MainActivity extends BaseDatePicker implements View.OnClickListener {
 
-    private SharedPreferences.Editor mEditor;
     private Calendar mCa = Calendar.getInstance();
     private Calendar mCaNow = Calendar.getInstance();
     private Calendar mCaNextCycle = Calendar.getInstance();
     private Calendar mCaEasyToConceive = Calendar.getInstance();
     private Calendar mCaDayleft = Calendar.getInstance();
     private Calendar mCaMinTimeForDatePicker = Calendar.getInstance();
+    private ImageView mImgPet, mImgBgMessage;
     private LinearLayout mLinearSetting, mLinearDiary, mLinearCalendar, mLinearChart, mLinearNote;
     private TextView mTvDaysLeft, mTvNextCycle, mTvEasyToConceive, mTvEndCycle;
 
     private Realm realm;
+
+    private Handler mHandler = new Handler();
+    private Runnable mRotate = new Runnable() {
+        @Override
+        public void run() {
+            mImgPet.setRotationY((float) (mImgPet.getRotationY() + 0.5));
+            mTvEndCycle.setRotationY((float) (mTvEndCycle.getRotationY() + 0.5));
+            mImgBgMessage.setRotationY((float) (mImgBgMessage.getRotationY() + 0.5));
+            mHandler.postDelayed(mRotate, 10);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +59,7 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         mCaMinTimeForDatePicker.set(2017, 2, 1);
         realm = Realm.getDefaultInstance();
         initView();
+        addEvent();
     }
 
     @Override
@@ -86,6 +104,8 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
     }
 
     private void initView(){
+        mImgBgMessage = (ImageView) findViewById(R.id.img_background_message_main_activity);
+        mImgPet = (ImageView) findViewById(R.id.img_pet_main_activity) ;
         mTvDaysLeft = (TextView) findViewById(R.id.days_left_main);
         mTvNextCycle = (TextView) findViewById(R.id.tv_next_cycle_main);
         mTvEasyToConceive = (TextView) findViewById(R.id.tv_easy_conceive_main);
@@ -104,9 +124,11 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
         mTvEndCycle.setOnClickListener(this);
     }
 
+    private void addEvent(){
+        mHandler.postDelayed(mRotate, 10);
+    }
+
     private void startDialog(){
-        mEditor = getPreferences(MODE_PRIVATE).edit();
-        final SharedPreferences prefs = getPreferences(MODE_PRIVATE);
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -192,20 +214,45 @@ public class MainActivity extends BaseDatePicker implements View.OnClickListener
                 startActivity(new Intent(this, NoteActivity.class));
                 break;
             case R.id.tv_end_cycle_main_activity:
-                Utils.writeToFile(Utils.TRUE, Utils.FILE_NEW_USER, getApplicationContext());
-                getApplicationContext().deleteFile(Utils.FILE_CHU_KY_KINH_NGUYET);
-                getApplicationContext().deleteFile(Utils.FILE_CHU_KY_HANH_KINH);
-                getApplicationContext().deleteFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET);
-                getApplicationContext().deleteFile(Utils.FILE_OVULATION);
-                getApplicationContext().deleteFile(Utils.FILE_DATE_ESTIMATE);
-                getApplicationContext().deleteFile(Utils.FILE_REPORT_CYCLE);
-                getApplicationContext().deleteFile(Utils.FILE_REPORT_EASY_TO_CONCEIVE);
-                getApplicationContext().deleteFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE);
-                Utils.deleteAllNoteObj(realm);
-                Intent refresh = new Intent(this, MainActivity.class);
-                startActivity(refresh);
 
-                Toast.makeText(MainActivity.this, getString(R.string.you_just_delete_all_data), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                LayoutInflater inflater = this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog_delete_all_data, null);
+                dialogBuilder.setView(dialogView);
+
+                Button mBtnCancel = (Button) dialogView.findViewById(R.id.btn_cancel_dialog_delete);
+                Button mBtnOk = (Button) dialogView.findViewById(R.id.btn_ok_dialog_delete);
+
+                final AlertDialog alertStartDialog = dialogBuilder.create();
+                alertStartDialog.show();
+
+                mBtnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertStartDialog.cancel();
+                    }
+                });
+
+                mBtnOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Utils.writeToFile(Utils.TRUE, Utils.FILE_NEW_USER, getApplicationContext());
+                        getApplicationContext().deleteFile(Utils.FILE_CHU_KY_KINH_NGUYET);
+                        getApplicationContext().deleteFile(Utils.FILE_CHU_KY_HANH_KINH);
+                        getApplicationContext().deleteFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET);
+                        getApplicationContext().deleteFile(Utils.FILE_OVULATION);
+                        getApplicationContext().deleteFile(Utils.FILE_DATE_ESTIMATE);
+                        getApplicationContext().deleteFile(Utils.FILE_REPORT_CYCLE);
+                        getApplicationContext().deleteFile(Utils.FILE_REPORT_EASY_TO_CONCEIVE);
+                        getApplicationContext().deleteFile(Utils.FILE_REPORT_SO_NGAY_GIAI_DOAN_HOANG_THE);
+                        Utils.deleteAllNoteObj(realm);
+                        Intent refresh = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(refresh);
+                        alertStartDialog.cancel();
+                        Toast.makeText(MainActivity.this, getString(R.string.you_just_delete_all_data), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 break;
         }
     }

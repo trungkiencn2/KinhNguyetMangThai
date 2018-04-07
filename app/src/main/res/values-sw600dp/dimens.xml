@@ -27,4 +27,5 @@
     <dimen name="hai_lam_sp">44sp</dimen>
     <dimen name="ba_muoi_sp">52sp</dimen>
     <dimen name="ba_lam_sp">61sp</dimen>
+    <dimen name="nam_muoi_sp">80sp</dimen>
 </resources>

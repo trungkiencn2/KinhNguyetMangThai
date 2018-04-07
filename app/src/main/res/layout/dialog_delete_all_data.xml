@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center"
     android:background="@color/colorWhite"
-    android:padding="@dimen/muoi_lam_dp">
+    android:padding="@dimen/muoi_dp">
 
     <TextView
         android:textColor="@color/colorBlack"
@@ -12,12 +12,12 @@
         android:gravity="center_vertical"
         android:text="@string/are_you_sure"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nam_muoi_dp" />
+        android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:layout_marginTop="@dimen/hai_muoi_dp"
+        android:layout_marginTop="@dimen/muoi_dp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nam_muoi_dp"
+        android:layout_height="wrap_content"
         android:weightSum="4"
         android:gravity="right">
 
@@ -25,18 +25,18 @@
             android:id="@+id/btn_cancel_dialog_delete"
             android:background="@color/colorWhite"
             android:text="@string/cancel"
-            android:textSize="@dimen/hai_muoi_sp"
+            android:textSize="@dimen/muoi_lam_sp"
             android:layout_width="0dp"
-            android:layout_weight="1.7"
+            android:layout_weight="1"
             android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/btn_ok_dialog_delete"
             android:background="@color/colorWhite"
             android:text="@string/ok"
-            android:textSize="@dimen/hai_muoi_sp"
+            android:textSize="@dimen/muoi_lam_sp"
             android:layout_width="0dp"
-            android:layout_weight="1.7"
+            android:layout_weight="1"
             android:layout_height="match_parent" />
 
     </LinearLayout>

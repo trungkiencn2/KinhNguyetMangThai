@@ -233,10 +233,15 @@
     <string name="very_fat">Rất béo</string>
     <string name="fat">Béo phì</string>
     <string name="ask_delete">Bạn có chắc chắn muốn xóa?</string>
-
     <string name="add_weight">Thêm trọng lượng</string>
     <string name="add_temperature">Thêm nhiệt độ</string>
     <string name="enter_weight">Nhập cân nặng</string>
     <string name="enter_temperature">Nhập nhiệt độ</string>
     <string name="end_cycle">Kết thúc chu kỳ</string>
+    <string name="weight_chart">Biểu đồ cân nặng</string>
+    <string name="temperature_chart">Biểu đồ nhiệt độ</string>
+    <string name="no_date_exist">Không tồn tại dữ liệu</string>
+
+    <string name="upper_limit">Giới hạn trên</string>
+    <string name="lower_limit">Giới hạn dưới</string>
 </resources>

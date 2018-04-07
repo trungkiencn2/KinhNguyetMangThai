@@ -233,11 +233,16 @@
     <string name="very_fat">とても太っている</string>
     <string name="fat">脂肪</string>
     <string name="ask_delete">消去してもよろしいですか？</string>
-
     <string name="add_weight">重量を追加する</string>
     <string name="add_temperature">温度を加える</string>
     <string name="enter_weight">体重を入力</string>
     <string name="enter_temperature">温度入力</string>
     <string name="end_cycle">終了サイクル</string>
+    <string name="weight_chart">ウェイトチャート</string>
+    <string name="temperature_chart">温度チャート</string>
+    <string name="no_date_exist">データがありません</string>
+
+    <string name="upper_limit">上限</string>
+    <string name="lower_limit">下限</string>
 
 </resources>

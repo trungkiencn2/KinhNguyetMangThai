@@ -7,12 +7,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.skyfree.kinhnguyetmangthai.R;
 import com.skyfree.kinhnguyetmangthai.adapter.PageAdapter;
 
 public class DiaryActivity extends AppCompatActivity {
 
+    private ImageView mImgBack;
     ViewPager viewPager;
     TabLayout tabLayout;
 
@@ -56,7 +59,14 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     private void initView(){
+        mImgBack = (ImageView) findViewById(R.id.img_back_diary_activity);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mImgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

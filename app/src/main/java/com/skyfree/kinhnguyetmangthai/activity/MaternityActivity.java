@@ -22,8 +22,6 @@ public class MaternityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maternity);
         initView();
-
-
     }
 
     @Override

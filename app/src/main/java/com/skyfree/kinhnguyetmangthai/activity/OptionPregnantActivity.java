@@ -19,9 +19,6 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
 
     private LinearLayout mLinearEstimate, mLinearEnable;
     private TextView mTvEstimate;
-
-//    private Calendar mCaEstimate = Calendar.getInstance();
-//    private Calendar mCaEndPregnant = Calendar.getInstance();
     private Calendar mCaEstimate = Calendar.getInstance();
     private Calendar mCaEndPregnant = Calendar.getInstance();
 
@@ -68,9 +65,6 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
             case R.id.linear_estimate_the_due_date:
                 alertShowDateEstimate(mTvEstimate);
                 break;
-//            case R.id.linear_childbirth_or_miscarriage:
-//                alertShowChildbirthOrMiscarrige();
-//                break;
             case R.id.linear_enable_by_mistake:
                 alertShowEnableByMistake();
                 break;
@@ -104,44 +98,4 @@ public class OptionPregnantActivity extends BaseDatePicker implements View.OnCli
             }
         });
     }
-
-//    private void alertShowChildbirthOrMiscarrige() {
-//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-//        LayoutInflater inflater = this.getLayoutInflater();
-//        View dialogView = inflater.inflate(R.layout.dialog_childbirth_or_miscarriage, null);
-//        dialogBuilder.setView(dialogView);
-//
-//        Button mBtnCancel = (Button) dialogView.findViewById(R.id.btn_cancel_dialog_childbirth_or_miscarriage);
-//        Button mBtnTurnOff = (Button) dialogView.findViewById(R.id.btn_no_longer_dialog_childbirth_or_miscarriage);
-//
-//        final AlertDialog alertStartDialog = dialogBuilder.create();
-//        alertStartDialog.show();
-//
-//        mBtnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                alertStartDialog.cancel();
-//            }
-//        });
-//
-//        mBtnTurnOff.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showDialogNoLongerPregnant();
-//                alertStartDialog.cancel();
-//            }
-//        });
-//    }
-
-//    private void showDialogNoLongerPregnant() {
-//        dialogForCalendar(new IMyDateSetListener() {
-//            @Override
-//            public void onDateSet(java.util.Calendar currentSelectedDate) {
-//                int dayOfMonth = currentSelectedDate.get(java.util.Calendar.DAY_OF_MONTH);
-//                int month = currentSelectedDate.get(java.util.Calendar.MONTH) + 1;
-//                int year = currentSelectedDate.get(java.util.Calendar.YEAR);
-//                mCaEndPregnant.setTimeInMillis(currentSelectedDate.getTimeInMillis());
-//            }
-//        }, mCaEndPregnant.getTimeInMillis() + 10 * Utils.mOneDay, getString(R.string.end_date_of_pregnancy), );
-//    }
 }

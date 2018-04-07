@@ -100,8 +100,6 @@
 
             <ScrollView
                 android:padding="@dimen/nam_dp"
-                android:layout_marginLeft="@dimen/muoi_dp"
-                android:layout_marginRight="@dimen/muoi_dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="7">
@@ -139,8 +137,9 @@
                                 android:layout_height="match_parent" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:text="@string/menstruation"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
+                                android:paddingLeft="@dimen/nam_dp"
                                 android:textColor="@color/colorRed"
                                 android:textSize="@dimen/muoi_lam_sp"
                                 android:gravity="center_vertical"
@@ -149,11 +148,12 @@
                                 android:layout_height="match_parent" />
 
                             <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                                android:padding="@dimen/nam_dp"
                                 android:id="@+id/rating_bar_add_note"
                                 android:backgroundTint="@color/colorRed"
                                 android:layout_width="0dp"
-                                android:layout_weight="4"
-                                android:layout_height="wrap_content"
+                                android:layout_weight="4.7"
+                                android:layout_height="@dimen/bon_muoi_dp"
                                 android:layout_gravity="center_vertical"
                                 style="@style/Widget.MaterialRatingBar.RatingBar" />
 
@@ -177,8 +177,9 @@
                                 android:layout_height="match_parent" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:text="@string/note"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
+                                android:paddingLeft="@dimen/nam_dp"
                                 android:textColor="@color/colorRed"
                                 android:textSize="@dimen/muoi_lam_sp"
                                 android:gravity="center_vertical"
@@ -221,8 +222,9 @@
                                 android:layout_height="match_parent" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:text="@string/drug"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
+                                android:paddingLeft="@dimen/nam_dp"
                                 android:textColor="@color/colorRed"
                                 android:textSize="@dimen/muoi_lam_sp"
                                 android:gravity="center_vertical"
@@ -256,8 +258,9 @@
                                 android:layout_height="match_parent" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:text="@string/symptom"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
+                                android:paddingLeft="@dimen/nam_dp"
                                 android:textColor="@color/colorRed"
                                 android:textSize="@dimen/muoi_lam_sp"
                                 android:gravity="center_vertical"
@@ -291,8 +294,9 @@
                                 android:layout_height="match_parent" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:text="@string/mood"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
+                                android:paddingLeft="@dimen/nam_dp"
                                 android:textColor="@color/colorRed"
                                 android:textSize="@dimen/muoi_lam_sp"
                                 android:gravity="center_vertical"
@@ -325,25 +329,31 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent" />
 
-                            <TextView
-                                android:text="@string/weight"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
-                                android:textColor="@color/colorRed"
-                                android:textSize="@dimen/muoi_lam_sp"
-                                android:gravity="center_vertical"
-                                android:layout_weight="4"
+                            <LinearLayout
+                                android:layout_weight="8"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent">
 
-                            <TextView
-                                android:text=""
-                                android:id="@+id/tv_weight_note_activity"
-                                android:gravity="center_vertical"
-                                android:textSize="@dimen/muoi_hai_sp"
-                                android:textColor="@color/colorBlur"
-                                android:layout_weight="4"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent" />
+                                <TextView
+                                    android:textStyle="bold"
+                                    android:text="@string/weight"
+                                    android:paddingLeft="@dimen/nam_dp"
+                                    android:textColor="@color/colorRed"
+                                    android:textSize="@dimen/muoi_lam_sp"
+                                    android:gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent" />
+
+                                <TextView
+                                    android:padding="@dimen/nam_dp"
+                                    android:id="@+id/tv_weight_note_activity"
+                                    android:gravity="center_vertical|right"
+                                    android:textSize="@dimen/muoi_hai_sp"
+                                    android:textColor="@color/colorBlur"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </LinearLayout>
 
                             <ImageView
                                 android:src="@drawable/btn_next"
@@ -365,30 +375,37 @@
                             android:layout_height="@dimen/nam_sau_dp">
 
                             <ImageView
+                                android:scaleType="fitCenter"
                                 android:src="@drawable/ic_nhietdo"
                                 android:layout_weight="1.2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent" />
 
-                            <TextView
-                                android:text="@string/temperature"
-                                android:paddingLeft="@dimen/muoi_lam_dp"
-                                android:textColor="@color/colorRed"
-                                android:textSize="@dimen/muoi_lam_sp"
-                                android:gravity="center_vertical"
-                                android:layout_weight="6"
+                            <LinearLayout
+                                android:layout_weight="8"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent">
 
-                            <TextView
-                                android:text=""
-                                android:id="@+id/tv_temperature_note_activity"
-                                android:gravity="center_vertical"
-                                android:textSize="@dimen/muoi_hai_sp"
-                                android:textColor="@color/colorBlur"
-                                android:layout_weight="2"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent" />
+                                <TextView
+                                    android:textStyle="bold"
+                                    android:text="@string/temperature"
+                                    android:paddingLeft="@dimen/nam_dp"
+                                    android:textColor="@color/colorRed"
+                                    android:textSize="@dimen/muoi_lam_sp"
+                                    android:gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent" />
+
+                                <TextView
+                                    android:paddingLeft="@dimen/nam_dp"
+                                    android:id="@+id/tv_temperature_note_activity"
+                                    android:gravity="center_vertical|right"
+                                    android:textSize="@dimen/muoi_hai_sp"
+                                    android:textColor="@color/colorBlur"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </LinearLayout>
 
                             <ImageView
                                 android:src="@drawable/btn_next"

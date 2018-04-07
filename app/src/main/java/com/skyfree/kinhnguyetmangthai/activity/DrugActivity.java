@@ -174,7 +174,6 @@ public class DrugActivity extends AppCompatActivity implements View.OnClickListe
                     mRealmListDrug.add(new RealmDrug(mListAllDrugForResult.get(i)));
                 }
 
-
                 if(mNoteObj != null){
                     Utils.updateListDrug(realm, mId, mListAllDrugForResult);
                 }else {

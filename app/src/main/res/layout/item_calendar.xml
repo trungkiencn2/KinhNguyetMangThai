@@ -7,12 +7,17 @@
     android:gravity="left">
 
     <ImageView
-        android:id="@+id/img_bg_above_item_calendar"
+        android:id="@+id/img_bg_item_calendar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <ImageView
-        android:id="@+id/img_bg_item_calendar"
+        android:id="@+id/img_bg_inside_item_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/img_bg_note_item_calendar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -22,25 +27,27 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
             <ImageView
                 android:id="@+id/img_item_calendar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_width="@dimen/muoi_lam_dp"
+                android:layout_height="@dimen/muoi_lam_dp" />
 
-            <ImageView
-                android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/tv_am_lich_item_calendar"
+                android:paddingRight="@dimen/nam_dp"
+                android:gravity="right|center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
         <TextView
-            android:textSize="@dimen/muoi_hai_sp"
+            android:textStyle="bold"
+            android:textSize="@dimen/muoi_lam_sp"
             android:padding="@dimen/ba_dp"
             android:gravity="center_vertical|bottom"
             android:id="@+id/tv_date_item_calendar"

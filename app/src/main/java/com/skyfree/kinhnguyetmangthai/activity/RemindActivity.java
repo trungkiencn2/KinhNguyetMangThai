@@ -18,7 +18,6 @@ import java.util.Calendar;
 
 public class RemindActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    private Calendar mCaNow = Calendar.getInstance();
     private Calendar mCaNow = Calendar.getInstance();
 
     private Switch mSwReportCycle, mSwReportPregnancy, mSwReportOvulation;

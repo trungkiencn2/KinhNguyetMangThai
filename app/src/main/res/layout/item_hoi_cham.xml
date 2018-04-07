@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="@dimen/nam_dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/img_item_hoicham"
+        android:layout_width="22dp"
+        android:layout_height="22dp" />
+
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/muoi_lam_sp"
+        android:paddingLeft="@dimen/muoi_dp"
+        android:gravity="center_vertical"
+        android:layout_alignRight="@id/img_item_hoicham"
+        android:id="@+id/tv_item_hoicham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

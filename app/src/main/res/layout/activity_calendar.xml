@@ -364,7 +364,7 @@
                         android:layout_height="@dimen/ba_muoi_dp" />
 
                     <ImageView
-                        android:padding="@dimen/mot_dp"
+                        android:padding="@dimen/ba_dp"
                         android:src="@drawable/ic_tamtrang"
                         android:layout_margin="@dimen/mot_dp"
                         android:layout_width="@dimen/ba_muoi_dp"

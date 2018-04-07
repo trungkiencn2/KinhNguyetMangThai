@@ -93,11 +93,12 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addEvent() {
 
-        mCa.set(getIntent().getIntExtra(Utils.PUT_YEAR, mCa.get(Calendar.YEAR)), getIntent().getIntExtra(Utils.PUT_MONTH, mCa.get(Calendar.MONTH)),
-                getIntent().getIntExtra(Utils.PUT_DAY, mCa.get(Calendar.DAY_OF_MONTH)));
+        if (Utils.CALENDAR_TO_NOTE.equals(Utils.TRUE)) {
+            mCa.set(getIntent().getIntExtra(Utils.PUT_YEAR, mCa.get(Calendar.YEAR)), getIntent().getIntExtra(Utils.PUT_MONTH, mCa.get(Calendar.MONTH)),
+                    getIntent().getIntExtra(Utils.PUT_DAY, mCa.get(Calendar.DAY_OF_MONTH)));
+        }
 
         mId = mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR);
-        loadData(mCa.get(Calendar.DAY_OF_MONTH), mCa.get(Calendar.MONTH), mCa.get(Calendar.YEAR));
 
     }
 
@@ -119,10 +120,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 mTvTemperature.setText(mCurrentNote.getmNoteTemperature() + " °C");
             }
-//            mLoadNote = mCurrentNote.getmNoteNote();
-//            mLoadNoteListDrug = mCurrentNote.getmListDrug();
-//            mLoadNoteListSymptoms = mCurrentNote.getmListSymptom();
-//            mLoadNoteListMood = mCurrentNote.getmListMood();
         } else {
             mRatingBar.setProgress(0);
             mTvNote.setText("");
@@ -257,9 +254,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtWeight.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) + 0.5));
-                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtWeight.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) + 0.5));
+                    mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -268,9 +265,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtHeight.setText(String.valueOf( Float.parseFloat(mEdtHeight.getText().toString()) + 0.5));
-                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtHeight.setText(String.valueOf(Float.parseFloat(mEdtHeight.getText().toString()) + 0.5));
+                    mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -279,9 +276,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtWeight.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) - 0.5));
-                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtWeight.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) - 0.5));
+                    mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -290,9 +287,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
-                    mEdtHeight.setText(String.valueOf( Float.parseFloat(mEdtHeight.getText().toString()) - 0.5));
-                    mTvPoint.setText(String.valueOf( Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mEdtHeight.setText(String.valueOf(Float.parseFloat(mEdtHeight.getText().toString()) - 0.5));
+                    mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
         });
@@ -323,7 +320,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
                     mTvPoint.setText(String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
 
@@ -343,7 +340,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!mEdtHeight.getText().toString().equals("") && !mEdtWeight.getText().toString().equals("")) {
                     mTvPoint.setText((String.valueOf(Float.parseFloat(mEdtWeight.getText().toString()) / Float.parseFloat(mEdtHeight.getText().toString()) * 100)));
-                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf( Float.parseFloat(mTvPoint.getText().toString())))));
+                    mTvResult.setText(getResultWeight(Float.valueOf(String.valueOf(Float.parseFloat(mTvPoint.getText().toString())))));
                 }
             }
 
@@ -363,16 +360,18 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         mImgDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNoteWeight = Float.parseFloat(mEdtWeight.getText().toString());
-                mTvWeight.setText(mNoteWeight + " kg");
 
-                NoteObj mNoteTam = Utils.getNoteObj(realm, mId);
-                if (mNoteTam != null) {
-                    Utils.updateWeight(realm, mId, mNoteWeight);
-                } else {
-                    Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", mNoteWeight, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                if (!mEdtWeight.getText().toString().equals("")) {
+                    mNoteWeight = Float.parseFloat(mEdtWeight.getText().toString());
+                    mTvWeight.setText(mNoteWeight + " kg");
+
+                    NoteObj mNoteTam = Utils.getNoteObj(realm, mId);
+                    if (mNoteTam != null) {
+                        Utils.updateWeight(realm, mId, mNoteWeight);
+                    } else {
+                        Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(), 0, "", mNoteWeight, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                    }
                 }
-
                 alertStartDialog.cancel();
             }
         });
@@ -420,32 +419,32 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 NoteObj mNoteTam = Utils.getNoteObj(realm, mId);
-
-
-                if(mEdtTemperature.getText().toString().equals("")){
-                    if (mNoteTam != null) {
-                        Utils.updateTemperature(realm, mId, 0);
-                    }
-                    alertStartDialog.cancel();
-                }else {
-                    if (Float.parseFloat(mEdtTemperature.getText().toString()) > 50 || Float.parseFloat(mEdtTemperature.getText().toString()) < 30) {
-                        Toast.makeText(NoteActivity.this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
-                    } else {
-                        mNoteTemperature = Float.parseFloat(mEdtTemperature.getText().toString());
-                        mTvTemperature.setText(mNoteTemperature + " °C");
-
+                if (!mEdtTemperature.getText().toString().equals("")) {
+                    if (mEdtTemperature.getText().toString().equals("")) {
                         if (mNoteTam != null) {
-                            Utils.updateTemperature(realm, mId, mNoteTemperature);
-                        } else {
-                            Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                            Utils.updateTemperature(realm, mId, 0);
                         }
-
                         alertStartDialog.cancel();
+                    } else {
+                        if (Float.parseFloat(mEdtTemperature.getText().toString()) > 50 || Float.parseFloat(mEdtTemperature.getText().toString()) < 30) {
+                            Toast.makeText(NoteActivity.this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
+                        } else {
+                            mNoteTemperature = Float.parseFloat(mEdtTemperature.getText().toString());
+                            mTvTemperature.setText(mNoteTemperature + " °C");
+
+                            if (mNoteTam != null) {
+                                Utils.updateTemperature(realm, mId, mNoteTemperature);
+                            } else {
+                                Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(), 0, "", 0, mNoteTemperature, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                            }
+
+
+                        }
                     }
                 }
+                alertStartDialog.cancel();
             }
         });
-
     }
 
     private String getResultWeight(Float result) {
@@ -467,33 +466,31 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             return getString(R.string.fat);
         }
     }
-    
-    private void updateLuongKinh(){
 
-        if(!checkIdExist(mId)){
-            Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(),0, "", 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
-        }else {
+    private void updateLuongKinh() {
+        if (!checkIdExist(mId)) {
+            Utils.insertNoteObj(realm, new NoteObj(mId, mCa.getTimeInMillis(), 0, "", 0, 0, new RealmList<RealmDrug>(), new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+        } else {
             Utils.updateLuongKinh(realm, mId, mRatingBar.getProgress());
         }
-
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         updateLuongKinh();
+        Utils.CALENDAR_TO_NOTE = Utils.FALSE;
     }
 
-    private boolean checkIdExist(String id){
+    private boolean checkIdExist(String id) {
         RealmResults<NoteObj> listNoteSave = Utils.getAllNoteObj(realm);
-        if(listNoteSave.size() > 0){
-            for(int i = 0; i<listNoteSave.size(); i++){
-                if(listNoteSave.get(i).getId().equals(mId)){
+        if (listNoteSave.size() > 0) {
+            for (int i = 0; i < listNoteSave.size(); i++) {
+                if (listNoteSave.get(i).getId().equals(mId)) {
                     return true;
                 }
             }
-        }else {
+        } else {
             return false;
         }
         return false;

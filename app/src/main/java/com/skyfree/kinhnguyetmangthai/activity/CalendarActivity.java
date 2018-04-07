@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -15,11 +16,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.skyfree.kinhnguyetmangthai.R;
+import com.skyfree.kinhnguyetmangthai.adapter.ListHoiChamAdapter;
 import com.skyfree.kinhnguyetmangthai.adapter.ListOptionAdapter;
 import com.skyfree.kinhnguyetmangthai.custom_interface.ISetIdForCalendarActivity;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IUpdateTopTime;
 import com.skyfree.kinhnguyetmangthai.fragment.FragmentCalendar;
 import com.skyfree.kinhnguyetmangthai.adapter.PageMonthAdapter;
+import com.skyfree.kinhnguyetmangthai.model.HoiCham;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
@@ -117,6 +120,7 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         mPager = findViewById(R.id.view_pager_calendar);
         mPager.setAdapter(mFragmentAdapter);
         mPager.setCurrentItem(24);
+
 
 
     }
@@ -384,6 +388,7 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.linear_info_calendar_activity:
+                Utils.CALENDAR_TO_NOTE = Utils.TRUE;
                 Intent it = new Intent(this, NoteActivity.class);
                 it.putExtra(Utils.PUT_DAY, mCurrentCa.get(Calendar.DAY_OF_MONTH));
                 it.putExtra(Utils.PUT_MONTH, mCurrentCa.get(Calendar.MONTH));
@@ -419,10 +424,20 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         View dialogView = inflater.inflate(R.layout.dialog_hoi_cham, null);
         dialogBuilder.setView(dialogView);
 
+        ListView mLv = (ListView) dialogView.findViewById(R.id.lv_dialog_hoi_cham);
         TextView mTvOk = (TextView) dialogView.findViewById(R.id.tv_ok_dialog_hoi_cham);
 
         final AlertDialog alertStartDialog = dialogBuilder.create();
         alertStartDialog.show();
+
+        ArrayList<HoiCham> mListHoiCham = new ArrayList<>();
+        mListHoiCham.add(new HoiCham(R.drawable.icon_ovulation, getString(R.string.ovulation)));
+        mListHoiCham.add(new HoiCham(R.drawable.icon_pill, getString(R.string.drug)));
+        mListHoiCham.add(new HoiCham(R.drawable.icon_fertile, getString(R.string.conception)));
+        mListHoiCham.add(new HoiCham(R.drawable.icon_note, getString(R.string.note)));
+        mListHoiCham.add(new HoiCham(R.drawable.icon_kinhnguyet, getString(R.string.menstruation)));
+        ListHoiChamAdapter mAdapter = new ListHoiChamAdapter(this, mListHoiCham);
+        mLv.setAdapter(mAdapter);
 
         mTvOk.setOnClickListener(new View.OnClickListener() {
             @Override

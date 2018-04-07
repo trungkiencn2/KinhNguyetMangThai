@@ -1,6 +1,5 @@
 package com.skyfree.kinhnguyetmangthai.activity;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,28 +7,24 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.adapter.MyAdapter;
+import com.skyfree.kinhnguyetmangthai.adapter.ListSettingAdapter;
 import com.skyfree.kinhnguyetmangthai.model.Setting;
 import com.skyfree.kinhnguyetmangthai.utils.Utils;
 
 import java.util.ArrayList;
 
 import io.realm.Realm;
-import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
-import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -37,7 +32,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private ImageView mImgBack;
     private ListView mLvSetting;
-    private MyAdapter mAdapter;
+    private ListSettingAdapter mAdapter;
     private ArrayList<Setting> mListSetting;
 
     @Override
@@ -78,7 +73,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         mListSetting.add(new Setting( R.drawable.icon_setting_share,1, getString(R.string.share), ""));
         mListSetting.add(new Setting( R.drawable.icon_setting_reset,1, getString(R.string.delete_all_data), ""));
 
-        mAdapter = new MyAdapter(this, 5, mListSetting);
+        mAdapter = new ListSettingAdapter(this, 5, mListSetting);
         mLvSetting.setAdapter(mAdapter);
 
     }

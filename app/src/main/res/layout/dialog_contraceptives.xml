@@ -17,6 +17,7 @@
             android:layout_height="match_parent" />
 
         <ImageView
+            android:layout_marginRight="@dimen/muoi_dp"
             android:id="@+id/img_done_dialog_birth_control_pills"
             android:src="@drawable/ic_done"
             android:layout_weight="1"
@@ -36,6 +37,7 @@
         android:layout_height="@dimen/bon_muoi_dp">
 
         <ImageView
+            android:layout_marginLeft="@dimen/muoi_dp"
             android:src="@drawable/pill_brith_control"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -51,6 +53,7 @@
             android:layout_height="match_parent" />
 
         <CheckBox
+            android:layout_marginRight="@dimen/muoi_dp"
             android:id="@+id/cb_pill_birth_control"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -69,6 +72,7 @@
         android:layout_height="@dimen/bon_muoi_dp">
 
         <ImageView
+            android:layout_marginLeft="@dimen/muoi_dp"
             android:src="@drawable/pill_injection"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -84,6 +88,7 @@
             android:layout_height="match_parent" />
 
         <CheckBox
+            android:layout_marginRight="@dimen/muoi_dp"
             android:id="@+id/cb_injection"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -102,6 +107,7 @@
         android:layout_height="@dimen/bon_muoi_dp">
 
         <ImageView
+            android:layout_marginLeft="@dimen/muoi_dp"
             android:src="@drawable/pill_patch"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -117,6 +123,7 @@
             android:layout_height="match_parent" />
 
         <CheckBox
+            android:layout_marginRight="@dimen/muoi_dp"
             android:id="@+id/cb_patch"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -135,6 +142,7 @@
         android:layout_height="@dimen/bon_muoi_dp">
 
         <ImageView
+            android:layout_marginLeft="@dimen/muoi_dp"
             android:src="@drawable/pill_vring"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -150,6 +158,7 @@
             android:layout_height="match_parent" />
 
         <CheckBox
+            android:layout_marginRight="@dimen/muoi_dp"
             android:id="@+id/cb_vring"
             android:layout_weight="1"
             android:layout_width="0dp"

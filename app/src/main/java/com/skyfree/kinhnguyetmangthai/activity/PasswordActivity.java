@@ -79,7 +79,6 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         categories.add(getString(R.string.your_name));
         categories.add(getString(R.string.choose_my_own_question));
 
-        // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

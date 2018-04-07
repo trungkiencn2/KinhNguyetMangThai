@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,8 +21,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.listener.ChartTouchListener;
+import com.github.mikephil.charting.listener.OnChartGestureListener;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.skyfree.kinhnguyetmangthai.R;
-import com.skyfree.kinhnguyetmangthai.base.BaseDatePicker;
 import com.skyfree.kinhnguyetmangthai.custom_interface.IMyDateSetListener;
 import com.skyfree.kinhnguyetmangthai.model.NoteObj;
 import com.skyfree.kinhnguyetmangthai.model.RealmDrug;
@@ -38,19 +51,11 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
-import lecho.lib.hellocharts.formatter.AxisValueFormatter;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.view.LineChartView;
 
 public class ChartActivity extends AppCompatActivity implements View.OnClickListener {
 
     Realm realm;
-    private LineChartView mChart;
+    private LineChart mChart;
     private ImageView mImgBack, mImgAdd;
     private Spinner mSpinner;
 
@@ -58,106 +63,19 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private final String TEMPERATURE = "TEMPERATURE";
     private String CHOOSE = WEIGHT;
 
+    private Calendar mCa = Calendar.getInstance();
+    private Calendar mCaNow = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
-        realm = Realm.getDefaultInstance();
         initView();
         addEvent();
-
-    }
-
-    private void addEvent() {
-        RealmResults<NoteObj> mListNote = Utils.getAllNoteObj(realm);
-        if (mListNote.size() >= 2) {
-            mListNote = mListNote.sort("mTimeMili");
-            ArrayList<Float> mListWeight = new ArrayList<>();
-            ArrayList<Float> mListTemperature = new ArrayList<>();
-            for (int i = 0; i < mListNote.size(); i++) {
-                if (mListNote.get(i).getmNoteWeight() != 0) {
-                    mListWeight.add(mListNote.get(i).getmNoteWeight());
-                }
-                if (mListNote.get(i).getmNoteTemperature() != 0) {
-                    mListTemperature.add(mListNote.get(i).getmNoteTemperature());
-                }
-            }
-
-
-
-
-            List<PointValue> values = new ArrayList<PointValue>();
-            PointValue tempPointValue;
-
-            Line line = new Line(values)
-                    .setColor(Color.RED)
-                    .setCubic(false)
-                    .setHasPoints(true).setHasLabels(true);
-            List<Line> lines = new ArrayList<Line>();
-            lines.add(line);
-
-
-
-
-            if(CHOOSE.equals(WEIGHT)){
-                for (int i = 0; i < mListWeight.size(); i++) {
-                    tempPointValue = new PointValue(i, mListWeight.get(i));
-                    tempPointValue.setLabel(mListWeight.get(i) + " kg");
-                    values.add(tempPointValue);
-                }
-
-                LineChartData data = new LineChartData();
-                data.setLines(lines);
-
-                List<AxisValue> axisValuesForY = new ArrayList<>();
-                AxisValue tempAxisValue;
-                for (int i = 0; i <= 120; i += 15){
-                    tempAxisValue = new AxisValue(i);
-                    tempAxisValue.setLabel(i+"");
-                    axisValuesForY.add(tempAxisValue);
-                }
-
-                Axis yAxis = new Axis(axisValuesForY);
-                yAxis.setHasLines(true);
-                yAxis.setTextColor(Color.BLACK);
-                yAxis.setName(getString(R.string.weight));
-                data.setAxisYLeft(yAxis);
-
-                mChart.setDrawingCacheBackgroundColor(Color.BLACK);
-                mChart.setLineChartData(data);
-            }else if(CHOOSE.equals(TEMPERATURE)){
-                for(int i = 0; i<mListTemperature.size(); i++){
-                    tempPointValue = new PointValue(i, mListTemperature.get(i));
-                    tempPointValue.setLabel(mListTemperature.get(i) + " °C");
-                    values.add(tempPointValue);
-                }
-
-                LineChartData data = new LineChartData();
-                data.setLines(lines);
-
-                List<AxisValue> axisValuesForY = new ArrayList<>();
-                AxisValue tempAxisValue;
-                for(int i = 0; i<= 40; i+= 5){
-                    tempAxisValue = new AxisValue(i);
-                    tempAxisValue.setLabel(i + "");
-                    axisValuesForY.add(tempAxisValue);
-                }
-
-                Axis yAxis = new Axis(axisValuesForY);
-                yAxis.setHasLines(true);
-                yAxis.setTextColor(Color.BLACK);
-                yAxis.setName(getString(R.string.temperature));
-                data.setAxisYLeft(yAxis);
-
-                mChart.setDrawingCacheBackgroundColor(Color.BLACK);
-                mChart.setLineChartData(data);
-            }
-
-        }
     }
 
     private void initView(){
-        mChart = (LineChartView) findViewById(R.id.chart);
+        mChart = (LineChart) findViewById(R.id.linechart);
         mImgBack = (ImageView) findViewById(R.id.img_back_chart);
         mImgAdd = (ImageView) findViewById(R.id.img_add_chart);
         mSpinner = (Spinner) findViewById(R.id.spinner_wei_or_temp);
@@ -185,13 +103,122 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(ChartActivity.this, "nothing", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
 
-    private Calendar mCa = Calendar.getInstance();
-    private Calendar mCaNow = Calendar.getInstance();
+    private void addEvent(){
+        realm = Realm.getDefaultInstance();
+        RealmResults<NoteObj> mListNote = Utils.getAllNoteObj(realm);
+        mListNote = mListNote.sort("mTimeMili");
+
+        ArrayList<Entry> entries = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<String>();
+
+        if(CHOOSE.equals(WEIGHT)){
+            entries = new ArrayList<>();
+            for(int i = 0; i<mListNote.size(); i++){
+                if(mListNote.get(i).getmNoteWeight() != 0){
+                    entries.add(new Entry(mListNote.get(i).getmNoteWeight(), i));
+                    labels.add(i+"");
+                }
+            }
+
+            LineDataSet dataset = new LineDataSet(entries, getString(R.string.weight));
+            dataset.setColors(ColorTemplate.VORDIPLOM_COLORS);
+            LineData data = new LineData(labels, dataset);
+            data.setHighlightEnabled(true);
+            data.setValueTextColor(Color.RED);
+            data.setValueTextSize(12f);
+            mChart.setData(data);
+            mChart.removeAllViews();
+            mChart.invalidate();
+            mChart.setDescription(getString(R.string.weight_chart));
+            mChart.setBorderColor(Color.YELLOW);
+            mChart.setNoDataText(getString(R.string.no_date_exist));
+            mChart.setAutoScaleMinMaxEnabled(true);
+            mChart.animateXY(500, 500);
+
+            LimitLine upper_limit = new LimitLine(120f, getString(R.string.upper_limit));
+            upper_limit.setLineWidth(4f);
+            upper_limit.enableDashedLine(10f, 10f, 0f);
+            upper_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+            upper_limit.setTextSize(10f);
+
+            LimitLine lower_limit = new LimitLine(30f, getString(R.string.lower_limit));
+            lower_limit.setLineWidth(4f);
+            lower_limit.enableDashedLine(10f, 10f, 0f);
+            lower_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+            lower_limit.setTextSize(10f);
+
+            YAxis leftAxis = mChart.getAxisLeft();
+            leftAxis.removeAllLimitLines();
+            leftAxis.addLimitLine(upper_limit);
+            leftAxis.addLimitLine(lower_limit);
+            leftAxis.setAxisMaxValue(125f);
+            leftAxis.setAxisMinValue(0f);
+            leftAxis.enableGridDashedLine(10f, 10f, 0f);
+            leftAxis.setDrawZeroLine(false);
+            leftAxis.setDrawLimitLinesBehindData(true);
+
+            mChart.getAxisRight().setEnabled(false);
+
+        }
+
+        if(CHOOSE.equals(TEMPERATURE)){
+            entries = new ArrayList<>();
+            for(int i = 0; i<mListNote.size(); i++){
+                if(mListNote.get(i).getmNoteTemperature() != 0){
+                    entries.add(new Entry(mListNote.get(i).getmNoteTemperature(), i));
+                    labels.add(i+"");
+                }
+            }
+            for(int i= 0;i< entries.size();i++){
+                entries.get(i).setXIndex(i);
+            }
+
+
+            LineDataSet dataset = new LineDataSet(entries, getString(R.string.temperature));
+            dataset.setColors(ColorTemplate.VORDIPLOM_COLORS);
+            LineData data = new LineData(labels, dataset);
+            data.setHighlightEnabled(true);
+            data.setValueTextColor(Color.RED);
+            data.setValueTextSize(12f);
+            mChart.setData(data);
+            mChart.removeAllViews();
+            mChart.invalidate();
+            mChart.setDescription(getString(R.string.weight_chart));
+            mChart.setBorderColor(Color.YELLOW);
+            mChart.setNoDataText(getString(R.string.no_date_exist));
+            mChart.setAutoScaleMinMaxEnabled(true);
+            mChart.animateXY(500, 500);
+
+            LimitLine upper_limit = new LimitLine(45f, getString(R.string.upper_limit));
+            upper_limit.setLineWidth(4f);
+            upper_limit.enableDashedLine(10f, 10f, 0f);
+            upper_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+            upper_limit.setTextSize(10f);
+
+            LimitLine lower_limit = new LimitLine(30f, getString(R.string.lower_limit));
+            lower_limit.setLineWidth(4f);
+            lower_limit.enableDashedLine(10f, 10f, 0f);
+            lower_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+            lower_limit.setTextSize(10f);
+
+            YAxis leftAxis = mChart.getAxisLeft();
+            leftAxis.removeAllLimitLines();
+            leftAxis.addLimitLine(upper_limit);
+            leftAxis.addLimitLine(lower_limit);
+            leftAxis.setAxisMaxValue(50f);
+            leftAxis.setAxisMinValue(25f);
+            leftAxis.enableGridDashedLine(10f, 10f, 0f);
+            leftAxis.setDrawZeroLine(false);
+            leftAxis.setDrawLimitLinesBehindData(true);
+
+            mChart.getAxisRight().setEnabled(false);
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -288,9 +315,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                                 new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
                     }
                 }
-                Intent refresh = new Intent(getApplicationContext(), ChartActivity.class);
-                finish();
-                startActivity(refresh);
+                addEvent();
                 alertStartDialog.cancel();
             }
         });
@@ -319,26 +344,21 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         mTvOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mEdtTemperature.getText().toString().equals("")) {
-                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
-                        Utils.updateTemperature(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), 0);
-                    } else {
-                        Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
-                                mCa.getTimeInMillis(), 0, "", 0, 0, new RealmList<RealmDrug>(),
-                                new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                if (!mEdtTemperature.getText().toString().equals("")) {
+                    if (Float.parseFloat(mEdtTemperature.getText().toString()) > 50 || Float.parseFloat(mEdtTemperature.getText().toString()) < 30) {
+                        Toast.makeText(ChartActivity.this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show();
+                    }else {
+                        if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
+                            Utils.updateTemperature(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), Float.parseFloat(mEdtTemperature.getText().toString()));
+                        } else {
+                            Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
+                                    mCa.getTimeInMillis(), 0, "", 0, Float.parseFloat(mEdtTemperature.getText().toString()), new RealmList<RealmDrug>(),
+                                    new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
+                        }
                     }
-                } else {
-                    if (Utils.checkNoteObjExistById(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR))) {
-                        Utils.updateTemperature(realm, mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR), Float.parseFloat(mEdtTemperature.getText().toString()));
-                    } else {
-                        Utils.insertNoteObj(realm, new NoteObj(mCa.get(Calendar.DAY_OF_MONTH) + "" + mCa.get(Calendar.MONTH) + "" + mCa.get(Calendar.YEAR),
-                                mCa.getTimeInMillis(), 0, "", 0, Float.parseFloat(mEdtTemperature.getText().toString()), new RealmList<RealmDrug>(),
-                                new RealmList<RealmSymptom>(), new RealmList<RealmMood>()));
-                    }
+
                 }
-                Intent refresh = new Intent(getApplicationContext(), ChartActivity.class);
-                finish();
-                startActivity(refresh);
+                addEvent();
                 alertStartDialog.cancel();
             }
         });
