@@ -9,6 +9,7 @@
     tools:context="com.skyfree.kinhnguyetmangthai.activity.DiaryActivity">
 
     <LinearLayout
+        android:background="@color/colorBlackBlur"
         android:layout_marginBottom="@dimen/muoi_dp"
         android:paddingRight="16dp"
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
 
         <ImageView
             android:id="@+id/img_back_diary_activity"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_back_white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:layout_width="72dp"
@@ -25,7 +26,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="@dimen/hai_muoi_sp"
-            android:textColor="@color/colorDone"
+            android:textColor="@color/colorWhite"
             android:gravity="center_vertical"
             android:text="@string/diary"
             android:layout_width="wrap_content"
