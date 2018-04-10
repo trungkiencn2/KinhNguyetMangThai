@@ -3,7 +3,6 @@ package com.skyfree.kinhnguyetmangthai.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,11 +36,9 @@ public class RecycleViewCalendarAdapter extends RecyclerView.Adapter<RecycleView
 
     private int mChuKyHanhKinh;
     private int mChuKyKinhNguyet;
-    ArrayList<Calendar> mListCalHanhKinh = new ArrayList<>();
-    ArrayList<Calendar> mListCalRungTrung = new ArrayList<>();
-    ArrayList<Calendar> mListCalThuThai = new ArrayList<>();
-    ArrayList<Calendar> mListCalGhiChu = new ArrayList<>();
-    ArrayList<Calendar> mListCalThuoc = new ArrayList<>();
+    private ArrayList<Calendar> mListCalHanhKinh = new ArrayList<>();
+    private ArrayList<Calendar> mListCalRungTrung = new ArrayList<>();
+    private ArrayList<Calendar> mListCalThuThai = new ArrayList<>();
 
     public RecycleViewCalendarAdapter(ArrayList<CalendarItem> mListItem, Context mContext) {
         realm = Realm.getDefaultInstance();
@@ -191,11 +188,6 @@ public class RecycleViewCalendarAdapter extends RecyclerView.Adapter<RecycleView
             mTvAmLich = (TextView) itemView.findViewById(R.id.tv_am_lich_item_calendar);
             mContext = itemView.getContext();
         }
-    }
-
-    public interface RecyclerViewClickListener {
-
-        void onClick(View view, int position);
     }
 
 }

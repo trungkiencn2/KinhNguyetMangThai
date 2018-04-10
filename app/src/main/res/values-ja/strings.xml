@@ -241,8 +241,10 @@
     <string name="weight_chart">ウェイトチャート</string>
     <string name="temperature_chart">温度チャート</string>
     <string name="no_date_exist">データがありません</string>
-
     <string name="upper_limit">上限</string>
     <string name="lower_limit">下限</string>
 
+    <string name="event_future_menstruation">将来の月経</string>
+    <string name="event_easy_conception">簡単な概念 - 妊娠する能力</string>
+    <string name="event_ovulation">排卵 - 高収量</string>
 </resources>

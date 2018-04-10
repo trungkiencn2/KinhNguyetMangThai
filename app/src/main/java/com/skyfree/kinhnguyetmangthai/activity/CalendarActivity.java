@@ -6,10 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -35,7 +33,7 @@ import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 public class CalendarActivity extends AppCompatActivity implements IUpdateTopTime, ISetIdForCalendarActivity, View.OnClickListener {
 
     private TextView mTvDateCalendarActivity, mTvNote, mTvDrug, mTvSymptom, mTvMood, mTvWeight, mTvTemperature;
-    private TextView mTvDateNote;
+    private TextView mTvDateNote, mTvEvent;
     private ImageView mImgHoiCham, mImgBackMonth, mImgNextMonth;
     private ListView mLvDrug, mLvSymptom, mLvMood;
     private LinearLayout mLinearInfo;
@@ -76,9 +74,11 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     protected void onResume() {
         super.onResume();
         addEvent();
+        getListCaEvent();
     }
 
     private void initView() {
+        mTvEvent = (TextView) findViewById(R.id.tv_event_calendar_activity);
         mImgBackMonth = (ImageView) findViewById(R.id.img_back_month);
         mImgNextMonth = (ImageView) findViewById(R.id.img_next_month);
         mImgHoiCham = (ImageView) findViewById(R.id.img_hoicham_calendar_activity);
@@ -120,9 +120,6 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         mPager = findViewById(R.id.view_pager_calendar);
         mPager.setAdapter(mFragmentAdapter);
         mPager.setCurrentItem(24);
-
-
-
     }
 
     private void addEvent() {
@@ -203,171 +200,171 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
         }
     }
 
-    private void getListImageDrug(ArrayList<String> listStr){
-        for(int i = 0; i<listStr.size(); i++){
-            if(listStr.get(i).equals(getString(R.string.contraceptives))){
+    private void getListImageDrug(ArrayList<String> listStr) {
+        for (int i = 0; i < listStr.size(); i++) {
+            if (listStr.get(i).equals(getString(R.string.contraceptives))) {
                 mListDrugImage.add(R.drawable.pill_brith_control);
-            }else if(listStr.get(i).equals(getString(R.string.inject))){
+            } else if (listStr.get(i).equals(getString(R.string.inject))) {
                 mListDrugImage.add(R.drawable.pill_injection);
-            }else if(listStr.get(i).equals(getString(R.string.bandage))){
+            } else if (listStr.get(i).equals(getString(R.string.bandage))) {
                 mListDrugImage.add(R.drawable.pill_patch);
-            }else if(listStr.get(i).equals(getString(R.string.vaginal_ring))){
+            } else if (listStr.get(i).equals(getString(R.string.vaginal_ring))) {
                 mListDrugImage.add(R.drawable.pill_vring);
             }
         }
     }
 
-    private void getListImageSymptom(ArrayList<String> listStr){
-        for(int i = 0; i<listStr.size(); i++){
-            if(listStr.get(i).equals(getString(R.string.abdominal_cramps))){
+    private void getListImageSymptom(ArrayList<String> listStr) {
+        for (int i = 0; i < listStr.size(); i++) {
+            if (listStr.get(i).equals(getString(R.string.abdominal_cramps))) {
                 mListSymptomImage.add(R.drawable.icon_symp_abdominal_cramps);
-            }else if(listStr.get(i).equals(getString(R.string.anxiety))){
+            } else if (listStr.get(i).equals(getString(R.string.anxiety))) {
                 mListSymptomImage.add(R.drawable.icon_symp_anxiety);
-            }else if(listStr.get(i).equals(getString(R.string.astriction))){
+            } else if (listStr.get(i).equals(getString(R.string.astriction))) {
                 mListSymptomImage.add(R.drawable.icon_symp_astriction);
-            }else if(listStr.get(i).equals(getString(R.string.backaches))){
+            } else if (listStr.get(i).equals(getString(R.string.backaches))) {
                 mListSymptomImage.add(R.drawable.icon_symp_backaches);
-            }else if(listStr.get(i).equals(getString(R.string.bloating))){
+            } else if (listStr.get(i).equals(getString(R.string.bloating))) {
                 mListSymptomImage.add(R.drawable.icon_symp_bloating);
-            }else if(listStr.get(i).equals(getString(R.string.body_aches))){
+            } else if (listStr.get(i).equals(getString(R.string.body_aches))) {
                 mListSymptomImage.add(R.drawable.icon_symp_body_aches);
-            }else if(listStr.get(i).equals(getString(R.string.cervical_mucus))){
+            } else if (listStr.get(i).equals(getString(R.string.cervical_mucus))) {
                 mListSymptomImage.add(R.drawable.icon_symp_cervical_mucus);
-            }else if(listStr.get(i).equals(getString(R.string.chills))){
+            } else if (listStr.get(i).equals(getString(R.string.chills))) {
                 mListSymptomImage.add(R.drawable.icon_symp_chills);
-            }else if(listStr.get(i).equals(getString(R.string.confused))){
+            } else if (listStr.get(i).equals(getString(R.string.confused))) {
                 mListSymptomImage.add(R.drawable.icon_symp_confused);
-            }else if(listStr.get(i).equals(getString(R.string.cramps))){
+            } else if (listStr.get(i).equals(getString(R.string.cramps))) {
                 mListSymptomImage.add(R.drawable.icon_symp_cramps);
-            }else if(listStr.get(i).equals(getString(R.string.creamy))){
+            } else if (listStr.get(i).equals(getString(R.string.creamy))) {
                 mListSymptomImage.add(R.drawable.icon_symp_creamy);
-            }else if(listStr.get(i).equals(getString(R.string.diarrhea))){
+            } else if (listStr.get(i).equals(getString(R.string.diarrhea))) {
                 mListSymptomImage.add(R.drawable.icon_symp_diarrhea);
-            }else if(listStr.get(i).equals(getString(R.string.dizziness))){
+            } else if (listStr.get(i).equals(getString(R.string.dizziness))) {
                 mListSymptomImage.add(R.drawable.icon_symp_dizziness);
-            }else if(listStr.get(i).equals(getString(R.string.dry))){
+            } else if (listStr.get(i).equals(getString(R.string.dry))) {
                 mListSymptomImage.add(R.drawable.icon_symp_dry);
-            }else if(listStr.get(i).equals(getString(R.string.dyspepsia))){
+            } else if (listStr.get(i).equals(getString(R.string.dyspepsia))) {
                 mListSymptomImage.add(R.drawable.icon_symp_dyspepsia);
-            }else if(listStr.get(i).equals(getString(R.string.fatigue))){
+            } else if (listStr.get(i).equals(getString(R.string.fatigue))) {
                 mListSymptomImage.add(R.drawable.icon_symp_fatigue);
-            }else if(listStr.get(i).equals(getString(R.string.headaches))){
+            } else if (listStr.get(i).equals(getString(R.string.headaches))) {
                 mListSymptomImage.add(R.drawable.icon_symp_headaches);
-            }else if(listStr.get(i).equals(getString(R.string.hectic_fever))){
+            } else if (listStr.get(i).equals(getString(R.string.hectic_fever))) {
                 mListSymptomImage.add(R.drawable.icon_symp_hectic_fever);
-            }else if(listStr.get(i).equals(getString(R.string.hungry))){
+            } else if (listStr.get(i).equals(getString(R.string.hungry))) {
                 mListSymptomImage.add(R.drawable.icon_symp_hungry);
-            }else if(listStr.get(i).equals(getString(R.string.illness))){
+            } else if (listStr.get(i).equals(getString(R.string.illness))) {
                 mListSymptomImage.add(R.drawable.icon_symp_illness);
-            } else if(listStr.get(i).equals(getString(R.string.influenza))){
+            } else if (listStr.get(i).equals(getString(R.string.influenza))) {
                 mListSymptomImage.add(R.drawable.icon_symp_influenza);
-            }else if(listStr.get(i).equals(getString(R.string.insomnia))){
+            } else if (listStr.get(i).equals(getString(R.string.insomnia))) {
                 mListSymptomImage.add(R.drawable.icon_symp_insomnia);
-            }else if(listStr.get(i).equals(getString(R.string.irritability))){
+            } else if (listStr.get(i).equals(getString(R.string.irritability))) {
                 mListSymptomImage.add(R.drawable.icon_symp_irritability);
-            }else if(listStr.get(i).equals(getString(R.string.irritation))){
+            } else if (listStr.get(i).equals(getString(R.string.irritation))) {
                 mListSymptomImage.add(R.drawable.icon_symp_irritation);
-            }else if(listStr.get(i).equals(getString(R.string.itch))){
+            } else if (listStr.get(i).equals(getString(R.string.itch))) {
                 mListSymptomImage.add(R.drawable.icon_symp_itch);
-            }else if(listStr.get(i).equals(getString(R.string.migraine))){
+            } else if (listStr.get(i).equals(getString(R.string.migraine))) {
                 mListSymptomImage.add(R.drawable.icon_symp_migraine);
-            }else if(listStr.get(i).equals(getString(R.string.neckaches))){
+            } else if (listStr.get(i).equals(getString(R.string.neckaches))) {
                 mListSymptomImage.add(R.drawable.icon_symp_neckaches);
-            }else if(listStr.get(i).equals(getString(R.string.night_sweat))){
+            } else if (listStr.get(i).equals(getString(R.string.night_sweat))) {
                 mListSymptomImage.add(R.drawable.icon_symp_night_sweat);
-            }else if(listStr.get(i).equals(getString(R.string.pelvic_pain))){
+            } else if (listStr.get(i).equals(getString(R.string.pelvic_pain))) {
                 mListSymptomImage.add(R.drawable.icon_symp_pelvic_pain);
-            }else if(listStr.get(i).equals(getString(R.string.pms))){
+            } else if (listStr.get(i).equals(getString(R.string.pms))) {
                 mListSymptomImage.add(R.drawable.icon_symp_pms);
-            }else if(listStr.get(i).equals(getString(R.string.queasiness))){
+            } else if (listStr.get(i).equals(getString(R.string.queasiness))) {
                 mListSymptomImage.add(R.drawable.icon_symp_queasiness);
-            }else if(listStr.get(i).equals(getString(R.string.rash))){
+            } else if (listStr.get(i).equals(getString(R.string.rash))) {
                 mListSymptomImage.add(R.drawable.icon_symp_rash);
-            }else if(listStr.get(i).equals(getString(R.string.shoulder_ache))){
+            } else if (listStr.get(i).equals(getString(R.string.shoulder_ache))) {
                 mListSymptomImage.add(R.drawable.icon_symp_shoulder_ache);
-            }else if(listStr.get(i).equals(getString(R.string.spotting_bleeding))){
+            } else if (listStr.get(i).equals(getString(R.string.spotting_bleeding))) {
                 mListSymptomImage.add(R.drawable.icon_symp_spotting_bleeding);
-            }else if(listStr.get(i).equals(getString(R.string.sticky))){
+            } else if (listStr.get(i).equals(getString(R.string.sticky))) {
                 mListSymptomImage.add(R.drawable.icon_symp_sticky);
-            }else if(listStr.get(i).equals(getString(R.string.stress))){
+            } else if (listStr.get(i).equals(getString(R.string.stress))) {
                 mListSymptomImage.add(R.drawable.icon_symp_stress);
-            }else if(listStr.get(i).equals(getString(R.string.tension))){
+            } else if (listStr.get(i).equals(getString(R.string.tension))) {
                 mListSymptomImage.add(R.drawable.icon_symp_tension);
-            }else if(listStr.get(i).equals(getString(R.string.watery))){
+            } else if (listStr.get(i).equals(getString(R.string.watery))) {
                 mListSymptomImage.add(R.drawable.icon_symp_watery);
-            }else if(listStr.get(i).equals(getString(R.string.weight_gain))){
+            } else if (listStr.get(i).equals(getString(R.string.weight_gain))) {
                 mListSymptomImage.add(R.drawable.icon_symp_weight_gain);
-            }else if(listStr.get(i).equals(getString(R.string.with_blood))){
+            } else if (listStr.get(i).equals(getString(R.string.with_blood))) {
                 mListSymptomImage.add(R.drawable.icon_symp_with_blood);
             }
         }
     }
 
-    private void getListImageMood(ArrayList<String> listStr){
-        for(int i = 0; i<listStr.size(); i++){
-            if(listStr.get(i).equals(getString(R.string.normal))){
+    private void getListImageMood(ArrayList<String> listStr) {
+        for (int i = 0; i < listStr.size(); i++) {
+            if (listStr.get(i).equals(getString(R.string.normal))) {
                 mListMoodImage.add(R.drawable.icon_mood_normal);
-            }else if(listStr.get(i).equals(getString(R.string.sad))){
+            } else if (listStr.get(i).equals(getString(R.string.sad))) {
                 mListMoodImage.add(R.drawable.icon_mood_grieved);
-            }else if(listStr.get(i).equals(getString(R.string.sleepy))){
+            } else if (listStr.get(i).equals(getString(R.string.sleepy))) {
                 mListMoodImage.add(R.drawable.icon_mood_sleepy);
-            }else if(listStr.get(i).equals(getString(R.string.stress))){
+            } else if (listStr.get(i).equals(getString(R.string.stress))) {
                 mListMoodImage.add(R.drawable.icon_mood_stressed);
-            }else if(listStr.get(i).equals(getString(R.string.boring))){
+            } else if (listStr.get(i).equals(getString(R.string.boring))) {
                 mListMoodImage.add(R.drawable.icon_mood_bored);
-            }else if(listStr.get(i).equals(getString(R.string.dizzy))){
+            } else if (listStr.get(i).equals(getString(R.string.dizzy))) {
                 mListMoodImage.add(R.drawable.icon_mood_tense);
-            }else if(listStr.get(i).equals(getString(R.string.rough))){
+            } else if (listStr.get(i).equals(getString(R.string.rough))) {
                 mListMoodImage.add(R.drawable.icon_mood_grumpy);
-            }else if(listStr.get(i).equals(getString(R.string.allergy))){
+            } else if (listStr.get(i).equals(getString(R.string.allergy))) {
                 mListMoodImage.add(R.drawable.icon_mood_angelic);
-            }else if(listStr.get(i).equals(getString(R.string.in_love))){
+            } else if (listStr.get(i).equals(getString(R.string.in_love))) {
                 mListMoodImage.add(R.drawable.icon_mood_in_love);
-            }else if(listStr.get(i).equals(getString(R.string.jealous))){
+            } else if (listStr.get(i).equals(getString(R.string.jealous))) {
                 mListMoodImage.add(R.drawable.icon_mood_jealous);
-            }else if(listStr.get(i).equals(getString(R.string.disappointment))){
+            } else if (listStr.get(i).equals(getString(R.string.disappointment))) {
                 mListMoodImage.add(R.drawable.icon_mood_frustrated);
-            }else if(listStr.get(i).equals(getString(R.string.monocotyledon))){
+            } else if (listStr.get(i).equals(getString(R.string.monocotyledon))) {
                 mListMoodImage.add(R.drawable.icon_mood_evil);
-            }else if(listStr.get(i).equals(getString(R.string.forgetful))){
+            } else if (listStr.get(i).equals(getString(R.string.forgetful))) {
                 mListMoodImage.add(R.drawable.icon_mood_forgetful);
-            }else if(listStr.get(i).equals(getString(R.string.miserable))){
+            } else if (listStr.get(i).equals(getString(R.string.miserable))) {
                 mListMoodImage.add(R.drawable.icon_mood_misery);
-            }else if(listStr.get(i).equals(getString(R.string.panic))){
+            } else if (listStr.get(i).equals(getString(R.string.panic))) {
                 mListMoodImage.add(R.drawable.icon_mood_panic);
-            }else if(listStr.get(i).equals(getString(R.string.not_safe))){
+            } else if (listStr.get(i).equals(getString(R.string.not_safe))) {
                 mListMoodImage.add(R.drawable.icon_mood_unsafe);
-            }else if(listStr.get(i).equals(getString(R.string.exhausted))){
+            } else if (listStr.get(i).equals(getString(R.string.exhausted))) {
                 mListMoodImage.add(R.drawable.icon_mood_exhausted);
-            }else if(listStr.get(i).equals(getString(R.string.worry))){
+            } else if (listStr.get(i).equals(getString(R.string.worry))) {
                 mListMoodImage.add(R.drawable.icon_mood_worry);
-            }else if(listStr.get(i).equals(getString(R.string.hard_to_understand))){
+            } else if (listStr.get(i).equals(getString(R.string.hard_to_understand))) {
                 mListMoodImage.add(R.drawable.icon_mood_weird);
-            }else if(listStr.get(i).equals(getString(R.string.heartless))){
+            } else if (listStr.get(i).equals(getString(R.string.heartless))) {
                 mListMoodImage.add(R.drawable.icon_mood_harsh);
-            }else if(listStr.get(i).equals(getString(R.string.incredulous))){
+            } else if (listStr.get(i).equals(getString(R.string.incredulous))) {
                 mListMoodImage.add(R.drawable.icon_mood_distrustful);
-            }else if(listStr.get(i).equals(getString(R.string.naughty))){
+            } else if (listStr.get(i).equals(getString(R.string.naughty))) {
                 mListMoodImage.add(R.drawable.icon_mood_frisky);
-            }else if(listStr.get(i).equals(getString(R.string.weak))){
+            } else if (listStr.get(i).equals(getString(R.string.weak))) {
                 mListMoodImage.add(R.drawable.icon_mood_cranky);
-            }else if(listStr.get(i).equals(getString(R.string.bad))){
+            } else if (listStr.get(i).equals(getString(R.string.bad))) {
                 mListMoodImage.add(R.drawable.icon_mood_morose);
-            }else if(listStr.get(i).equals(getString(R.string.hasty))){
+            } else if (listStr.get(i).equals(getString(R.string.hasty))) {
                 mListMoodImage.add(R.drawable.icon_mood_not_patient);
-            }else if(listStr.get(i).equals(getString(R.string.satisfy))){
+            } else if (listStr.get(i).equals(getString(R.string.satisfy))) {
                 mListMoodImage.add(R.drawable.icon_mood_satisfied);
-            }else if(listStr.get(i).equals(getString(R.string.attenuate))){
+            } else if (listStr.get(i).equals(getString(R.string.attenuate))) {
                 mListMoodImage.add(R.drawable.icon_mood_depressed);
-            }else if(listStr.get(i).equals(getString(R.string.good))){
+            } else if (listStr.get(i).equals(getString(R.string.good))) {
                 mListMoodImage.add(R.drawable.icon_mood_pleased);
-            }else if(listStr.get(i).equals(getString(R.string.proud))){
+            } else if (listStr.get(i).equals(getString(R.string.proud))) {
                 mListMoodImage.add(R.drawable.icon_mood_proud);
-            }else if(listStr.get(i).equals(getString(R.string.confident))){
+            } else if (listStr.get(i).equals(getString(R.string.confident))) {
                 mListMoodImage.add(R.drawable.icon_mood_confident);
-            }else if(listStr.get(i).equals(getString(R.string.angry))){
+            } else if (listStr.get(i).equals(getString(R.string.angry))) {
                 mListMoodImage.add(R.drawable.icon_mood_angry);
-            }else if(listStr.get(i).equals(getString(R.string.thin))){
+            } else if (listStr.get(i).equals(getString(R.string.thin))) {
                 mListMoodImage.add(R.drawable.icon_mood_ill);
             }
         }
@@ -402,16 +399,16 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
                 showAlertHoiCham();
                 break;
             case R.id.img_back_month:
-                if(mPager.getCurrentItem() == 0){
+                if (mPager.getCurrentItem() == 0) {
                     mPager.setCurrentItem(47);
-                }else {
+                } else {
                     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
                 }
                 break;
             case R.id.img_next_month:
-                if(mPager.getCurrentItem() == 47){
+                if (mPager.getCurrentItem() == 47) {
                     mPager.setCurrentItem(0);
-                }else {
+                } else {
                     mPager.setCurrentItem(mPager.getCurrentItem() + 1);
                 }
                 break;
@@ -451,7 +448,83 @@ public class CalendarActivity extends AppCompatActivity implements IUpdateTopTim
     public void setDate(int day, int month, int year) {
         mCurrentCa.set(year, month, day);
         mCurrentId = day + "" + month + "" + year;
+
+        for(int i = 0; i<mListCalHanhKinh.size(); i++){
+            if(mCurrentCa.get(Calendar.DAY_OF_MONTH) == mListCalHanhKinh.get(i).get(Calendar.DAY_OF_MONTH)
+                    && mCurrentCa.get(Calendar.MONTH) == mListCalHanhKinh.get(i).get(Calendar.MONTH)
+                    && mCurrentCa.get(Calendar.YEAR) == mListCalHanhKinh.get(i).get(Calendar.YEAR)){
+                mTvEvent.setText(getString(R.string.event_future_menstruation));
+                return;
+            }else {
+                mTvEvent.setText("");
+            }
+        }
+
+        for(int i = 0; i<mListCalThuThai.size(); i++){
+            if(mCurrentCa.get(Calendar.DAY_OF_MONTH) == mListCalThuThai.get(i).get(Calendar.DAY_OF_MONTH)
+                    && mCurrentCa.get(Calendar.MONTH) == mListCalThuThai.get(i).get(Calendar.MONTH)
+                    && mCurrentCa.get(Calendar.YEAR) == mListCalThuThai.get(i).get(Calendar.YEAR)){
+                mTvEvent.setText(getString(R.string.event_easy_conception));
+                return;
+            }else {
+                mTvEvent.setText("");
+            }
+        }
+
+        for(int i = 0; i<mListCalRungTrung.size(); i++){
+            if(mCurrentCa.get(Calendar.DAY_OF_MONTH) == mListCalRungTrung.get(i).get(Calendar.DAY_OF_MONTH)
+                    && mCurrentCa.get(Calendar.MONTH) == mListCalRungTrung.get(i).get(Calendar.MONTH)
+                    && mCurrentCa.get(Calendar.YEAR) == mListCalRungTrung.get(i).get(Calendar.YEAR)){
+                mTvEvent.setText(getString(R.string.event_ovulation));
+                return;
+            }else {
+                mTvEvent.setText("");
+            }
+        }
+
         addEvent();
     }
 
+    private ArrayList<Calendar> mListCalHanhKinh = new ArrayList<>();
+    private ArrayList<Calendar> mListCalRungTrung = new ArrayList<>();
+    private ArrayList<Calendar> mListCalThuThai = new ArrayList<>();
+    private Calendar mCaNgayBatDau = Calendar.getInstance();
+    private int mChuKyHanhKinh;
+    private int mChuKyKinhNguyet;
+
+    private void getListCaEvent() {
+        mCaNgayBatDau.setTimeInMillis(Long.parseLong(Utils.readFromFile(Utils.FILE_NGAY_BAT_DAU_CHU_KY_KINH_NGUYET, this)));
+        mChuKyHanhKinh = Integer.parseInt(Utils.readFromFile(Utils.FILE_CHU_KY_HANH_KINH, this));
+        mChuKyKinhNguyet = Integer.parseInt(Utils.readFromFile(Utils.FILE_CHU_KY_KINH_NGUYET, this));
+
+        mListCalHanhKinh.add(mCaNgayBatDau);
+        for (int j = 0; j <= 100; j++) {
+            Calendar mCaTam = Calendar.getInstance();
+            mCaTam.setTimeInMillis(mCaNgayBatDau.getTimeInMillis() + j * mChuKyKinhNguyet * Utils.mOneDay);
+            if (mCaTam.getTimeInMillis() > mCaNgayBatDau.getTimeInMillis() + 2 * 365 * Utils.mOneDay - 30 * Utils.mOneDay) {
+                return;
+            }
+            mListCalHanhKinh.add(mCaTam);
+            for (int i = 0; i < mChuKyHanhKinh; i++) {
+                Calendar mCaTamTam = Calendar.getInstance();
+                mCaTamTam.setTimeInMillis(mCaTam.getTimeInMillis() + i * Utils.mOneDay);
+                mListCalHanhKinh.add(mCaTamTam);
+                if (i == mChuKyHanhKinh - 1) {
+                    for (int k = 1; k <= 7; k++) {
+                        if (k == 6) {
+                            Calendar mCaTamRungTrung = Calendar.getInstance();
+                            mCaTamRungTrung.setTimeInMillis(mCaTamTam.getTimeInMillis() + 6 * Utils.mOneDay);
+                            mListCalRungTrung.add(mCaTamRungTrung);
+                        } else {
+                            Calendar mCaTamThuThai = Calendar.getInstance();
+                            mCaTamThuThai.setTimeInMillis(mCaTamTam.getTimeInMillis() + k * Utils.mOneDay);
+                            mListCalThuThai.add(mCaTamThuThai);
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
 }

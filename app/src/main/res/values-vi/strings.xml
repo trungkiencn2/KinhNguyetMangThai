@@ -241,7 +241,10 @@
     <string name="weight_chart">Biểu đồ cân nặng</string>
     <string name="temperature_chart">Biểu đồ nhiệt độ</string>
     <string name="no_date_exist">Không tồn tại dữ liệu</string>
-
     <string name="upper_limit">Giới hạn trên</string>
     <string name="lower_limit">Giới hạn dưới</string>
+
+    <string name="event_future_menstruation">Tương lai kinh nguyệt</string>
+    <string name="event_easy_conception">Dễ thụ thai - Khả năng mang thai</string>
+    <string name="event_ovulation">Ngày rụng trứng - Khả năng mang thai cao</string>
 </resources>

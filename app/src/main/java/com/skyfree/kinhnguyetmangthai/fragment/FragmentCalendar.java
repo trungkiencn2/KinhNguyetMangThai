@@ -1,9 +1,6 @@
 package com.skyfree.kinhnguyetmangthai.fragment;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,7 +26,7 @@ import io.realm.Realm;
  * Created by KienBeu on 3/16/2018.
  */
 
-public class FragmentCalendar extends Fragment {
+public class FragmentCalendar extends Fragment{
     private int mMonth, mYear;
     private Calendar mCaNow = Calendar.getInstance();
     private IUpdateTopTime mUpdateTopTime;

@@ -241,7 +241,10 @@
     <string name="weight_chart">Carta de peso</string>
     <string name="temperature_chart">Gráfico de temperatura</string>
     <string name="no_date_exist">Não existem dados</string>
-
     <string name="upper_limit">Limite superior</string>
     <string name="lower_limit">Limite inferior</string>
+
+    <string name="event_future_menstruation">Menstruação futura</string>
+    <string name="event_easy_conception">Concepção fácil - Capacidade de engravidar</string>
+    <string name="event_ovulation">Ovulação - alta fertilidade</string>
 </resources>

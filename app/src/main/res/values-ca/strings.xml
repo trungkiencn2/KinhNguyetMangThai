@@ -241,7 +241,10 @@
     <string name="weight_chart">Gràfic de peses</string>
     <string name="temperature_chart">Taula de temperatura</string>
     <string name="no_date_exist">No hi ha dades</string>
-
     <string name="upper_limit">Límit superior</string>
     <string name="lower_limit">Límit inferior</string>
+
+    <string name="event_future_menstruation">Menstruació futura</string>
+    <string name="event_easy_conception">Fàcil concepció: capacitat per quedar embarassada</string>
+    <string name="event_ovulation">Ovulació - Alta fertilitat</string>
 </resources>

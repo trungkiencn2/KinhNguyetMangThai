@@ -241,7 +241,10 @@
     <string name="weight_chart">แผนภูมิน้ำหนัก</string>
     <string name="temperature_chart">แผนภูมิอุณหภูมิ</string>
     <string name="no_date_exist">ไม่มีข้อมูล</string>
-
     <string name="upper_limit">ขีด จำกัด ด้านบน</string>
     <string name="lower_limit">ขีด จำกัด ล่าง</string>
+
+    <string name="event_future_menstruation">ประจำเดือนในอนาคต</string>
+    <string name="event_easy_conception">ความคิดที่ง่าย - ความสามารถในการตั้งครรภ์</string>
+    <string name="event_ovulation">การตกไข่ - ความอุดมสมบูรณ์สูง</string>
 </resources>

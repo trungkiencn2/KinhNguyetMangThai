@@ -241,8 +241,12 @@
     <string name="weight_chart">Weight chart</string>
     <string name="temperature_chart">Temperature chart</string>
     <string name="no_date_exist">No data exists</string>
-    
     <string name="upper_limit">Upper limit</string>
     <string name="lower_limit">Lower limit</string>
+    
+    <string name="event_future_menstruation">Future menstruation</string>
+    <string name="event_easy_conception">Easy conception - Ability to become pregnant</string>
+    <string name="event_ovulation">Ovulation - High fertility</string>
+    
 
 </resources>
